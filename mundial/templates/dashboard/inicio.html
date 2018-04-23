@@ -1,0 +1,219 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="right_col" role="main">
+          <!-- top tiles -->
+          <div class="row tile_count">
+             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-child fa-2x"></i> Total Deportistas</span>
+      <div class="count green">{{totalAlumnos}}</div>
+     
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-soccer-ball-o  fa-2x"></i> Total Fútbol</span>
+      <div class="count">{{futbol|length}}</div>
+     
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-star fa-2x"></i> Total Baloncesto</span>
+      <div class="count">{{baloncesto|length}}</div>
+      
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-trophy fa-2x"></i> Total Futsal</span>
+      <div class="count">{{futsal|length}}</div>
+      
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-flag-checkered fa-2x"></i> Total Patinaje</span>
+      <div class="count">{{patinaje|length}}</div>
+      
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-group fa-2x"></i> Total Voleibol</span>
+      <div class="count">{{voleibol|length}}</div>
+     
+    </div>
+          </div>
+          <!-- /top tiles -->
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="dashboard_graph">
+
+                <div class="row x_title">
+                  <div class="col-md-6">
+                    <h3>Crecimiento Inscripciones<small> Conteo Diario</small></h3> 
+                  </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <canvas id="canvas_line33" height="100"></canvas>
+                </div>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+          </div>
+          <br />
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Resumen porcentual</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div id="echart_pie23" style="height: 350px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background-color: transparent;" _echarts_instance_="ec_1519069020006"><div style="position: relative; overflow: hidden; width: 300px; height: 350px; cursor: pointer;"><canvas width="300" height="350" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 300px; height: 350px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(0, 0, 0, 0.5); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: Arial, Verdana, sans-serif; line-height: 21px; padding: 5px; left: 23.6719px; top: 212px;">Area Mode <br>rose3 : 15 (13.64%)</div></div>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+          </div>
+        </div>
+
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}" ></script>
+<!-- Chart.js -->
+<script src="{% static "base/vendors/Chart.js/dist/Chart.min.js" %}" ></script>
+<!-- gauge.js -->
+<script src="{% static "base/vendors/gauge.js/dist/gauge.min.js" %}" ></script>
+<!-- bootstrap-progressbar -->
+<script src="{% static "base/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js" %}" ></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}" ></script>
+<!-- Skycons --> 
+<script src="{% static "base/vendors/skycons/skycons.js" %}" ></script>
+<!-- Flot -->
+<script src="{% static "base/vendors/Flot/jquery.flot.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.pie.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.time.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.stack.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.resize.js" %}" ></script>
+<!-- Flot plugins -->
+<script src="{% static "base/vendors/flot.orderbars/js/jquery.flot.orderBars.js" %}" ></script>
+<script src="{% static "base/vendors/flot-spline/js/jquery.flot.spline.min.js" %}" ></script>
+<script src="{% static "base/vendors/flot.curvedlines/curvedLines.js" %}" ></script>
+<!-- DateJS -->
+<script src="{% static "base/vendors/DateJS/build/date.js" %}" ></script>
+<!-- JQVMap -->
+<script src="{% static "base/vendors/jqvmap/dist/jquery.vmap.js" %}" ></script>
+<script src="{% static "base/vendors/jqvmap/dist/maps/jquery.vmap.world.js" %}" ></script>
+<script src="{% static "base/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js" %}" ></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{% static "base/vendors/echarts/dist/echarts.js" %}"></script>
+
+<script src="{% static "base/vendors/moment/min/moment.min.js" %}" ></script>
+
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.js"%}" ></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    var fechas=[]
+
+    var canvas_line_01 = new Chart(document.getElementById("canvas_line33"), {
+      type: 'line',
+      data: {
+        labels: [{% if resumen %}{% for inscripciones in resumen  %}"{{inscripciones.day }}",{%endfor%}{% endif %}],
+        datasets: [{
+          label: 
+          "Registros",
+          backgroundColor: "rgba(38, 185, 154, 0.31)",
+          borderColor: "rgba(38, 185, 154, 0.7)",
+          pointBorderColor: "rgba(38, 185, 154, 0.7)",
+          pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointBorderWidth: 1,
+          data: [{% if resumen %}{% for inscripciones in resumen  %}"{{inscripciones.available}}",{%endfor%}{% endif %}]
+        }, 
+
+        ]
+      },
+    });
+  })
+  $(document).ready(function(){
+    var echartPieCollapse = echarts.init(document.getElementById('echart_pie23'), theme);
+    var theme = {
+      color: [
+      '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
+      '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
+      ],
+
+    }
+
+    echartPieCollapse.setOption({
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+      },
+      legend: {
+        x: 'center',
+        y: 'bottom',
+        data: ['Fútbol', 'Baloncesto', 'Futsal', 'Patinaje', 'Voleibol']
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          magicType: {
+            show: true,
+            type: ['pie', 'funnel']
+          },
+          restore: {
+            show: true,
+            title: "Restore"
+          },
+          saveAsImage: {
+            show: true,
+            title: "Save Image"
+          }
+        }
+      },
+      calculable: true,
+      series: [{
+        name: 'Area Mode',
+        type: 'pie',
+        radius: [25, 90],
+        center: ['50%', 170],
+        roseType: 'area',
+        x: '50%',
+        max: 40,
+        sort: 'ascending',
+        data: [{
+          value: "{{futbol|length}}",
+          name: 'Fútbol'
+        }, {
+          value: {{baloncesto|length}},
+          name: 'Baloncesto'
+        }, {
+          value: {{futsal|length}},
+          name: 'Futsal'
+        }, {
+          value: {{patinaje|length}},
+          name: 'Patinaje'
+        }, {
+          value: {{voleibol|length}},
+          name: 'Voleibol'
+        }]
+      }]
+    });
+
+  })
+</script>
+{% endblock content %}
+

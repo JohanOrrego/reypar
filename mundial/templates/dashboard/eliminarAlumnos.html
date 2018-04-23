@@ -1,0 +1,90 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Filtrado por Deporte <small></small></h3>
+      </div>
+    </div>
+      <div class="x_panel">
+      <div class="x_content">
+        <form role="form" method="post">
+              {% if form.errors %}
+              {% for field in form %}
+                  {% for error in field.errors %}
+                       <div class="alert alert-danger alert-dismissable fade in" role="alert">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <strong>Error!</strong> campo {{field.label}} {{ field.errors }} 
+                      </div>
+                  {% endfor %}
+              {% endfor %}
+          {% endif %}
+           {% if messages %}
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissable fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Error!</strong> {{ message }}.
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% csrf_token %}
+          <br/>
+          <h3>¿Desea eliminar el registro de {{object.nombre_completo}}? </h3>
+          <div class="row">
+              <div class="col-md-8">
+                      <div class="form-group">
+                          <button type="submit" class="btn btn-danger" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Sí, eliminar</button>
+                           <a href="{% url 'inscritos' %}" class="btn btn-default">
+                              Cancelar
+                          </a>
+                      </div>
+              </div>
+              <!-- /.col-lg-6 (nested) -->
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+    <!-- NProgress -->
+    <script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+    <!-- iCheck -->
+    <script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+    <!-- Datatables -->
+    <script src="{% static "base/vendors/datatables.net/js/jquery.dataTables.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-responsive/js/dataTables.responsive.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-scroller/js/dataTables.scroller.min.js" %}"></script>
+
+
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/dataTables.buttons.min.js" %}"></script>
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/buttons.flash.min.js" %}"></script>
+    <script src="{% static "base/vendors/JSZip-2.5.0/jszip.min.js" %}"></script>
+    <script src="{% static "base/vendors/pdfmake-0.1.32/pdfmake.min.js" %}"></script>
+    <script src="{% static "base/vendors/pdfmake-0.1.32/vfs_fonts.js" %}"></script>
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/buttons.html5.min.js" %}"></script>
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/buttons.print.min.js" %}"></script>
+
+
+
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static "base/build/js/custom.min.js" %}"></script>
+{% endblock content %}

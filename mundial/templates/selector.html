@@ -1,0 +1,37 @@
+ {% load staticfiles %}
+ <link href="{% static "base/build/css/selector.css" %}" rel="stylesheet" type="text/css">
+<div class="container">
+  <div class="split left">
+    <h1>Entrenador</h1>
+    <a href="{% url 'registro' 2 %}" id="1920x1280" class="button">Seleccionar</a>
+  </div>
+  <div class="split right">
+    <h1>Deportista</h1>
+
+    <a href="{% url 'registro' 1 %}" class="button">Seleccionar</a>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
+const container = document.querySelector(".container");
+
+left.addEventListener("mouseenter", () => {
+  container.classList.add("hover-left");
+});
+
+left.addEventListener("mouseleave", () => {
+  container.classList.remove("hover-left");
+});
+
+right.addEventListener("mouseenter", () => {
+  container.classList.add("hover-right");
+});
+
+right.addEventListener("mouseleave", () => {
+  container.classList.remove("hover-right");
+});
+
+</script>

@@ -1,0 +1,367 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+   <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Modificar Datos Alumno <small></small></h3>
+      </div>
+    </div>
+    <div class="x_panel">
+      <div class="x_content">
+        <form role="form" method="post" enctype="multipart/form-data" >
+          {% if form.errors %}
+          {% for field in form %}
+          {% for error in field.errors %}
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> campo {{field.label}} {{ field.errors }} 
+          </div>
+          {% endfor %}
+          {% endfor %}
+          {% endif %}
+
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> {{ message }}.
+          </div>
+          {% endfor %}
+          {% endif %}
+
+
+          {% if form2.errors %}
+          {% for field in form2 %}
+          {% for error in field.errors %}
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> campo {{field.label}} {{ field.errors }} 
+          </div>
+          {% endfor %}
+          {% endfor %}
+          {% endif %}
+          {% csrf_token %}
+          <div class="x_content">
+            <div class="form-horizontal form-label-left">
+              <div class="col-md-6 col-sm-12 col-xs-12 ">
+                <div class="form-group">
+                  <div class="form-group {% if form.identificacion.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.identificacion.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.identificacion}}<span class="fa fa-credit-card form-control-feedback right" aria-hidden="true"></span>
+                      {{form.identificacion.errors}}
+                    </div>
+                  </div>
+                  <div class="form-group {% if form.nombre_completo.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.nombre_completo.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.nombre_completo}}<span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      {{form.nombre_completo.errors}}
+                    </div>
+                  </div>
+                  <div class="form-group {% if form.sexo.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.sexo.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.sexo}}
+                      {{form.sexo.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form.fecha_nacimiento.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.fecha_nacimiento.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.fecha_nacimiento}}<span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+                      {{form.fecha_nacimiento.errors}}
+                    </div>
+                  </div>
+
+
+                  <div class="form-group {% if form.edad.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.edad.label}} 
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.edad}}<span class="fa fa-line-chart form-control-feedback right" aria-hidden="true"></span>
+                      {{form.edad.errors}}
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+
+                  <div class="form-group {% if form.institucion_educativa.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.institucion_educativa.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.institucion_educativa}}<span class="fa fa-university form-control-feedback right" aria-hidden="true"></span>
+                      {{form.institucion_educativa.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form.grado.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.grado.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.grado}}<span class="fa fa-sort-numeric-asc form-control-feedback right" aria-hidden="true"></span>
+                      {{form.grado.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form.jornada_estudio.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.jornada_estudio.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.jornada_estudio}}
+                      {{form.jornada_estudio.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form.id_cancha.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.id_cancha.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.id_cancha}}
+                      {{form.id_cancha.errors}}
+                    </div>
+                  </div>
+
+
+                  <div class="form-group {% if form.direccion.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.direccion.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.direccion}}<span class="fa fa-map-marker form-control-feedback right" aria-hidden="true"></span>
+                      {{form.direccion.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form.ruta_foto.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form.ruta_foto.label}}
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      <div class="form-control">
+                        {{form.ruta_foto}}
+                        {{form.ruta_foto.errors}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="x_title">
+            <h2>Datos del acudiente <small></small></h2>
+
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <div class="form-horizontal form-label-left">
+              <div class="col-md-6 col-sm-12 col-xs-12 ">
+                <div class="form-group">
+                  <div class="form-group {% if form2.identificacion_acudiente.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.identificacion_acudiente.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.identificacion_acudiente}}<span class="fa fa-credit-card form-control-feedback right" aria-hidden="true"></span>
+                      {{form2.identificacion_acudiente.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form2.nombre_completo_acudiente.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.nombre_completo_acudiente.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.nombre_completo_acudiente}}<span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      {{form2.nombre_completo_acudiente.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form2.telefono1_acudiente.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.telefono1_acudiente.label}} *
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.telefono1_acudiente}}<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                      {{form2.telefono1_acudiente.errors}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+
+                  <div class="form-group {% if form2.celular_acudiente.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.celular_acudiente.label}}
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.celular_acudiente}}<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                      {{form2.celular_acudiente.errors}}
+                    </div>
+                  </div>
+
+                  <div class="form-group {% if form2.correo_acudiente.errors %}bad{% endif %}">
+                    <label class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.correo_acudiente.label}}
+                    </label>
+                    <div class="col-md-12 col-sm-12 col-xs-12" align="left">
+                      {{form2.correo_acudiente}}<span class="fa fa-envelope-o form-control-feedback right" aria-hidden="true"></span>
+                      {{form2.correo_acudiente.errors}}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12" align="center">
+        <input name="id_modalidad" type="hidden" value=4>
+        <input name="origen" type="hidden" value=2>
+        <button  class="btn btn-success" type="submit">Actualizar</button>
+        <a class="btn btn-danger" href="{% url 'inscritos' %}">Cancelar</a>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{% static "base/vendors/moment/min/moment.min.js"%}"></script>
+<script src="{% static "base/vendors/bootstrap-daterangepicker/daterangepicker.js"%}"></script>
+
+<!-- bootstrap-datetimepicker -->    
+<script src="{% static "base/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"%}"></script>
+<!-- Bootstrap Colorpicker -->
+<script src="{% static "base/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"%}"></script>
+<!-- jquery.inputmask -->
+<script src="{% static "base/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"%}"></script>
+
+<script src="{% static "/base/vendors/bootstrap3-typeahead.min.js" %}"></script>
+
+
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.min.js" %}"></script>
+
+<script type="text/javascript">
+
+  $('[data-mask]').inputmask()
+
+  $('#datepicker').datetimepicker({
+    format: 'YYYY-MM-DD'
+  });
+
+  $('#datepicker').on('dp.change', function(e){ 
+    CalcularEdad(); 
+  })
+
+  function CalcularEdad (){
+
+    var fecha =  $("input[id='datepicker']").val();
+    var nacimiento=moment(fecha);
+    var hoy=moment();
+    var anios=hoy.diff(nacimiento,"years");
+    $('#id_edad').val(anios);
+  };
+
+  $( document ).ready(function() {
+   CalcularEdad();
+ });
+
+  $( window ).on( "load", function() {
+    CalcularEdad();
+  });
+
+  var colegios = new Array();
+  
+  $.getJSON( '/colegiosList.data/', null,
+   function ( jsonData )
+   {
+    $.each( jsonData, function ( index, colegio )
+    {
+      colegios.push( colegio.nombre );            } );
+    $( '#id_institucion_educativa' ).typeahead( {
+      items: 5,
+      autoSelect : true,
+      source:colegios,
+      minLength:3 
+    } );
+  });
+
+  $('#id_identificacion').change(function(event){
+
+    $.ajax({
+     type: "POST",
+     url: "{% url 'validarIdentificacion' %}",
+     data: {'ident': $('#id_identificacion').val(), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+     dataType: "text",
+     success: function(response) {
+                  // response, es el diccionario que envias desde python
+                  var response = $.parseJSON(response);
+                  if (response.valido){
+                    return true;
+                  }
+                  else{ // si no enviamos desde el servidor que la respuesta está valida, entra aca
+                    swal({
+                      title: "Mensaje del sistema",
+                      text: "La identificación ingresada ya existe",
+                      icon: "warning",
+                      button: "Regresar",
+                    });
+                      event.preventDefault(); // este event, se supone es el que viene cuando haces $('form').submit(function(**event**){/*... aqui se supone va el codigo que estoy escribiendo ...*/})
+                      return false;
+                    }
+                  }
+                });
+
+  });
+
+</script>
+{% endblock content %}
