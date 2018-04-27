@@ -1,104 +1,101 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-co">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-   <link rel="shortcut icon" href="{% static "images/Logo-Fundacion-Concivica.png" %}">
-  <title>Incio de Sesión</title>
-  <!-- Bootstrap core CSS-->
-  <link href="{% static "base/vendors/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Polla Mundialista Reypar</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "images/logo-reypar.png"%}">
+
+    <!-- Bootstrap -->
+    <link href="{% static "base/vendors/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link href="{% static "base/vendors/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
-  <link href="{% static "base/build/css/login.css" %}" rel="stylesheet" type="text/css">
 
-</head>
+    <!-- NProgress -->
+    <link href="{% static "base/vendors/nprogress/nprogress.css" %}" rel="stylesheet">
 
-<body>
-  
-<div class="cont">
-   {% if form.non_field_errors %}
-  {% for error in form.non_field_errors %}
-  <div style="font-size:14px!important" class="alert alert-danger alert-dismissable" role="alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Error!</strong>{{ error }}.
-  </div>
-  {% endfor %}
-  {% endif %}
-  <div class="demo">
- 
-    <div class="login" >
-      <div class="login__check"></div>
+    <!-- Animate.css -->
+    <link href="{% static "base/vendors/animate.css/animate.min.css" %}" rel="stylesheet">
 
-      <div class="login__form">
-        <form role="form" method="post">
-          {% csrf_token %} 
-        <div class="login__row {% if form.username.errors %}has-errors{% endif %}">
-          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
-            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
-          </svg>
-          <input  class="login__input name" name="username" type="username" placeholder="Nombre de Usuario" autofocus required/>
+    <!-- Custom Theme Style -->
+    <link href="{% static "base/build/css/custom.min.css" %}" rel="stylesheet">
+  </head>
+  <body class="login" style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
+     {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <div class="alert alert-danger alert-dismissible fade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <strong>Error!</strong> {{ error  }}.
+      </div>
+      {% endfor %}
+    {% endif %}
+    <div class="login_wrapper">
+      <div class="animate form login_form">
+        <section class="login_content" style="padding: 1px 0 0;">
+          <div class="row">
+        <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+          <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-reypar.png" %}" height="150">
         </div>
-        <div class="login__row {% if form.password.errors %}has-errors{% endif %}">
-          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
-            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
-          </svg>
-          <input class="login__input pass" name="password" type="password" placeholder="Contraseña" value="" required/>
-        </div>
-        <button type="submit" class="login__submit"> Iniciar Sesión</button>
-       </form>
+      </div>
+          <form role="form" method="post">
+            {% csrf_token %}
+            <h1 style=" text-shadow:none; color: white">Bienvenido</h1>
+            <h2 style="text-shadow:none; color: white">Polla Mundialista Reypar <small style="color: white">FIFA 2018⚽</small></h2>
+            <h6 style=" text-shadow:none; color: white">Por favor digite sus datos para ingresar</h6>
+            <div class="item form-group has-feedback {% if form.username.error %} has-error {% endif %}">
+              <input name="username" type="text" class="form-control" placeholder="Nombre del usuario" required="" />
+            </div>
+            <div class="item form-group has-feedback {% if form.password.error %} has-error {% endif %}">
+              <input type="password" name="password" class="form-control" placeholder="Contraseña" required="" />
+            </div>
+            <div>
+            <button type="submit" class="btn btn-default submit">Ingresar</button>
+            <a style="text-shadow:none; color: white" class="reset_pass" href="{% url 'password_reset' %}">Perdiste tu contraseña?</a>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p style="text-shadow:none; color: white" class="change_link">Nuevo en el sitio?
+                  <a style="text-shadow:none; color: white" href="{% url 'registro' %}" class="to_register"> Crear una cuenta </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+              <div>
+                <p style="text-shadow:none; color: white">©{% now "Y" %}. Todos Los Derechos Reservados.</p>
+              </div>
+            </div>
+          </form>
+        </section>
       </div>
     </div>
-   
-      
-    </div>
-  </div>
+  </body>
 
-   
-  <!-- Bootstrap core JavaScript-->
-<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+  <!-- jQuery -->
+  <script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}"></script>
 
-<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+  <!-- Bootstrap -->
+  <script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}"></script>
 
+  <!-- FastClick -->
+  <script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
 
-  <script type="text/javascript">
-$(document).ready(function() {
-  
-  var animating = false,
-      submitPhase1 = 1100,
-      submitPhase2 = 400,
-      logoutPhase1 = 800,
-      $login = $(".login"),
-      $app = $(".app");
-  
-  function ripple(elem, e) {
-    $(".ripple").remove();
-    var elTop = elem.offset().top,
-        elLeft = elem.offset().left,
-        x = e.pageX - elLeft,
-        y = e.pageY - elTop;
-    var $ripple = $("<div class='ripple'></div>");
-    $ripple.css({top: y, left: x});
-    elem.append($ripple);
-  };
-  
-  $(document).on("click", ".login__submit", function(e) {
-    if (animating) return;
-    animating = true;
-    var that = this;
-    ripple($(that), e);
-  });
-  
-  
-  
-})
-  </script>
-  <!-- Core plugin JavaScript-->
+  <!-- NProgress -->
+  <script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
 
-</body>
+  <!-- bootstrap-progressbar -->
+  <script src="{% static "base/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js" %}"></script>
+
+  <!-- iCheck -->
+  <script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
 
 </html>

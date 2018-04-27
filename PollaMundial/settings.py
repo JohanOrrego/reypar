@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'mundial'
 ]
 
+AUTH_USER_MODEL = 'mundial.ParticipantesModel'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -107,11 +109,20 @@ DATABASES = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'pollamundialista',
     'USER': 'root',
-    'PASSWORD': 'Zoltrix1988',
+    'PASSWORD': '',
     'HOST': '127.0.0.1',   # Or an IP that your DB is hosted on
     'PORT': '3306',
    }
 }
+
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 # Password validation

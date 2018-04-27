@@ -1,0 +1,428 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Registro Participantes</title>
+ <link rel="shortcut icon" href="{% static "images/logo-reypar.png" %}">
+  <!-- Bootstrap -->
+  <link href="{% static "base/vendors/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="{% static "base/vendors/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="{% static "base/vendors/nprogress/nprogress.css" %}" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="{% static "base/vendors/iCheck/skins/flat/green.css" %}" rel="stylesheet">
+  <!-- bootstrap-wysiwyg -->
+  <link href="{% static "base/vendors/google-code-prettify/bin/prettify.min.css" %}" rel="stylesheet">
+  <!-- Select2 -->
+  <link href="{% static "base/vendors/select2/dist/css/select2.min.css" %}" rel="stylesheet">
+  <!-- Switchery -->
+  <link href="{% static "base/vendors/switchery/dist/switchery.min.css" %}" rel="stylesheet">
+  <!-- starrr -->
+  <link href="{% static "base/vendors/starrr/dist/starrr.css" %}" rel="stylesheet">
+  <!-- bootstrap-datetimepicker -->
+  <link href="{% static "base/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" %}" rel="stylesheet">
+
+  <!-- Bootstrap Colorpicker -->
+  <link href="{% static "base/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" %}.." rel="stylesheet">
+
+  <link href="{% static "base/vendors/cropper/dist/cropper.min.css" %}" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="{% static "base/build/css/custom.min.css" %}" rel="stylesheet">
+</head>
+
+<body style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
+  <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+      <div class="main_container">
+            <header>
+              <div class="row" style="padding: 2%">
+              <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+                  <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-reypar.png" %}" height="150">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" align="center">
+                  <div class="title" >
+                    <h1 style="color: white"><strong>Polla Mundialista Reypar</strong> <small style="color: white">FIFA 2018⚽</small></h1>
+                  </div>
+                  <div class="">
+                    <h3 style="color: white"><small style="color: white">Formulario de registro</small></h3>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <div style="padding:2%">
+            <div class="x_content">
+            <form class="form-horizontal form-label-left" method="post" novalidate>
+            {% csrf_token %}
+            <span class="section"></span>
+            <div style="color: white" role="alert">
+              <span class="fa fa-info-circle"></span><strong> Información!</strong> Lo campos con (*) son obligatorios.
+            </div>
+            {% if form.errors %}
+            {% for field in form %}
+            {% for error in field.errors %}
+            <div class="alert alert-danger alert-dismissable" role="alert">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Error!</strong> campo {{field.label}} {{ field.errors }} 
+            </div>
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissable">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Error!</strong> {{ message }}.
+            </div>
+            {% endfor %}
+            {% endif %}
+            <br/>
+             <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="username">{{form.username.label}} <span class="required"></span>*</label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.username}}
+                    <label style="color: white">{{form.username.help_text}}</label>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+             <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="password1">{{form.password1.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.password1}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="password2">{{form.password2.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.password2}}
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="first_name">{{form.first_name.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.first_name}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="last_name">{{form.last_name.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.last_name}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="email">{{form.email.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.email}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="FechaNacimiento">{{form.FechaNacimiento.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.FechaNacimiento}}
+                    <input id="id_edad" name="edad" type="hidden">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Sexo">{{form.Sexo.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.Sexo}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="TipoDocumento">{{form.TipoDocumento.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.TipoDocumento}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Identificicacion">{{form.Identificicacion.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.Identificicacion}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Ciudad">{{form.Ciudad.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.Ciudad}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Telefono">{{form.Telefono.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.Telefono}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Celular">{{form.Celular.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.Celular}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Direccion">{{form.Direccion.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.Direccion}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="NITEmpresa">{{form.NITEmpresa.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.NITEmpresa}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="NombreComercial">{{form.NombreComercial.label}} <span class="required"></span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.NombreComercial}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="RazonSocial">{{form.RazonSocial.label}} <span class="required"></span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.RazonSocial}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="DireccionCliente">{{form.DireccionCliente.label}} <span class="required"></span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.DireccionCliente}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="CargoEmpresa">{{form.CargoEmpresa.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.CargoEmpresa}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ln_solid"></div>
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" align="center">
+                   <input type="checkbox" onchange="document.getElementById('btnregistro').disabled = !this.checked;" name="terminos" value="1" checked="">
+                  <a href="{% url 'terminosCondiciones' %}" target="_blank"> Acepto los términos y condiciones</a>
+                  <br/>
+                  <br/>
+                  <button type="submit" class="btn btn-default" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar</button>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+  </div>
+
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}"></script>
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+<!-- bootstrap-progressbar -->
+<script src="{% static "base/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js" %}"></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{% static "base/vendors/moment/min/moment.min.js" %}"></script>
+<script src="{% static "base/vendors/bootstrap-daterangepicker/daterangepicker.js" %}"></script>
+<!-- bootstrap-wysiwyg -->
+<script src="{% static "base/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js" %}"></script>
+<script src="{% static "base/vendors/jquery.hotkeys/jquery.hotkeys.js" %}"></script>
+<script src="{% static "base/vendors/google-code-prettify/src/prettify.js" %}"></script>
+<!-- jQuery Tags Input -->
+<script src="{% static "base/vendors/jquery.tagsinput/src/jquery.tagsinput.js" %}"></script>
+<!-- Switchery -->
+<script src="{% static "base/vendors/switchery/dist/switchery.min.js" %}"></script>
+<!-- Select2 -->
+<script src="{% static "base/vendors/select2/dist/js/select2.full.min.js" %}"></script>
+<!-- Autosize -->
+<script src="{% static "base/vendors/autosize/dist/autosize.min.js"%}" ></script>
+<!-- jQuery autocomplete -->
+<script src="{% static "base/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"%}" ></script>
+<!-- starrr -->
+<script src="{% static "base/vendors/starrr/dist/starrr.js"%}" ></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{% static "base/vendors/moment/min/moment.min.js"%}"></script>
+<script src="{% static "base/vendors/bootstrap-daterangepicker/daterangepicker.js"%}"></script>
+
+<!-- bootstrap-datetimepicker -->    
+<script src="{% static "base/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"%}"></script>
+<!-- Bootstrap Colorpicker -->
+<script src="{% static "base/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"%}"></script>
+<!-- jquery.inputmask -->
+<script src="{% static "base/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"%}"></script>
+
+<script src="{% static "/base/vendors/bootstrap3-typeahead.min.js" %}"></script>
+
+<script src="{% static "/base/vendors/validator/validator.js" %}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.min.js" %}"></script>
+
+<script type="text/javascript">
+  $('.btn').on('click', function() {
+                var $this = $(this);
+              $this.button('loading');
+                setTimeout(function() {
+                   $this.button('reset');
+               }, 8000);
+            });
+
+  $('[data-mask]').inputmask()
+
+   $('#datepicker').datetimepicker({
+        format: 'YYYY-MM-DD'
+    });
+
+   $('#datepicker').on('dp.change', function(e){ 
+      CalcularEdadCampo(); 
+    });
+
+   $('#id_Sexo').change(function(event){
+            CalcularEdad();
+    });
+
+   function CalcularEdadCampo (){
+    var fecha =  $("input[id='datepicker']").val();
+    var nacimiento=moment(fecha);
+    var hoy=moment();
+    var anios=hoy.diff(nacimiento,"years");
+    $('#id_edad').val(anios);
+  };
+
+  function CalcularEdad (){
+    var fecha =  $("input[id='datepicker']").val();
+    var nacimiento=moment(fecha);
+    var hoy=moment();
+    var anios=hoy.diff(nacimiento,"years");
+    if (anios >= 18)
+    {
+      $('#id_edad').val(anios);
+    }
+    else
+    {
+      swal({
+            title: "Mensaje del sistema",
+            text: "Para poder participar, debes ser mayor de edad!",
+            icon: "warning",
+            button: "Regresar",
+          });
+    }
+    
+  };
+
+  $('#id_NITEmpresa').change(function(event){
+
+    $.ajax({
+           type: "POST",
+           url: "{% url 'validarCliente' %}",
+           data: {'ident': $('#id_NITEmpresa').val(), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+           dataType: "text",
+           success: function(response) {
+                  // response, es el diccionario que envias desde python
+                   var response = $.parseJSON(response);
+                  if (response.valido == false){ // si no enviamos desde el servidor que la respuesta está valida, entra aca
+                      swal({
+                        title: "Mensaje del sistema",
+                        text: "NIT no existe, por favor verificar",
+                        icon: "warning",
+                        button: "Regresar",
+                      });
+                      event.preventDefault(); // este event, se supone es el que viene cuando haces $('form').submit(function(**event**){/*... aqui se supone va el codigo que estoy escribiendo ...*/})
+                      return false;
+                  }
+                  else{
+                    var content = JSON.parse(response);
+                     $("#id_NombreComercial").val(content[0]['fields']['NombreComercial']);
+                     $("#id_RazonSocial").val(content[0]['fields']['RazonSocial']);
+                     $("#id_DireccionCliente").val(content[0]['fields']['Direccion']);
+                  }
+            }
+      });
+
+    });
+</script>
+
+<script src="{% static "/base/vendors/sweetalert.min.js" %}"></script>
+{% load sweetify %}
+{% sweetify %}
+</body>
+</html>

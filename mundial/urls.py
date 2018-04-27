@@ -7,4 +7,12 @@ from .views import *
 
 urlpatterns = [
 
+	url(r'^registro/$', RegistroUsuarioView.as_view(), name='registro'),
+	url(r'^terminosCondiciones/$', TerminosCondicionesView.as_view(), name='terminosCondiciones'),
+	url(r'^validarCliente/$', ValidarClienteView, name='validarCliente'),
+	url(r'^$', PrincipalView.as_view(), name='Principal'),
+	url(r'^inicio$', login_required(InicioView), name='index'),
+	url(r'^registroFaseGrupos/$', login_required(RegistroFaseGruposView), name='registroFaseGrupos'),
+	url(r'^registroOctavos/$', login_required(RegistroOctavosView), name='registroOctavos'),
+
 ]

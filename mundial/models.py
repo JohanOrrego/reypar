@@ -1,6 +1,122 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+import datetime
 
 # Create your models here.
+
+# modelo para la clasificacion de los clientes
+class ClasificacionClienteModel(models.Model):
+	Nombre = models.CharField(max_length=2)
+	Cupo = models.IntegerField()
+
+	class Meta:
+		db_table = 'tblClasificacionCliente'
+
+	def __unicode__(self):  # __unicode__ for Python 2
+		return self.Nombre
+
+# modelo para el registro de los clientes
+class ClientesModel(models.Model):
+	NIT = models.CharField(max_length=15)
+	NombreComercial = models.CharField(max_length=50)
+	RazonSocial = models.CharField(max_length=50)
+	Ciudad = models.CharField(max_length=50)
+	Direccion = models.CharField(max_length=50)
+	Telefono = models.CharField(max_length=50)
+	Clasificacion = models.ForeignKey(ClasificacionClienteModel, models.DO_NOTHING)
+	Vendedor = models.IntegerField()
+
+	class Meta:
+		db_table = 'tblClientes'
+		unique_together = (('NIT'),)
+
+	@property
+	def json(self):
+		return {
+                'NIT' : self.NIT,
+                'NombreComercial' : self.NombreComercial,
+                'RazonSocial' : self.RazonSocial,
+                'Ciudad' : self.Ciudad,
+                'Direccion' : self.Direccion,
+                'Telefono' : self.Telefono,
+                'Clasificacion' : self.Clasificacion,
+                'Vendedor' : self.Vendedor,
+            }
+
+# modelo para el registro de los participantes en la polla 
+class ParticipantesModel(AbstractUser):
+	SEXO_CHOICES = (
+		(1,'Femenino'),
+		(2,'Masculino'),)
+	TIPOIDENTIFICACION_CHOICES = (
+		(1,'Cédula de Ciudadanía'),
+		(2,'Cédula de Extranjería'),
+		(3,'Pasaporte'))
+	FechaNacimiento = models.DateField()
+	Sexo = models.PositiveSmallIntegerField(choices=SEXO_CHOICES)
+	TipoDocumento = models.PositiveSmallIntegerField(choices=TIPOIDENTIFICACION_CHOICES)
+	Identificicacion = models.CharField(max_length=25, unique=True)
+	Ciudad = models.CharField(max_length=50)
+	Telefono = models.CharField(max_length=9,null=True, blank=True)
+	Celular = models.CharField(max_length=15)
+	Direccion = models.CharField(max_length=50)
+	NITEmpresa = models.CharField(max_length=15)
+	CargoEmpresa = models.CharField(max_length=15)
+
+
+# modelo para el regitro de los resultados en la fase de grupos por participantes de la polla mundialista
+class FaseGruposUsuariosModel(models.Model):
+	FechaPartido = models.DateField()
+	Grupo = models.CharField(max_length=10)
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseGruposUsuarios'
+		unique_together = (('Grupo','Equipo1','Equipo2','Participante'),)
+
+
+# modelo para el regitro de los puntos obtenidos por los equipos de cada usuario
+class TablasPosocionesUsuariosModel(models.Model):
+	Grupo = models.CharField(max_length=10)
+	Equipo = models.CharField(max_length=50)
+	PartidoJugados = models.IntegerField()
+	Ganados = models.IntegerField()
+	Empatados = models.IntegerField()
+	Perdidos = models.IntegerField()
+	GolaFavor = models.IntegerField()
+	GolContra = models.IntegerField()
+	GolDiferencia = models.IntegerField()
+	Puntos = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblTablasPosocionesUsuarios'
+		unique_together = (('Grupo','Equipo','Participante'),)
+
+# modelo para el regitro de los resultados en la fase de grupos por participantes de la polla mundialista
+class FaseOctavosUsuariosModel(models.Model):
+	FechaPartido = models.DateField()
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	PenalEquipoGanador = models.CharField(max_length=50)
+	Identificador = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseOctavosUsuarios'
+		unique_together = (('Equipo1','Equipo2','Participante'),)
+
+
+
+
