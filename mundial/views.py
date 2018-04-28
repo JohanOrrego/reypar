@@ -729,11 +729,7 @@ def RegistroFaseSemifinalesView(request):
 				sweetify.success(request, 'Registro fase de semifinales exitoso!')
 				
 				return HttpResponseRedirect('/registroFinales/')
-<<<<<<< HEAD
 
-=======
-				
->>>>>>> 9b10dd187bdeed36e0caa04caebfdc02d5c6eabb
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
