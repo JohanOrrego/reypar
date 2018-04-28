@@ -820,6 +820,7 @@ def RegistroFaseFinalView(request):
 			if Empate > 0:
 
 				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+				return HttpResponseRedirect('/')
 
 			else:
 
@@ -834,7 +835,7 @@ def RegistroFaseFinalView(request):
 
 
 
-	return render(request,'registroResultados/registroSemifinales.html',
+	return render(request,'registroResultados/registroFinales.html',
 		{'partido1':partido1, 'partido2':partido2
 		})
 
