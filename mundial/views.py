@@ -455,7 +455,7 @@ def RegistroOctavosView(request):
 	grupos = TablasPosocionesUsuariosModel.objects.values('Grupo').filter(Participante= request.user.id).distinct()
 	mejoresDosEquipos =[]
 	for grupo in grupos:
-		mejoresDosEquipos += TablasPosocionesUsuariosModel.objects.values('Grupo','Equipo').filter(Grupo__in=grupo['Grupo'],Participante= request.user.id)[:2]
+		mejoresDosEquipos += TablasPosocionesUsuariosModel.objects.values('Grupo','Equipo').filter(Grupo__in=grupo['Grupo'],Participante= request.user.id).order_by('-Puntos','-GolDiferencia')[:2]
 
 	partido1 = [mejoresDosEquipos[0],mejoresDosEquipos[3], {'fecha':datetime.datetime(2018, 06, 30)},{'identificador':49}]
 	partido2 = [mejoresDosEquipos[4],mejoresDosEquipos[7], {'fecha':datetime.datetime(2018, 06, 30)},{'identificador':50}]
