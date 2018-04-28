@@ -237,7 +237,10 @@ def ValidarEmpateGrupos(ListResultado):
 			contar += contar + 1
 
 	return contar
-
+def verFaseGruposView(request):
+	FaseGrupos = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id)
+	print FaseGrupos
+	return render(request,'verFaseGrupos.html',{'FaseGrupos':FaseGrupos})
 # funcion para el registro de los equipos en la tablas de posiciones por usuarios
 def RegistroPosicionesEquiposUsuarios(partidojugado):
 	equipoUno = TablasPosocionesUsuariosModel.objects.filter(Grupo=partidojugado[1] , Equipo=partidojugado[2], Participante=partidojugado[6]).exists()
@@ -515,7 +518,7 @@ def RegistroOctavosView(request):
 
 				sweetify.success(request, 'Registro fase de octavos de final exitoso!')
 
-				return HttpResponseRedirect('/')
+				return HttpResponseRedirect('/registroCuartos/')
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de octavos de final!')
@@ -575,22 +578,22 @@ def RegistroFaseCuartosView(request):
 	for x in equipos[1]:
 		equipo2=x
 
-	for x in equipos[4]:
+	for x in equipos[2]:
 		equipo3=x
 
-	for x in equipos[5]:
+	for x in equipos[3]:
 		equipo4=x
 
-	for x in equipos[6]:
+	for x in equipos[4]:
 		equipo5=x
 
-	for x in equipos[7]:
+	for x in equipos[5]:
 		equipo6=x
 
-	for x in equipos[8]:
+	for x in equipos[6]:
 		equipo7=x
 
-	for x in equipos[9]:
+	for x in equipos[7]:
 		equipo8=x
 
 	
@@ -724,8 +727,9 @@ def RegistroFaseSemifinalesView(request):
 				RegistarResultadosFaseSemifinales(ListResultado)
 
 				sweetify.success(request, 'Registro fase de semifinales exitoso!')
-
-				return HttpResponseRedirect('/')
+				
+				return HttpResponseRedirect('/registroFinales/')
+				
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
@@ -834,7 +838,7 @@ def RegistroFaseFinalView(request):
 
 
 
-	return render(request,'registroResultados/registroSemifinales.html',
+	return render(request,'registroResultados/registroFinales.html',
 		{'partido1':partido1, 'partido2':partido2
 		})
 

@@ -1,0 +1,72 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<!-- page content -->
+<div class="right_col" class="imagenopaca" role="main" style="background: url('/static/images/background1.jpg') no-repeat center center fixed;" >
+  <div class="page-title">
+    <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+     <a href="{% url 'index' %}"> <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-polla.png" %}"  height="170"></a>
+   </div>
+
+ </div>
+
+ <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Grupos <small style=" text-shadow:none; color: white"></small></h3></center>
+
+ <div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+    <table class="table" style="color:white" align="center">
+      <thead>
+        <tr>
+          <th>Goles</th>
+          <th>Equipo 1</th>
+          <th>-</th>
+          <th>Equipo 2</th>
+          <th>Goles</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%if FaseGrupos%}
+        {% for partido in FaseGrupos %}
+        <tr>
+          <th scope="row">{{partido.MarcadorEquipo1}}</th>
+          <td>{{partido.Equipo1}}</td>
+          <th align="left">VS</th>
+          <td>{{partido.Equipo2}}</td>
+          <th scope="row">{{partido.MarcadorEquipo2}}</th>
+        </tr>
+        {%endfor%}
+        {%else%}
+        Registre primero su pronostico
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</div>
+</div>
+
+
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.min.js" %}"></script>
+<!-- page script -->
+
+{% endblock content %}

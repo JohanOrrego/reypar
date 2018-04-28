@@ -3,7 +3,7 @@
 {% load staticfiles %}
 {% block content %}
 <!-- page content -->
-<div class="right_col" role="main" style="min-height: 3888px;background:none">
+<div class="right_col" role="main" style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
       <div class="page-title">
         <div class="title_left">
           <h3 style="text-shadow:none; color: white">Fase de grupos <small style="text-shadow:none; color: white">Registro resultados</small></h3>
@@ -70,7 +70,7 @@
       <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_A" name="3_Groups_A" value="0" required=""></td>
       <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="Egipto">
       <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_A" name="3_Groups_A" value="0" required=""></td>
-      <td style="text-shadow:none; color: white"🇪🇬 Egipto</td>
+      <td style="text-shadow:none; color: white">🇪🇬 Egipto</td>
       <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="{{user.id}}">
     </tr>
 
@@ -78,7 +78,7 @@
       <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
       <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="2018-06-20">
       <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="A">
-      <td style="text-shadow:none; color: white"Uruguay 🇺🇾</td>
+      <td style="text-shadow:none; color: white">Uruguay 🇺🇾</td>
       <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="Uruguay">
       <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_A" name="4_Groups_A" value="0" required=""></td>
       <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="Arabia Saudí">
@@ -860,7 +860,7 @@
   </table>
   </div>
   <div class="col-xs-12 text-center">
-     <button type="submit" class="btn btn-primary" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
+     <button type="submit" class="btn btn-success btn-lg" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
   </div>
   </form>
   </div>

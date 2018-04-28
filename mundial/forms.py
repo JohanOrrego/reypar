@@ -17,7 +17,8 @@ class RegistroParticipantesForm(UserCreationForm):
 	NombreComercial = forms.CharField(label='Nombre comercial', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=True)
 	RazonSocial = forms.CharField(label='Razón social', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=True)
 	DireccionCliente = forms.CharField(label='Dirección cliente', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=True)
-
+	CiudadCliente = forms.CharField(label='Ciudad Cliente', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=False)
+	
 	class Meta:
 		model= ParticipantesModel
 		fields=[
