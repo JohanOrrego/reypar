@@ -575,22 +575,22 @@ def RegistroFaseCuartosView(request):
 	for x in equipos[1]:
 		equipo2=x
 
-	for x in equipos[3]:
+	for x in equipos[2]:
 		equipo3=x
 
-	for x in equipos[4]:
+	for x in equipos[3]:
 		equipo4=x
 
-	for x in equipos[5]:
+	for x in equipos[4]:
 		equipo5=x
 
-	for x in equipos[6]:
+	for x in equipos[5]:
 		equipo6=x
 
-	for x in equipos[7]:
+	for x in equipos[6]:
 		equipo7=x
 
-	for x in equipos[8]:
+	for x in equipos[7]:
 		equipo8=x
 
 	
