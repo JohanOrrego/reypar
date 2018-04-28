@@ -6,7 +6,7 @@
 <div class="right_col" role="main" style="min-height: 3888px;background:none">
       <div class="page-title">
         <div class="title_left">
-          <h3 style=" text-shadow:none; color: white">Octavos de final <small style=" text-shadow:none; color: white">Registro resultados</small></h3>
+          <h3 style=" text-shadow:none; color: white">Cuartos de final <small style=" text-shadow:none; color: white">Registro resultados</small></h3>
         </div>
       </div>
       <div class="x_panel" style="background:none">
@@ -17,7 +17,7 @@
              <div class="alert alert-warning alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
               <p><span class="fa fa-info-circle"></span><strong> Información!</strong></p>
-              <p>Ingrese los pronósticos de resultados de la fase de octavos, para continuar a la fase de cuartos.</p>
+              <p>Ingrese los pronósticos de resultados de la fase de cuartos, para continuar a la fase de semifinales.</p>
               <p>En caso de empate define el marcador en las casilla de los penales.</p>
               <p>Al guardar cada fase no hay retroceso en sus pronósticos</p>
             </div>
@@ -185,171 +185,6 @@
                     </tbody>
                   </table>
                   </div>
-
-                <h3 style=" text-shadow:none; color: white">Partido 5 </h3>
-                <div class="panel panel-default" style="background:none">
-                  <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th style=" text-shadow:none; color: white">Fecha</th>
-                        <th style=" text-shadow:none; color: white">Equipo 1</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Equipo 2</th>
-                        <th style=" text-shadow:none; color: white">Ganador por Penales</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido5.2.fecha|date:"j \d\e F \d\e Y"}}</td>
-                      <input type="hidden" id="partido5" name="partido5" value="{{partido5.2.fecha|date:'Y-m-d'}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido5.0.Equipo}}</td>
-                      <input type="hidden" id="partido5" name="partido5" value="{{partido5.0.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido5_1" name="partido5" value="0" required="">
-                      </td>
-                      <input type="hidden" id="partido5" name="partido5" value="{{partido5.1.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido5_2" name="partido5" value="0" required="">
-                      </td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido5.1.Equipo}}</td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                          <select class="form-control" id="penal5" name="partido5">
-                            <option value="0">-------</option>
-                            <option value="1">{{partido5.0.Equipo}}</option>
-                            <option value="2">{{partido5.1.Equipo}}</option>
-                          </select>
-                      </td>
-                      <input type="hidden" id="partido5" name="partido5" value="{{partido5.3.identificador}}">
-                      <input type="hidden" id="partido5" name="partido5" value="{{user.id}}">
-                    </tr>
-                    </tbody>
-                  </table>
-                  </div>
-
-                <h3 style=" text-shadow:none; color: white">Partido 6 </h3>
-                <div class="panel panel-default" style="background:none">
-                  <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th style=" text-shadow:none; color: white">Fecha</th>
-                        <th style=" text-shadow:none; color: white">Equipo 1</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Equipo 2</th>
-                        <th style=" text-shadow:none; color: white">Ganador por Penales</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido6.2.fecha|date:"j \d\e F \d\e Y"}}</td>
-                      <input type="hidden" id="partido6" name="partido6" value="{{partido6.2.fecha|date:'Y-m-d'}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido6.0.Equipo}}</td>
-                      <input type="hidden" id="partido6" name="partido6" value="{{partido6.0.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido6_1" name="partido6" value="0" required="">
-                      </td>
-                      <input type="hidden" id="partido6" name="partido6" value="{{partido6.1.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido6_2" name="partido6" value="0" required="">
-                      </td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido6.1.Equipo}}</td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                          <select class="form-control" id="penal6" name="partido6">
-                            <option value="0">-------</option>
-                            <option value="1">{{partido6.0.Equipo}}</option>
-                            <option value="2">{{partido6.1.Equipo}}</option>
-                          </select>
-                      </td>
-                      <input type="hidden" id="partido6" name="partido6" value="{{partido6.3.identificador}}">
-                      <input type="hidden" id="partido6" name="partido6" value="{{user.id}}">
-                    </tr>
-                    </tbody>
-                  </table>
-                  </div>
-
-                <h3 style=" text-shadow:none; color: white">Partido 7 </h3>
-                <div class="panel panel-default" style="background:none">
-                  <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th style=" text-shadow:none; color: white">Fecha</th>
-                        <th style=" text-shadow:none; color: white">Equipo 1</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Equipo 2</th>
-                        <th style=" text-shadow:none; color: white">Ganador por Penales</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido7.2.fecha|date:"j \d\e F \d\e Y"}}</td>
-                      <input type="hidden" id="partido7" name="partido7" value="{{partido7.2.fecha|date:'Y-m-d'}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido7.0.Equipo}}</td>
-                      <input type="hidden" id="partido7" name="partido7" value="{{partido7.0.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido7_1" name="partido7" value="0" required="">
-                      </td>
-                      <input type="hidden" id="partido7" name="partido7" value="{{partido7.1.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido7_2" name="partido7" value="0" required="">
-                      </td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido7.1.Equipo}}</td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                          <select class="form-control" id="penal7" name="partido7">
-                            <option value="0">-------</option>
-                            <option value="1">{{partido7.0.Equipo}}</option>
-                            <option value="2">{{partido7.1.Equipo}}</option>
-                          </select>
-                      </td>
-                      <input type="hidden" id="partido7" name="partido7" value="{{partido7.3.identificador}}">
-                      <input type="hidden" id="partido7" name="partido7" value="{{user.id}}">
-                    </tr>
-                    </tbody>
-                  </table>
-                  </div>
-
-                  <h3 style=" text-shadow:none; color: white">Partido 8 </h3>
-                <div class="panel panel-default" style="background:none">
-                  <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th style=" text-shadow:none; color: white">Fecha</th>
-                        <th style=" text-shadow:none; color: white">Equipo 1</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Goles</th>
-                        <th style=" text-shadow:none; color: white">Equipo 2</th>
-                        <th style=" text-shadow:none; color: white">Ganador por Penales</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido8.2.fecha|date:"j \d\e F \d\e Y"}}</td>
-                      <input type="hidden" id="partido8" name="partido8" value="{{partido8.2.fecha|date:'Y-m-d'}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido8.0.Equipo}}</td>
-                      <input type="hidden" id="partido8" name="partido8" value="{{partido8.0.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido8_1" name="partido8" value="0" required="">
-                      </td>
-                      <input type="hidden" id="partido8" name="partido8" value="{{partido8.1.Equipo}}">
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                        <input type="number" min="0" class="form-control" id="partido8_2" name="partido8" value="0" required="">
-                      </td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido8.1.Equipo}}</td>
-                      <td class="col-xs-1" style=" text-shadow:none; color: white">
-                          <select class="form-control" id="penal8" name="partido8">
-                            <option value="0">-------</option>
-                            <option value="1">{{partido8.0.Equipo}}</option>
-                            <option value="2">{{partido8.1.Equipo}}</option>
-                          </select>
-                      </td>
-                      <input type="hidden" id="partido8" name="partido8" value="{{partido8.3.identificador}}">
-                      <input type="hidden" id="partido8" name="partido8" value="{{user.id}}">
-                    </tr>
-                    </tbody>
-                  </table>
-                  </div>
-
                   <div class="col-xs-12 text-center">
                      <button type="submit" class="btn btn-primary" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
                   </div>
@@ -398,8 +233,6 @@ $('#partido1_2').change(function(event){
 }
 });
 
-
-
 $('#partido2_1').change(function(event){
     if(($("#partido2_1").val() != $("#partido2_2").val())) {
         $("#penal2").attr('disabled', 'disabled');
@@ -419,7 +252,6 @@ $('#partido2_2').change(function(event){
         $("#penal2").removeAttr("disabled");
 }
 });
-
 
 $('#partido3_1').change(function(event){
     if(($("#partido3_1").val() != $("#partido3_2").val())) {
@@ -441,8 +273,6 @@ $('#partido3_2').change(function(event){
 }
 });
 
-
-
 $('#partido4_1').change(function(event){
     if(($("#partido4_1").val() != $("#partido4_2").val())) {
         $("#penal4").attr('disabled', 'disabled');
@@ -462,90 +292,6 @@ $('#partido4_2').change(function(event){
         $("#penal4").removeAttr("disabled");
 }
 });
-
-
-$('#partido5_1').change(function(event){
-    if(($("#partido5_1").val() != $("#partido5_2").val())) {
-        $("#penal5").attr('disabled', 'disabled');
-        $("#penal5").val("0")
-    }
-    else {
-        $("#penal5").removeAttr("disabled");
-}
-});
-
-$('#partido5_2').change(function(event){
-    if($("#partido5_1").val() != $("#partido5_2").val()) {
-        $("#penal5").attr('disabled', 'disabled');
-        $("#penal5").val("0")
-    }
-    else {
-        $("#penal5").removeAttr("disabled");
-}
-});
-
-
-$('#partido6_1').change(function(event){
-    if(($("#partido6_1").val() != $("#partido6_2").val())) {
-        $("#penal6").attr('disabled', 'disabled');
-        $("#penal6").val("0")
-    }
-    else {
-        $("#penal6").removeAttr("disabled");
-}
-});
-
-$('#partido6_2').change(function(event){
-    if($("#partido6_1").val() != $("#partido6_2").val()) {
-        $("#penal6").attr('disabled', 'disabled');
-        $("#penal6").val("0")
-    }
-    else {
-        $("#penal6").removeAttr("disabled");
-}
-});
-
-
-$('#partido7_1').change(function(event){
-    if(($("#partido7_1").val() != $("#partido7_2").val())) {
-        $("#penal7").attr('disabled', 'disabled');
-        $("#penal7").val("0")
-    }
-    else {
-        $("#penal7").removeAttr("disabled");
-}
-});
-
-$('#partido7_2').change(function(event){
-    if($("#partido7_1").val() != $("#partido7_2").val()) {
-        $("#penal7").attr('disabled', 'disabled');
-        $("#penal7").val("0")
-    }
-    else {
-        $("#penal7").removeAttr("disabled");
-}
-});
-
-$('#partido8_1').change(function(event){
-    if(($("#partido8_1").val() != $("#partido8_2").val())) {
-        $("#penal8").attr('disabled', 'disabled');
-        $("#penal8").val("0")
-    }
-    else {
-        $("#penal8").removeAttr("disabled");
-}
-});
-
-$('#partido8_2').change(function(event){
-    if($("#partido8_1").val() != $("#partido8_2").val()) {
-        $("#penal8").attr('disabled', 'disabled');
-        $("#penal8").val("0")
-    }
-    else {
-        $("#penal8").removeAttr("disabled");
-}
-});
-
 
 $('.btn').on('click', function() {
           var $this = $(this);

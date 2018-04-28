@@ -30,6 +30,7 @@ from sweetify.views import SweetifySuccessMixin
 from django.core.mail import EmailMessage
 import datetime
 
+
 # Create your views here.
 class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 	model = ParticipantesModel
@@ -92,10 +93,19 @@ class PrincipalView(TemplateView):
 def InicioView(request):
 	countUsuarioFase = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id).count()
 	countUsuarioOctavos = FaseOctavosUsuariosModel.objects.filter(Participante= request.user.id).count()
+	countUsuarioCuartos = FaseCuartosUsuariosModel.objects.filter(Participante= request.user.id).count()
+	countUsuarioSemifinales = FaseSemifinalesUsuariosModel.objects.filter(Participante= request.user.id).count()
+	countUsuariofinal = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id).count()
 	if countUsuarioFase == 0:
 		return HttpResponseRedirect('/registroFaseGrupos/')
 	if countUsuarioOctavos == 0:
 		return HttpResponseRedirect('/registroOctavos/')
+	if countUsuarioCuartos == 0:
+		return HttpResponseRedirect('/registroCuartos/')
+	if countUsuarioSemifinales == 0:
+		return HttpResponseRedirect('/registroSemifinales/')
+	if countUsuariofinal == 0:
+		return HttpResponseRedirect('/registroFinales/')
 	else:
 		return render(request,'inicio.html')
 
@@ -439,10 +449,10 @@ def RegistroPosicionesEquiposUsuarios(partidojugado):
 
 # vista para el registro de los octavos de usuario
 def RegistroOctavosView(request):
-	grupos = TablasPosocionesUsuariosModel.objects.values('Grupo').distinct()
+	grupos = TablasPosocionesUsuariosModel.objects.values('Grupo').filter(Participante= request.user.id).distinct()
 	mejoresDosEquipos =[]
 	for grupo in grupos:
-		mejoresDosEquipos += TablasPosocionesUsuariosModel.objects.values('Grupo','Equipo').filter(Grupo__in=grupo['Grupo'])[:2]
+		mejoresDosEquipos += TablasPosocionesUsuariosModel.objects.values('Grupo','Equipo').filter(Grupo__in=grupo['Grupo'],Participante= request.user.id)[:2]
 
 	partido1 = [mejoresDosEquipos[0],mejoresDosEquipos[3], {'fecha':datetime.datetime(2018, 06, 30)},{'identificador':49}]
 	partido2 = [mejoresDosEquipos[4],mejoresDosEquipos[7], {'fecha':datetime.datetime(2018, 06, 30)},{'identificador':50}]
@@ -464,11 +474,36 @@ def RegistroOctavosView(request):
 			resultadoOctavos7 = request.POST.getlist('partido7')
 			resultadoOctavos8 = request.POST.getlist('partido8')
 
+			if len(resultadoOctavos1) < 8:
+				resultadoOctavos1.insert(5, 0)
+
+			if len(resultadoOctavos2) < 8:
+				resultadoOctavos2.insert(5, 0)
+
+			if len(resultadoOctavos3) < 8:
+				resultadoOctavos3.insert(5, 0)
+
+			if len(resultadoOctavos4) < 8:
+				resultadoOctavos4.insert(5, 0)
+
+			if len(resultadoOctavos5) < 8:
+				resultadoOctavos5.insert(5, 0)
+
+			if len(resultadoOctavos6) < 8:
+				resultadoOctavos6.insert(5, 0)
+
+			if len(resultadoOctavos7) < 8:
+				resultadoOctavos7.insert(5, 0)
+
+			if len(resultadoOctavos8) < 8:
+				resultadoOctavos8.insert(5, 0)
+
+
 			ListResultado=[resultadoOctavos1,resultadoOctavos2,resultadoOctavos3,resultadoOctavos4,
 						resultadoOctavos5,resultadoOctavos6,resultadoOctavos7,resultadoOctavos8,			
 				]
 
-			Empate = ValidarEmpateOctavos(ListResultado)
+			Empate = ValidarEmpate(ListResultado)
 
 			if Empate > 0:
 
@@ -478,12 +513,12 @@ def RegistroOctavosView(request):
 
 				RegistarResultadosFaseOctavos(ListResultado)
 
-				sweetify.success(request, 'Registro fase de octavos exitoso!')
+				sweetify.success(request, 'Registro fase de octavos de final exitoso!')
 
 				return HttpResponseRedirect('/')
 
 		except IntegrityError as e:
-		    sweetify.error(request, 'El usuario ya registro la fase de octavos!')
+		    sweetify.error(request, 'El usuario ya registro la fase de octavos de final!')
 
 	return render(request,'registroResultados/registroOctavos.html',
 		{'partido1':partido1, 'partido2':partido2,
@@ -493,12 +528,12 @@ def RegistroOctavosView(request):
 		})
 
 # funcion para validar si existen resultados en cero en la fase de octavos
-def ValidarEmpateOctavos(ListResultado):
+def ValidarEmpate(ListResultado):
 	contar=0
 	for i in ListResultado:
-		if i[2] == i[4] == i[5]:
-			contar += contar + 1
-
+		if i[2] == i[4]:
+			if i[5] == '0':
+				contar += contar + 1
 	return contar
 
 # funcion para el registro en base de datos del list con los resultados registrados para la fase de octavos por el usuario
@@ -512,9 +547,311 @@ def RegistarResultadosFaseOctavos(ListResultado):
 			MarcadorEquipo2 = e[4],
 			PenalEquipoGanador = e[5],
 			Identificador = e[6],
-			Participante = ParticipantesModel.objects.get(id=e[8]),  
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
 
         )
     for e in ListResultado
     ]
     detalleFaseOctavosUsuarios = FaseOctavosUsuariosModel.objects.bulk_create(objs)
+
+#vista para el formulario de registro de fase de cuartos
+def RegistroFaseCuartosView(request):
+	EquiposCuartos = FaseOctavosUsuariosModel.objects.filter(Participante= request.user.id)
+	equipos =[]
+	for i in EquiposCuartos:
+		if i.MarcadorEquipo1 == i.MarcadorEquipo2:
+			if i.PenalEquipoGanador == '1':
+				equipos += [[i.Equipo1]]
+			if i.PenalEquipoGanador == '2':
+				equipos += [[i.Equipo2]]
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2:
+			equipos += [[i.Equipo1]]
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
+			equipos += [[i.Equipo2]]
+	
+	for x in equipos[0]:
+		equipo1=x
+
+	for x in equipos[1]:
+		equipo2=x
+
+	for x in equipos[4]:
+		equipo3=x
+
+	for x in equipos[5]:
+		equipo4=x
+
+	for x in equipos[6]:
+		equipo5=x
+
+	for x in equipos[7]:
+		equipo6=x
+
+	for x in equipos[8]:
+		equipo7=x
+
+	for x in equipos[9]:
+		equipo8=x
+
+	
+	partido1 = [{'Equipo':equipo1},{'Equipo':equipo2}, {'fecha':datetime.datetime(2018, 07, 06)},{'identificador':57}]
+	partido2 = [{'Equipo':equipo3},{'Equipo':equipo4}, {'fecha':datetime.datetime(2018, 07, 06)},{'identificador':58}]
+	partido3 = [{'Equipo':equipo5},{'Equipo':equipo6}, {'fecha':datetime.datetime(2018, 07, 07)},{'identificador':59}]
+	partido4 = [{'Equipo':equipo7},{'Equipo':equipo8}, {'fecha':datetime.datetime(2018, 07, 07)},{'identificador':60}]
+
+	if request.method == 'POST':
+		try:
+			resultadoCuartos1 = request.POST.getlist('partido1')
+			resultadoCuartos2 = request.POST.getlist('partido2')
+			resultadoCuartos3 = request.POST.getlist('partido3')
+			resultadoCuartos4 = request.POST.getlist('partido4')
+
+			if len(resultadoCuartos1) < 8:
+				resultadoCuartos1.insert(5, 0)
+
+			if len(resultadoCuartos2) < 8:
+				resultadoCuartos2.insert(5, 0)
+
+			if len(resultadoCuartos3) < 8:
+				resultadoCuartos3.insert(5, 0)
+
+			if len(resultadoCuartos4) < 8:
+				resultadoCuartos4.insert(5, 0)
+
+
+			ListResultado=[resultadoCuartos1,resultadoCuartos2,resultadoCuartos3,resultadoCuartos4			
+				]
+
+			Empate = ValidarEmpate(ListResultado)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseCuarto(ListResultado)
+
+				sweetify.success(request, 'Registro fase de cuartos de final exitoso!')
+
+				return HttpResponseRedirect('/')
+
+		except IntegrityError as e:
+		    sweetify.error(request, 'El usuario ya registro la fase de cuartos de final!')
+
+
+
+	return render(request,'registroResultados/registroCuartos.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'partido3':partido3, 'partido4':partido4,
+		})
+
+# funcion para el registro en base de datos del list con los resultados registrados para la fase de cuartos por el usuario
+def RegistarResultadosFaseCuarto(ListResultado):
+    objs = [
+        FaseCuartosUsuariosModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
+
+        )
+    for e in ListResultado
+    ]
+    detalleFaseCuartosUsuarios = FaseCuartosUsuariosModel.objects.bulk_create(objs)
+
+#vista para el formulario de registro de fase de semifinales
+def RegistroFaseSemifinalesView(request):
+	EquiposSemifinales = FaseCuartosUsuariosModel.objects.filter(Participante= request.user.id)
+	equipos =[]
+	for i in EquiposSemifinales:
+		if i.MarcadorEquipo1 == i.MarcadorEquipo2:
+			if i.PenalEquipoGanador == '1':
+				equipos += [[i.Equipo1]]
+			if i.PenalEquipoGanador == '2':
+				equipos += [[i.Equipo2]]
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2:
+			equipos += [[i.Equipo1]]
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
+			equipos += [[i.Equipo2]]
+
+	print(equipos)
+	
+	for x in equipos[0]:
+		equipo1=x
+
+	for x in equipos[1]:
+		equipo2=x
+
+	for x in equipos[2]:
+		equipo3=x
+
+	for x in equipos[3]:
+		equipo4=x
+
+
+	partido1 = [{'Equipo':equipo1},{'Equipo':equipo2}, {'fecha':datetime.datetime(2018, 07, 10)},{'identificador':61}]
+	partido2 = [{'Equipo':equipo3},{'Equipo':equipo4}, {'fecha':datetime.datetime(2018, 07, 11)},{'identificador':62}]
+
+
+	if request.method == 'POST':
+		try:
+			resultadoSemifinales1 = request.POST.getlist('partido1')
+			resultadoSemifinales2 = request.POST.getlist('partido2')
+
+			if len(resultadoSemifinales1) < 8:
+				resultadoSemifinales1.insert(5, 0)
+
+			if len(resultadoSemifinales2) < 8:
+				resultadoSemifinales2.insert(5, 0)
+
+
+
+			ListResultado=[resultadoSemifinales1,resultadoSemifinales2]
+
+			Empate = ValidarEmpate(ListResultado)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseSemifinales(ListResultado)
+
+				sweetify.success(request, 'Registro fase de semifinales exitoso!')
+
+				return HttpResponseRedirect('/')
+
+		except IntegrityError as e:
+		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
+
+
+
+	return render(request,'registroResultados/registroSemifinales.html',
+		{'partido1':partido1, 'partido2':partido2
+		})
+
+# funcion para el registro en base de datos del list con los resultados registrados para la fase de cuartos por el usuario
+def RegistarResultadosFaseSemifinales(ListResultado):
+    objs = [
+        FaseSemifinalesUsuariosModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
+
+        )
+    for e in ListResultado
+    ]
+    detalleFaseSemifinalesUsuarios = FaseSemifinalesUsuariosModel.objects.bulk_create(objs)
+
+#vista para el formulario de registro de fase de finales
+def RegistroFaseFinalView(request):
+	EquiposFinales = FaseSemifinalesUsuariosModel.objects.filter(Participante= request.user.id)
+	equiposGanadores =[]
+	equiposPerdedores =[]
+
+	for i in EquiposFinales:
+		if i.MarcadorEquipo1 == i.MarcadorEquipo2:
+			if i.PenalEquipoGanador == '1':
+				equiposGanadores += [[i.Equipo1]]
+				equiposPerdedores += [[i.Equipo2]]
+				
+			if i.PenalEquipoGanador == '2':
+				equiposGanadores += [[i.Equipo2]]
+				equiposPerdedores += [[i.Equipo1]]
+			
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2:
+			equiposGanadores += [[i.Equipo1]]
+			equiposPerdedores += [[i.Equipo2]]
+
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
+			equiposGanadores += [[i.Equipo2]]
+			equiposPerdedores += [[i.Equipo1]]
+			
+
+	print(equiposGanadores)
+	print(equiposPerdedores)
+
+
+	for x in equiposGanadores[0]:
+		equipo1=x
+
+	for x in equiposGanadores[1]:
+		equipo2=x
+
+	for x in equiposPerdedores[0]:
+		equipo3=x
+
+	for x in equiposPerdedores[1]:
+		equipo4=x
+
+
+	partido1 = [{'Equipo':equipo1},{'Equipo':equipo2}, {'fecha':datetime.datetime(2018, 07, 15)},{'identificador':61}]
+	partido2 = [{'Equipo':equipo3},{'Equipo':equipo4}, {'fecha':datetime.datetime(2018, 07, 14)},{'identificador':62}]
+
+
+	if request.method == 'POST':
+		try:
+			resultadoFinal = request.POST.getlist('partido1')
+			resultadoTercerPuesto = request.POST.getlist('partido2')
+
+			if len(resultadoFinal) < 8:
+				resultadoFinal.insert(5, 0)
+
+			if len(resultadoTercerPuesto) < 8:
+				resultadoTercerPuesto.insert(5, 0)
+
+
+
+			ListResultado=[resultadoFinal,resultadoTercerPuesto]
+
+			Empate = ValidarEmpate(ListResultado)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseFinal(ListResultado)
+
+				sweetify.success(request, 'Registro de la final exitoso!')
+
+				return HttpResponseRedirect('/')
+
+		except IntegrityError as e:
+		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
+
+
+
+	return render(request,'registroResultados/registroSemifinales.html',
+		{'partido1':partido1, 'partido2':partido2
+		})
+
+# funcion para el registro en base de datos del list con los resultados registrados para la final por el usuario
+def RegistarResultadosFaseFinal(ListResultado):
+    objs = [
+        FaseFinalUsuariosModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
+
+        )
+    for e in ListResultado
+    ]
+    detalleFaseFinalUsuarios = FaseFinalUsuariosModel.objects.bulk_create(objs)

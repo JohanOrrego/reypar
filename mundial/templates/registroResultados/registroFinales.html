@@ -1,0 +1,183 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- page content -->
+<div class="right_col" role="main" style="min-height: 3888px;background:none">
+      <div class="page-title">
+        <div class="title_left">
+          <h3 style=" text-shadow:none; color: white">Final y tercer Puesto <small style=" text-shadow:none; color: white">Registro resultados</small></h3>
+        </div>
+      </div>
+      <div class="x_panel" style="background:none">
+        <div class="x_content">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+          <form role="form" method="post">
+            <span class="section"></span>
+             <div class="alert alert-warning alert-dismissible fade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <p><span class="fa fa-info-circle"></span><strong> Información!</strong></p>
+              <p>Ingrese los pronósticos de resultados de la final.</p>
+              <p>En caso de empate define el marcador en las casilla de los penales.</p>
+              <p>Al guardar cada fase no hay retroceso en sus pronósticos</p>
+            </div>
+            {% csrf_token %}
+              <h3 style=" text-shadow:none; color: white">Final </h3>
+                <div class="panel panel-default" style="background:none">
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th style=" text-shadow:none; color: white">Fecha</th>
+                        <th style=" text-shadow:none; color: white">Equipo 1</th>
+                        <th style=" text-shadow:none; color: white">Goles</th>
+                        <th style=" text-shadow:none; color: white">Goles</th>
+                        <th style=" text-shadow:none; color: white">Equipo 2</th>
+                        <th style=" text-shadow:none; color: white">Ganador por Penales</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido1.2.fecha|date:"j \d\e F \d\e Y"}}</td>
+                      <input type="hidden" id="partido1" name="partido1" value="{{partido1.2.fecha|date:'Y-m-d'}}">
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido1.0.Equipo}}</td>
+                      <input type="hidden" id="partido1" name="partido1" value="{{partido1.0.Equipo}}">
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">
+                        <input type="number" min="0" class="form-control" id="partido1_1" name="partido1" value="0" required="">
+                      </td>
+                      <input type="hidden" id="partido1" name="partido1" value="{{partido1.1.Equipo}}">
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">
+                        <input type="number" min="0" class="form-control" id="partido1_2" name="partido1" value="0" required="">
+                      </td>
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido1.1.Equipo}}</td>
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">
+                          <select class="form-control" name="partido1" id="penal1">
+                            <option value="0">-------</option>
+                            <option value="1">{{partido1.0.Equipo}}</option>
+                            <option value="2">{{partido1.1.Equipo}}</option>
+                          </select>
+                      </td>
+                      <input type="hidden" id="partido1" name="partido1" value="{{partido1.3.identificador}}">
+                      <input type="hidden" id="partido1" name="partido1" value="{{user.id}}">
+                    </tr>
+                    </tbody>
+                  </table>
+                  </div>
+
+                <h3 style=" text-shadow:none; color: white">Tercer Puesto </h3>
+                <div class="panel panel-default" style="background:none">
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th style=" text-shadow:none; color: white">Fecha</th>
+                        <th style=" text-shadow:none; color: white">Equipo 1</th>
+                        <th style=" text-shadow:none; color: white">Goles</th>
+                        <th style=" text-shadow:none; color: white">Goles</th>
+                        <th style=" text-shadow:none; color: white">Equipo 2</th>
+                        <th style=" text-shadow:none; color: white">Ganador por Penales</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido2.2.fecha|date:"j \d\e F \d\e Y"}}</td>
+                      <input type="hidden" id="partido2" name="partido2" value="{{partido2.2.fecha|date:'Y-m-d'}}">
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido2.0.Equipo}}</td>
+                      <input type="hidden" id="partido2" name="partido2" value="{{partido2.0.Equipo}}">
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">
+                        <input type="number" min="0" class="form-control" id="partido2_1" name="partido2" value="0" required="">
+                      </td>
+                      <input type="hidden" id="partido2" name="partido2" value="{{partido2.1.Equipo}}">
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">
+                        <input type="number" min="0" class="form-control" id="partido2_2" name="partido2" value="0" required="">
+                      </td>
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido2.1.Equipo}}</td>
+                      <td class="col-xs-1" style=" text-shadow:none; color: white">
+                          <select class="form-control" id="penal2" name="partido2">
+                            <option value="0">-------</option>
+                            <option value="1">{{partido2.0.Equipo}}</option>
+                            <option value="2">{{partido2.1.Equipo}}</option>
+                          </select>
+                      </td>
+                      <input type="hidden" id="partido2" name="partido2" value="{{partido2.3.identificador}}">
+                      <input type="hidden" id="partido2" name="partido2" value="{{user.id}}">
+                    </tr>
+                    </tbody>
+                  </table>
+                  </div>
+
+               <div class="col-xs-12 text-center">
+                     <button type="submit" class="btn btn-primary" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
+                  </div>
+          </form>
+        </div>
+      </div>
+    </div>
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.min.js" %}"></script>
+<!-- page script -->
+<script type="text/javascript">
+
+
+$('#partido1_1').change(function(event){
+    if(($("#partido1_1").val() != $("#partido1_2").val())) {
+        $("#penal1").attr('disabled', 'disabled');
+        $("#penal1").val("0")
+    }
+    else {
+        $("#penal1").removeAttr("disabled");
+}
+});
+
+$('#partido1_2').change(function(event){
+    if($("#partido1_1").val() != $("#partido1_2").val()) {
+        $("#penal1").attr('disabled', 'disabled');
+        $("#penal1").val("0")
+    }
+    else {
+        $("#penal1").removeAttr("disabled");
+}
+});
+
+$('#partido2_1').change(function(event){
+    if(($("#partido2_1").val() != $("#partido2_2").val())) {
+        $("#penal2").attr('disabled', 'disabled');
+        $("#penal2").val("0")
+    }
+    else {
+        $("#penal2").removeAttr("disabled");
+}
+});
+
+$('#partido2_2').change(function(event){
+    if($("#partido2_1").val() != $("#partido2_2").val()) {
+        $("#penal2").attr('disabled', 'disabled');
+        $("#penal2").val("0")
+    }
+    else {
+        $("#penal2").removeAttr("disabled");
+}
+});
+
+
+$('.btn').on('click', function() {
+          var $this = $(this);
+        $this.button('loading');
+          setTimeout(function() {
+             $this.button('reset');
+         }, 8000);
+      });
+  </script>
+{% endblock content %}
