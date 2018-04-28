@@ -637,7 +637,7 @@ def RegistroFaseCuartosView(request):
 
 				sweetify.success(request, 'Registro fase de cuartos de final exitoso!')
 
-				return HttpResponseRedirect('/')
+				return HttpResponseRedirect('/registroSemifinales/')
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de cuartos de final!')
@@ -727,9 +727,14 @@ def RegistroFaseSemifinalesView(request):
 				RegistarResultadosFaseSemifinales(ListResultado)
 
 				sweetify.success(request, 'Registro fase de semifinales exitoso!')
+<<<<<<< HEAD
 				
 				return HttpResponseRedirect('/registroFinales/')
 				
+=======
+
+				return HttpResponseRedirect('/registroFinales/')
+>>>>>>> b87a943f1e426e74679483ff2dad7bd69327eb83
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
@@ -831,7 +836,7 @@ def RegistroFaseFinalView(request):
 
 				sweetify.success(request, 'Registro de la final exitoso!')
 
-				return HttpResponseRedirect('/')
+				return HttpResponseRedirect('/inicio/')
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
