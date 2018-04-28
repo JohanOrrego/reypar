@@ -17,5 +17,7 @@ urlpatterns = [
 	url(r'^registroCuartos/$', login_required(RegistroFaseCuartosView), name='registroCuartos'),
 	url(r'^registroSemifinales/$', login_required(RegistroFaseSemifinalesView), name='registroSemifinales'),
 	url(r'^registroFinales/$', login_required(RegistroFaseFinalView), name='registroFinales'),
+	url(r'^verFaseGrupos/$', login_required(verFaseGruposView), name='verFaseGrupos'),
+	
 
 ]

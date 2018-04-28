@@ -44,7 +44,7 @@
             <header>
               <div class="row" style="padding: 2%">
               <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
-                  <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-reypar.png" %}" height="150">
+                 <a href="{% url 'index' %}"> <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-reypar.png" %}"  height="150"></a>
                 </div>
               </div>
               <div class="row">
@@ -53,7 +53,7 @@
                     <h1 style="color: white"><strong>Polla Mundialista Reypar</strong> <small style="color: white">FIFA 2018⚽</small></h1>
                   </div>
                   <div class="">
-                    <h3 style="color: white"><small style="color: white">Formulario de registro</small></h3>
+                    <h3 style="color: white"><small style="color: white"><strong>Formulario de registro</strong></small></h3>
                   </div>
                 </div>
               </div>
@@ -233,13 +233,28 @@
                   </div>
                 </div>
               </div>
-            </div>
+              <br>
+            </div>  
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="Direccion">{{form.CargoEmpresa.label}} <span class="required">*</span></label>
+                  <div class="col-md-5 col-sm-5 col-xs-12">
+                    {{form.CargoEmpresa}}
+                  </div>
+                </div>
+              </div>
+           
+              <br>
+            </div> 
+            <center><h3 style="color: white"><small style="color: white"><strong>Información exclusiva del Cliente</strong></small></h3></center>
+            <hr>
 
              <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="item form-group">
                   <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="NombreComercial">{{form.NombreComercial.label}} <span class="required"></span></label>
-                  <div class="col-md-5 col-sm-5 col-xs-12">
+                  <div class="col-md-7 col-sm-5 col-xs-12">
                     {{form.NombreComercial}}
                   </div>
                 </div>
@@ -247,31 +262,32 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="item form-group">
                   <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="RazonSocial">{{form.RazonSocial.label}} <span class="required"></span></label>
-                  <div class="col-md-5 col-sm-5 col-xs-12">
+                  <div class="col-md-7 col-sm-5 col-xs-12">
                     {{form.RazonSocial}}
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="row">
+              <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="item form-group">
+                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="NombreComercial">{{form.CiudadCliente.label}} <span class="required"></span></label>
+                  <div class="col-md-7 col-sm-5 col-xs-12">
+                    {{form.CiudadCliente}}
+                  </div>
+                </div>
+              </div>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="item form-group">
                   <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="DireccionCliente">{{form.DireccionCliente.label}} <span class="required"></span></label>
-                  <div class="col-md-5 col-sm-5 col-xs-12">
+                  <div class="col-md-7 col-sm-5 col-xs-12">
                     {{form.DireccionCliente}}
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="item form-group">
-                  <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="CargoEmpresa">{{form.CargoEmpresa.label}} <span class="required">*</span></label>
-                  <div class="col-md-5 col-sm-5 col-xs-12">
-                    {{form.CargoEmpresa}}
-                  </div>
-                </div>
-              </div>
+              
             </div>
+            
 
             <div class="ln_solid"></div>
               <div class="row">
@@ -414,6 +430,7 @@
                      $("#id_NombreComercial").val(content[0]['fields']['NombreComercial']);
                      $("#id_RazonSocial").val(content[0]['fields']['RazonSocial']);
                      $("#id_DireccionCliente").val(content[0]['fields']['Direccion']);
+                     $("#id_CiudadCliente").val(content[0]['fields']['Ciudad']);
                   }
             }
       });

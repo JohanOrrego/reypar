@@ -52,13 +52,13 @@
  {% endblock head_css %}
 </head>
 
-<body class="nav-sm" style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
+<body class="nav-sm" >
   {% block nav-style %}
   <div class="container body">
-    <div class="main_container" style="background:none">
-      <div class="col-md-3 left_col" >
+    <div class="main_container">
+      <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
-          <div class="navbar nav_title" style="border: 0">
+          <div class="navbar nav_title">
             <a href="{% url 'index'%}" class="site_title"><i class="fa  fa-soccer-ball-o" aria-hidden="true"></i><span> Reypar</span></a>
           </div>
 
@@ -84,6 +84,9 @@
                <li><a href="#"><i class="fa fa-line-chart"></i> Raking
                  </a>
                </li>
+               <li><a href="{% url 'verFaseGrupos' %}"><i class="fa fa-trophy"></i> Pronosticos
+                 </a>
+               </li>
               </ul>
              </div>
            </div>
@@ -101,9 +104,10 @@
 
 <!-- top navigation -->
 <div class="top_nav">
+
   <div class="nav_menu">
     <nav>
-      
+    
 
       <ul class="nav navbar-nav navbar-right">
         <li class="">
@@ -137,12 +141,7 @@
 <!-- /page content -->
 </div>
 <!-- footer content -->
-<footer style="background:none">
-  <div class="pull-right">
-  <strong style=" text-shadow:none; color: white"> © {% now "Y" %} - Powered by: <a style=" text-shadow:none; color: white"href="">UpSolutions</a></strong>
-  </div>
-  <div class="clearfix"></div>
-</footer>
+
 <!-- /footer content -->
 <script src="{% static "/base/vendors/sweetalert.min.js" %}"></script>
 {% load sweetify %}
