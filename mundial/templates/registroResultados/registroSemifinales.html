@@ -2,13 +2,26 @@
 {% extends 'base/base.html' %}
 {% load staticfiles %}
 {% block content %}
+<style>
+
+td {
+
+    text-align: left;
+    font-size: 18px;
+
+}
+p{    font-size: 15px;
+
+
+}
+</style>
 <!-- page content -->
 <div class="right_col" role="main" style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
-      <div class="page-title">
-        <div class="title_left">
-          <h3 style=" text-shadow:none; color: white">Semifinales <small style=" text-shadow:none; color: white">Registro resultados</small></h3>
-        </div>
-      </div>
+        <center><h1 style=" text-shadow:none; color: white;">Semi final</h1>
+       <h2 style=" text-shadow:none; color: white">Registro resultados</h2></center>
+
+
+      <br>
       <div class="x_panel" style="background:none">
         <div class="x_content">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -16,7 +29,7 @@
             <span class="section"></span>
              <div class="alert alert-warning alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-              <p><span class="fa fa-info-circle"></span><strong> Información!</strong></p>
+              <p><span class="fa fa-info-circle fa-2x"></span><strong> Información!</strong></p>
               <p>Ingrese los pronósticos de resultados de la fase de semifinales, para continuar a la fase de finales.</p>
               <p>En caso de empate define el marcador en las casilla de los penales.</p>
               <p>Al guardar cada fase no hay retroceso en sus pronósticos</p>
@@ -105,10 +118,69 @@
                   </div>
 
                <div class="col-xs-12 text-center">
-                     <button type="submit" class="btn btn-primary" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
+                     <button type="submit" class="btn btn-success btn-lg" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
                   </div>
           </form>
         </div>
+        <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+    <div class="row">
+      <div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/BETO.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/SRS.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/CFB.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/KAPARS.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/TAKSIM.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/TEKNOROT.png" %}"  height="60">
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/ELRING.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/ASAM.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/Renault-logo.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header"  src="{% static "images/MAPA.png" %}"  height="100">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/EBI.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" style="background-color: white" src="{% static "images/AUTOMOTOR.png" %}"  height="60">
+      </div>
+      </div>
+      
+    </div>
+    <div class="row" align="center">
+      <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-4" >
+
+      <div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" style="background-color: white"src="{% static "images/MAHLE.png" %}"  height="60">
+      </div>
+      <div div class="col-md-2 col-sm-12 col-xs-12">
+        <img class="imagenes_header" style="background-color: white" src="{% static "images/KAUTEK.png" %}"  height="60">
+      </div>
+   
+      </div>
+      </div>
+      
+    </div>
       </div>
     </div>
 <!-- jQuery -->

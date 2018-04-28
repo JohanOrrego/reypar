@@ -11,7 +11,7 @@
    </div>
 
  </div>
-
+{%if FaseGrupos%}
  <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Grupos <small style=" text-shadow:none; color: white"></small></h3></center>
 
  <div class="x_panel" style="background:none;border:none" >
@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        {%if FaseGrupos%}
+        
         {% for partido in FaseGrupos %}
         <tr>
           <th scope="row">{{partido.MarcadorEquipo1}}</th>
@@ -39,7 +39,155 @@
         </tr>
         {%endfor%}
         {%else%}
-        Registre primero su pronostico
+       <center><h3 style="color: white">Pronostico no Registrado</h3></center> 
+       <a href="{% url 'Principal' %}" ><center><h2 style="color: yellow">Click para registar</h2></center> </a>
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</div>
+
+{%if Octavos%}
+ <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Octavos <small style=" text-shadow:none; color: white"></small></h3></center>
+
+ <div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+    <table class="table" style="color:white" align="center">
+      <thead>
+        <tr>
+          <th>Goles</th>
+          <th>Equipo 1</th>
+          <th>-</th>
+          <th>Equipo 2</th>
+          <th>Goles</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for partido in Octavos %}
+        <tr>
+          <th scope="row">{{partido.MarcadorEquipo1}}</th>
+          <td>{{partido.Equipo1}}</td>
+          <th align="left">VS</th>
+          <td>{{partido.Equipo2}}</td>
+          <th scope="row">{{partido.MarcadorEquipo2}}</th>
+        </tr>
+        {%endfor%}
+        
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</div>
+
+{%if Cuartos%}
+ <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Cuartos <small style=" text-shadow:none; color: white"></small></h3></center>
+
+ <div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+    <table class="table" style="color:white" align="center">
+      <thead>
+        <tr>
+          <th>Goles</th>
+          <th>Equipo 1</th>
+          <th>-</th>
+          <th>Equipo 2</th>
+          <th>Goles</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for partido in Cuartos %}
+        <tr>
+          <th scope="row">{{partido.MarcadorEquipo1}}</th>
+          <td>{{partido.Equipo1}}</td>
+          <th align="left">VS</th>
+          <td>{{partido.Equipo2}}</td>
+          <th scope="row">{{partido.MarcadorEquipo2}}</th>
+        </tr>
+        {%endfor%}
+        
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</div>
+{%if Semis%}
+ <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Semifinal <small style=" text-shadow:none; color: white"></small></h3></center>
+
+ <div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+    <table class="table" style="color:white" align="center">
+      <thead>
+        <tr>
+          <th>Goles</th>
+          <th>Equipo 1</th>
+          <th>-</th>
+          <th>Equipo 2</th>
+          <th>Goles</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for partido in Semis %}
+        <tr>
+          <th scope="row">{{partido.MarcadorEquipo1}}</th>
+          <td>{{partido.Equipo1}}</td>
+          <th align="left">VS</th>
+          <td>{{partido.Equipo2}}</td>
+          <th scope="row">{{partido.MarcadorEquipo2}}</th>
+        </tr>
+        {%endfor%}
+        
+        {%endif%}
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</div>
+
+{%if Final%}
+ <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase Final <small style=" text-shadow:none; color: white"></small></h3></center>
+
+ <div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+    <table class="table" style="color:white" align="center">
+      <thead>
+        <tr>
+          <th>Goles</th>
+          <th>Equipo 1</th>
+          <th>-</th>
+          <th>Equipo 2</th>
+          <th>Goles</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for partido in Final %}
+        <tr>
+          <th scope="row">{{partido.MarcadorEquipo1}}</th>
+          <td>{{partido.Equipo1}}</td>
+          <th align="left">VS</th>
+          <td>{{partido.Equipo2}}</td>
+          <th scope="row">{{partido.MarcadorEquipo2}}</th>
+        </tr>
+        {%endfor%}
+        
         {%endif%}
       </tbody>
     </table>

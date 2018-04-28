@@ -107,7 +107,7 @@ def InicioView(request):
 	if countUsuariofinal == 0:
 		return HttpResponseRedirect('/registroFinales/')
 	else:
-		return render(request,'inicio.html')
+		return HttpResponseRedirect('/verFaseGrupos/')
 
 # vista para el registro de los resultados de la fase de grupos por usuario
 def RegistroFaseGruposView(request):
@@ -239,8 +239,12 @@ def ValidarEmpateGrupos(ListResultado):
 	return contar
 def verFaseGruposView(request):
 	FaseGrupos = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id)
+	Octavos = FaseOctavosUsuariosModel.objects.filter(Participante= request.user.id)
+	Cuartos = FaseCuartosUsuariosModel.objects.filter(Participante= request.user.id)
+	Semis = FaseSemifinalesUsuariosModel.objects.filter(Participante= request.user.id)
+	Final = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id)
 	print FaseGrupos
-	return render(request,'verFaseGrupos.html',{'FaseGrupos':FaseGrupos})
+	return render(request,'verFaseGrupos.html',{'FaseGrupos':FaseGrupos,'Octavos':Octavos,'Cuartos':Cuartos,'Semis':Semis,'Final':Final})
 # funcion para el registro de los equipos en la tablas de posiciones por usuarios
 def RegistroPosicionesEquiposUsuarios(partidojugado):
 	equipoUno = TablasPosocionesUsuariosModel.objects.filter(Grupo=partidojugado[1] , Equipo=partidojugado[2], Participante=partidojugado[6]).exists()
@@ -729,11 +733,7 @@ def RegistroFaseSemifinalesView(request):
 				sweetify.success(request, 'Registro fase de semifinales exitoso!')
 				
 				return HttpResponseRedirect('/registroFinales/')
-<<<<<<< HEAD
 
-=======
-				
->>>>>>> 9b10dd187bdeed36e0caa04caebfdc02d5c6eabb
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')
@@ -836,7 +836,7 @@ def RegistroFaseFinalView(request):
 
 				sweetify.success(request, 'Registro de la final exitoso!')
 
-				return HttpResponseRedirect('/inicio/')
+				return HttpResponseRedirect('/verFaseGrupos/')
 
 		except IntegrityError as e:
 		    sweetify.error(request, 'El usuario ya registro la fase de semifinales!')

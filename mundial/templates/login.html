@@ -1,6 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es-co">
+
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -28,7 +29,8 @@
     <!-- Custom Theme Style -->
     <link href="{% static "base/build/css/custom.min.css" %}" rel="stylesheet">
   </head>
-  <body class="login" style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
+  <body style="background: url('/static/images/orden.jpg') no-repeat  bottom fixed ">
+
      {% if form.non_field_errors %}
       {% for error in form.non_field_errors %}
       <div class="alert alert-danger alert-dismissible fade in" role="alert">
@@ -49,7 +51,7 @@
             {% csrf_token %}
             <h1 style=" text-shadow:none; color: white">Bienvenido</h1>
             <h2 style="text-shadow:none; color: white">Polla Mundialista Reypar <small style="color: white">FIFA 2018⚽</small></h2>
-            <h6 style=" text-shadow:none; color: white">Por favor digite sus datos para ingresar</h6>
+            <h6 style=" text-shadow:none; color: white">Ingrese sus datos para Acceder</h6>
             <div class="item form-group has-feedback {% if form.username.error %} has-error {% endif %}">
               <input name="username" type="text" class="form-control" placeholder="Nombre del usuario" required="" />
             </div>
@@ -57,7 +59,7 @@
               <input type="password" name="password" class="form-control" placeholder="Contraseña" required="" />
             </div>
             <div>
-            <button type="submit" class="btn btn-default submit">Ingresar</button>
+            <button type="submit" class="btn btn-default btn-lg submit">Ingresar</button>
             <a style="text-shadow:none; color: white" class="reset_pass" href="{% url 'password_reset' %}">Perdiste tu contraseña?</a>
             </div>
             <div class="clearfix"></div>
@@ -67,8 +69,7 @@
                   <a style="text-shadow:none; color: white" href="{% url 'registro' %}" class="to_register"> Crear una cuenta </a>
                 </p>
 
-                <div class="clearfix"></div>
-                <br />
+  
 
               <div>
                 <p style="text-shadow:none; color: white">©{% now "Y" %}. Todos Los Derechos Reservados.</p>
@@ -78,7 +79,11 @@
         </section>
       </div>
     </div>
+
+
   </body>
+
+ 
 
   <!-- jQuery -->
   <script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}"></script>
