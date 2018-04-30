@@ -14,9 +14,9 @@ class RegistroParticipantesForm(UserCreationForm):
 	password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput(attrs={'class':'form-control'}))
 	password2 = forms.CharField(label='Contraseña (confirmar)', widget=forms.PasswordInput(attrs={'class':'form-control','data-validate-linked':'password1'}))
 
-	NombreComercial = forms.CharField(label='Nombre comercial', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=True)
-	RazonSocial = forms.CharField(label='Razón social', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=True)
-	DireccionCliente = forms.CharField(label='Dirección cliente', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=True)
+	NombreComercial = forms.CharField(label='Nombre comercial', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=False)
+	RazonSocial = forms.CharField(label='Razón social', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=False)
+	DireccionCliente = forms.CharField(label='Dirección cliente', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=False)
 	CiudadCliente = forms.CharField(label='Ciudad Cliente', widget=forms.TextInput(attrs={'class':'form-control', 'readonly': 'readonly'}),required=False)
 	
 	class Meta:
