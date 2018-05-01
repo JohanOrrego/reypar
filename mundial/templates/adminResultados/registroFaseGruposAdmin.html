@@ -1,0 +1,1060 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<style>
+
+td {
+
+  text-align: left;
+  font-size: 18px;
+
+}
+p{    font-size: 15px;
+
+
+}
+</style>
+<!-- page content -->
+<div class="right_col" role="main" style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
+  <center><h1 style=" text-shadow:none; color: white;">Fase de Grupos</h1>
+   <h2 style=" text-shadow:none; color: white">Registro resultados</h2></center>
+   <br>
+   <div class="x_panel" style="background:none">
+    <div class="x_content">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <form role="form" method="post">
+          <span class="section"></span>
+          <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <p><span class="fa fa-info-circle"></span><strong> Información!</strong></p>
+            <p>Ingrese los pronósticos de resultados de la fase de grupos, para continuar a la fase de octavos.</p>
+          </div>
+          {% csrf_token %}
+          <h3 style="text-shadow:none; color: white">Grupo A </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td style="text-shadow:none; color: white">14 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="2018-06-14">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="A">
+                  <td style="text-shadow:none; color: white">Rusia 🇷🇺</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_A" name="1_Groups_A" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_A" name="1_Groups_A" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇸🇦 Arabia Saudí</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_A">Registrar resultado</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="2018-06-16">
+                  <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="A">
+                  <td style="text-shadow:none; color: white">Egipto 🇪🇬</td>
+                  <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="Egipto">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_A" name="2_Groups_A" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="Uruguay">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_A" name="2_Groups_A" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇺🇾 Uruguay</td>
+                  <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_A">Registrar resultado</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="text-shadow:none; color: white">19 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="2018-06-19">
+                  <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="A">
+                  <td style="text-shadow:none; color: white">Rusia 🇷🇺</td>
+                  <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_A" name="3_Groups_A" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="Egipto">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_A" name="3_Groups_A" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇪🇬 Egipto</td>
+                  <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_A">Registrar resultado</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="2018-06-20">
+                  <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="A">
+                  <td style="text-shadow:none; color: white">Uruguay 🇺🇾</td>
+                  <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="Uruguay">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_A" name="4_Groups_A" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_A" name="4_Groups_A" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇸🇦 Arabia Saudí</td>
+                  <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_A">Registrar resultado</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="2018-06-25">
+                  <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="A">
+                  <td style="text-shadow:none; color: white">Arabia Saudí 🇸🇦</td>
+                  <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_A" name="5_Groups_A" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="Egipto">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_A" name="5_Groups_A" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇪🇬 Egipto</td>
+                  <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_A">Registrar resultado</button>
+                  </td>
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="2018-06-25">
+                  <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="A">
+                  <td style="text-shadow:none; color: white">Uruguay 🇺🇾</td>
+                  <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="Uruguay">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_A" name="6_Groups_A" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_A" name="6_Groups_A" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇷🇺 Rusia</td>
+                  <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_A">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="text-shadow:none; color: white">Grupo B </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">15 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="2018-06-15">
+                  <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="B">
+                  <td style="text-shadow:none; color: white">Marruecos 🇲🇦</td>
+                  <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="Marruecos">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_B" name="1_Groups_B" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="Irán">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_B" name="1_Groups_B" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇮🇷 Irán</td>
+                  <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="1_Groups_B">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">15 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="2018-06-15">
+                  <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="B">
+                  <td style="text-shadow:none; color: white">Portugal 🇵🇹</td>
+                  <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="Portugal">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_B" name="2_Groups_B" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="España">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_B" name="2_Groups_B" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇪🇸 España</td>
+                  <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_B">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="2018-06-20">
+                  <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="B">
+                  <td style="text-shadow:none; color: white">Irán 🇮🇷</td>
+                  <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="Irán">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_B" name="3_Groups_B" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="España">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_B" name="3_Groups_B" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇪🇸 España</td>
+                  <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_B">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="2018-06-20">
+                  <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="B">
+                  <td style="text-shadow:none; color: white">Portugal 🇵🇹</td>
+                  <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="Portugal">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_B" name="4_Groups_B" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="Marruecos">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_B" name="4_Groups_B" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇲🇦 Marruecos</td>
+                  <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_B">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="2018-06-25">
+                  <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="B">
+                  <td style="text-shadow:none; color: white">Irán 🇮🇷</td>
+                  <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="Irán">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_B" name="5_Groups_B" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="Portugal">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_B" name="5_Groups_B" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇵🇹 Portugal</td>
+                  <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_B">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="2018-06-25">
+                  <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="B">
+                  <td style="text-shadow:none; color: white">España 🇪🇸</td>
+                  <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="España">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_B" name="6_Groups_B" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="Marruecos">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_B" name="6_Groups_B" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇲🇦 Marruecos</td>
+                  <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_B">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="text-shadow:none; color: white">Grupo C </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="2018-06-16">
+                  <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="C">
+                  <td style="text-shadow:none; color: white">Francia 🇫🇷</td>
+                  <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="Francia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_C" name="1_Groups_C" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="Australia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_C" name="1_Groups_C" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇦🇺 Australia</td>
+                  <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="1_Groups_C">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="2018-06-16">
+                  <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="C">
+                  <td style="text-shadow:none; color: white">Perú 🇵🇪</td>
+                  <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="Perú">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_C" name="2_Groups_C" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="Dinamarca">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_C" name="2_Groups_C" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇩🇰 Dinamarca</td>
+                  <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_C">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">21 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="2018-06-21">
+                  <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="C">
+                  <td style="text-shadow:none; color: white">Dinamarca 🇩🇰</td>
+                  <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="Dinamarca">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_C" name="3_Groups_C" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="Australia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_C" name="3_Groups_C" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇦🇺 Australia</td>
+                  <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_C">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">21 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="2018-06-21">
+                  <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="C">
+                  <td style="text-shadow:none; color: white">Francia 🇫🇷</td>
+                  <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="Francia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_C" name="4_Groups_C" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="Perú">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_C" name="4_Groups_C" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇵🇪 Perú</td>
+                  <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_C">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="2018-06-26">
+                  <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="C">
+                  <td style="text-shadow:none; color: white">Australia 🇦🇺</td>
+                  <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="Australia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_C" name="5_Groups_C" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="Perú">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_C" name="5_Groups_C" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇵🇪 Perú</td>
+                  <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_C">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="2018-06-26">
+                  <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="C">
+                  <td style="text-shadow:none; color: white">Dinamarca 🇩🇰</td>
+                  <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="Dinamarca">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_C" name="6_Groups_C" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="Francia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_C" name="6_Groups_C" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇫🇷 Francia</td>
+                  <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_C">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="text-shadow:none; color: white">Grupo D </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="2018-06-16">
+                  <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="D">
+                  <td style="text-shadow:none; color: white">Argentina 🇦🇷</td>
+                  <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="Argentina">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_D" name="1_Groups_D" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="Islandia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_D" name="1_Groups_D" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇧🇻 Islandia</td>
+                  <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="1_Groups_D">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="2018-06-16">
+                  <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="D">
+                  <td style="text-shadow:none; color: white">Croacia 🇭🇷</td>
+                  <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="Croacia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_D" name="2_Groups_D" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="Nigeria">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_D" name="2_Groups_D" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇳🇪 Nigeria</td>
+                  <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_D">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">21 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="2018-06-21">
+                  <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="D">
+                  <td style="text-shadow:none; color: white">Argentina 🇦🇷</td>
+                  <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="Argentina">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_D" name="3_Groups_D" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="Croacia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_D" name="3_Groups_D" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇭🇷 Croacia</td>
+                  <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_D">Registrar resultado</button>
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td style="text-shadow:none; color: white">22 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="2018-06-22">
+                  <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="D">
+                  <td style="text-shadow:none; color: white">Nigeria 🇳🇪</td>
+                  <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="Nigeria">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_D" name="4_Groups_D" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="Islandia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_D" name="4_Groups_D" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇧🇻 Islandia</td>
+                  <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_D">Registrar resultado</button>
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="2018-06-26">
+                  <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="D">
+                  <td style="text-shadow:none; color: white">Islandia 🇧🇻</td>
+                  <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="Islandia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_D" name="5_Groups_D" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="Croacia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_D" name="5_Groups_D" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇭🇷 Croacia</td>
+                  <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_D">Registrar resultado</button>
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="2018-06-26">
+                  <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="D">
+                  <td style="text-shadow:none; color: white">Nigeria 🇳🇪</td>
+                  <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="Nigeria">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_D" name="6_Groups_D" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="Argentina">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_D" name="6_Groups_D" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇦🇷 Argentina</td>
+                  <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_D">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="text-shadow:none; color: white">Grupo E </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">17 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="2018-06-17">
+                  <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="E">
+                  <td style="text-shadow:none; color: white">Brasil 🇧🇷</td>
+                  <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="Brasil">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_E" name="1_Groups_E" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="Suiza">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_E" name="1_Groups_E" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇨🇭 Suiza</td>
+                  <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="1_Groups_E">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">17 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="2018-06-17">
+                  <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="E">
+                  <td style="text-shadow:none; color: white">Costa Rica 🇨🇷</td>
+                  <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="Costa Rica">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_E" name="2_Groups_E" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="Serbia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_E" name="2_Groups_E" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇷🇸 Serbia</td>
+                  <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_E">Registrar resultado</button>
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td style="text-shadow:none; color: white">22 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="2018-06-22">
+                  <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="E">
+                  <td style="text-shadow:none; color: white">Brasil 🇧🇷</td>
+                  <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="Brasil">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_E" name="3_Groups_E" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="Costa Rica">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_E" name="3_Groups_E" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇨🇷 Costa Rica</td>
+                  <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_E">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">22 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="2018-06-22">
+                  <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="E">
+                  <td style="text-shadow:none; color: white">Serbia 🇷🇸</td>
+                  <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="Serbia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_E" name="4_Groups_E" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="Suiza">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_E" name="4_Groups_E" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇨🇭 Suiza</td>
+                  <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_E">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="2018-06-27">
+                  <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="E">
+                  <td style="text-shadow:none; color: white">Serbia 🇷🇸</td>
+                  <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="Serbia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_E" name="5_Groups_E" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="Brasil">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_E" name="5_Groups_E" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇧🇷 Brasil</td>
+                  <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_E">Registrar resultado</button>
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="2018-06-27">
+                  <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="E">
+                  <td style="text-shadow:none; color: white">Suiza 🇨🇭</td>
+                  <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="Suiza">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_E" name="6_Groups_E" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="Costa Rica">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_E" name="6_Groups_E" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇨🇷 Costa Rica</td>
+                  <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_E">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 style="text-shadow:none; color: white">Grupo F </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">17 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="2018-06-17">
+                  <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="F">
+                  <td style="text-shadow:none; color: white">Alemania 🇩🇪</td>
+                  <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="Alemania">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_F" name="1_Groups_F" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="México">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_F" name="1_Groups_F" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇲🇽 México</td>
+                  <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="{{user.id}}">
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">18 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="2018-06-18">
+                  <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="F">
+                  <td style="text-shadow:none; color: white">Suecia 🇸🇪</td>
+                  <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="Suecia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_F" name="2_Groups_F" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="Corea del Sur">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_F" name="2_Groups_F" value="0" required=""></td>
+                  <td>🇰🇷 Corea del Sur</td>
+                  <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_F">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">23 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="2018-06-23">
+                  <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="F">
+                  <td style="text-shadow:none; color: white">Alemania 🇩🇪</td>
+                  <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="Alemania">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_F" name="3_Groups_F" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="Suecia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_F" name="3_Groups_F" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇸🇪 Suecia</td>
+                  <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_F">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">23 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="2018-06-23">
+                  <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="F">
+                  <td style="text-shadow:none; color: white">Corea del Sur 🇰🇷</td>
+                  <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="Corea del Sur">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_F" name="4_Groups_F" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="México">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_F" name="4_Groups_F" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇲🇽 México</td>
+                  <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_F">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="2018-06-27">
+                  <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="F">
+                  <td style="text-shadow:none; color: white">Corea del Sur 🇰🇷</td>
+                  <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="Corea del Sur">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_F" name="5_Groups_F" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="Alemania">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_F" name="5_Groups_F" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇩🇪 Alemania</td>
+                  <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_F">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="2018-06-27">
+                  <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="F">
+                  <td style="text-shadow:none; color: white">México 🇲🇽</td>
+                  <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="México">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_F" name="6_Groups_F" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="Suecia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_F" name="6_Groups_F" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇸🇪 Suecia</td>
+                  <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_F">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 style="text-shadow:none; color: white">Grupo G </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">18 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="2018-06-18">
+                  <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="G">
+                  <td style="text-shadow:none; color: white">Bélgica 🇧🇪</td>
+                  <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="Bélgica">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_G" name="1_Groups_G" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="Panamá">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_G" name="1_Groups_G" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇵🇦 Panamá</td>
+                  <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="1_Groups_G">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">18 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="2018-06-18">
+                  <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="G">
+                  <td style="text-shadow:none; color: white">Túnez 🇹🇳</td>
+                  <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="Túnez">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_G" name="2_Groups_G" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="Inglaterra">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_G" name="2_Groups_G" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇬🇧 Inglaterra</td>
+                  <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_G">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">23 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="2018-06-23">
+                  <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="G">
+                  <td style="text-shadow:none; color: white">Bélgica 🇧🇪</td>
+                  <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="Bélgica">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_G" name="3_Groups_G" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="Túnez">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_G" name="3_Groups_G" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇹🇳 Túnez</td>
+                  <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_G">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">24 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="2018-06-24">
+                  <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="G">
+                  <td style="text-shadow:none; color: white">Inglaterra 🇬🇧</td>
+                  <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="Inglaterra">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_G" name="4_Groups_G" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="Panamá">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_G" name="4_Groups_G" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇵🇦 Panamá</td>
+                  <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_G">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="2018-06-28">
+                  <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="G">
+                  <td style="text-shadow:none; color: white">Panamá 🇬🇧</td>
+                  <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="Panamá">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_G" name="5_Groups_G" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="Túnez">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_G" name="5_Groups_G" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇹🇳 Túnez</td>
+                  <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_G">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="2018-06-28">
+                  <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="G">
+                  <td style="text-shadow:none; color: white">Inglaterra 🇵🇦</td>
+                  <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="Inglaterra">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_G" name="6_Groups_G" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="Bélgica">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_G" name="6_Groups_G" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇹🇳 Bélgica</td>
+                  <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_G">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 style="text-shadow:none; color: white">Grupo H </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+
+                <tr>
+                  <th style="text-shadow:none; color: white">Fecha</th>
+                  <th style="text-shadow:none; color: white">Equipo 1</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Goles</th>
+                  <th style="text-shadow:none; color: white">Equipo 2</th>
+                  <th style="text-shadow:none; color: white"> </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">19 de Junio de 2018</td>
+                  <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="2018-06-19">
+                  <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="H">
+                  <td style="text-shadow:none; color: white">Colombia 🇨🇴</td>
+                  <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="Colombia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_H" name="1_Groups_H" value="0" required=""></td>
+                  <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="Japón">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_H" name="1_Groups_H" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇯🇵 Japón</td>
+                  <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="1_Groups_H">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">19 de Junio de 2018</td>
+                  <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="2018-06-19">
+                  <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="H">
+                  <td style="text-shadow:none; color: white">Polonia 🇵🇱</td>
+                  <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="Polonia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_H" name="2_Groups_H" value="0" required=""></td>
+                  <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="Senegal">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_H" name="2_Groups_H" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇸🇳 Senegal</td>
+                  <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="2_Groups_H">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">24 de Junio de 2018</td>
+                  <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="2018-06-24">
+                  <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="H">
+                  <td style="text-shadow:none; color: white">Japón 🇯🇵</td>
+                  <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="Japón">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_H" name="3_Groups_H" value="0" required=""></td>
+                  <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="Senegal">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_H" name="3_Groups_H" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇸🇳 Senegal</td>
+                  <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="3_Groups_H">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">24 de Junio de 2018</td>
+                  <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="2018-06-24">
+                  <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="H">
+                  <td style="text-shadow:none; color: white">Polonia 🇵🇱</td>
+                  <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="Polonia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_H" name="4_Groups_H" value="0" required=""></td>
+                  <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="Colombia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_H" name="4_Groups_H" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇨🇴 Colombia</td>
+                  <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="4_Groups_H">Registrar resultado</button>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
+                  <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="2018-06-28">
+                  <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="H">
+                  <td style="text-shadow:none; color: white">Japón 🇯🇵</td>
+                  <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="Japón">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_H" name="5_Groups_H" value="0" required=""></td>
+                  <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="Polonia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_H" name="5_Groups_H" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇵🇱 Polonia</td>
+                  <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="5_Groups_H">Registrar resultado</button>
+                  </td>
+
+                </tr>
+                <tr>
+
+                  <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
+                  <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="2018-06-28">
+                  <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="H">
+                  <td style="text-shadow:none; color: white">Senegal 🇸🇳</td>
+                  <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="Senegal">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_H" name="6_Groups_H" value="0" required=""></td>
+                  <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="Colombia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_H" name="6_Groups_H" value="0" required=""></td>
+                  <td style="text-shadow:none; color: white">🇨🇴 Colombia</td>
+                  <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="{{user.id}}">
+                  <td>
+                    <button type="submit" class="btn btn-primary btn-block" name="6_Groups_H">Registrar resultado</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xs-12 text-center">
+            <a class="btn btn-warning" href="{% url 'PrincipalRegistroResultados' %}">volver</a>
+         </div>
+       </form>
+     </div>
+     <div class="footer">
+      <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+        <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+
+
+<!-- page script -->
+<script type="text/javascript">
+  
+ $('.btn').on('click', function() {
+  var $this = $(this);
+  $this.button('loading');
+  setTimeout(function() {
+   $this.button('reset');
+ }, 8000);
+});
+</script>
+{% endblock content %}

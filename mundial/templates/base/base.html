@@ -87,6 +87,11 @@
                <li><a href="{% url 'verFaseGrupos' %}"><i class="fa fa-trophy"></i> Pronosticos
                  </a>
                </li>
+               {% if user.is_superuser == 1 %}
+                <li><a href="#"><i class="fa fa-pencil-square-o"></i> Registro <br/> resultados
+                 </a>
+               </li>
+               {% endif %}
                <li style="padding-top: 12px"><img align="left_col" src="{% static "images/BETO.png" %}"  height="25"></li>
                <li style="padding-top: 12px"><img align="left_col" src="{% static "images/SRS.png" %}"  height="25"></li>
                <li style="padding-top: 12px"><img align="left_col" src="{% static "images/EBI.png" %}"  height="25"></li>

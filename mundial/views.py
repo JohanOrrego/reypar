@@ -96,6 +96,8 @@ def InicioView(request):
 	countUsuarioCuartos = FaseCuartosUsuariosModel.objects.filter(Participante= request.user.id).count()
 	countUsuarioSemifinales = FaseSemifinalesUsuariosModel.objects.filter(Participante= request.user.id).count()
 	countUsuariofinal = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id).count()
+	if request.user.is_superuser == 1:
+		return HttpResponseRedirect('/PrincipalRegistroResultados/')
 	if countUsuarioFase == 0:
 		return HttpResponseRedirect('/registroFaseGrupos/')
 	if countUsuarioOctavos == 0:
@@ -237,6 +239,7 @@ def ValidarEmpateGrupos(ListResultado):
 			contar += contar + 1
 
 	return contar
+
 def verFaseGruposView(request):
 	FaseGrupos = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id)
 	Octavos = FaseOctavosUsuariosModel.objects.filter(Participante= request.user.id)
@@ -864,3 +867,131 @@ def RegistarResultadosFaseFinal(ListResultado):
     for e in ListResultado
     ]
     detalleFaseFinalUsuarios = FaseFinalUsuariosModel.objects.bulk_create(objs)
+
+
+# vista para cargar el template principal del admin para registro de resultados
+class RegistroResultadosAdminView(TemplateView):
+	template_name = 'adminResultados/principalRegistroResultadosAdmin.html'
+
+# vista para el registro de los resultados de la fase de grupos por el Administrador
+def RegistroFaseGruposAdminView(request):
+	if request.method=='POST' and 'btn_1_Groups_A' in request.POST:
+		try:
+
+			grupo1A = request.POST.getlist('1_Groups_A')
+			RegistarResultadosFaseGruposAdmin(grupo1A)
+			ObtenerPuntajeUsuarios(grupo1A,0)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_A' in request.POST:
+		try:
+
+			grupo2A = request.POST.getlist('2_Groups_A')
+			RegistarResultadosFaseGruposAdmin(grupo2A)
+			ObtenerPuntajeUsuarios(grupo2A,0)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_A' in request.POST:
+		try:
+
+			grupo3A = request.POST.getlist('3_Groups_A')
+			RegistarResultadosFaseGruposAdmin(grupo3A)
+			ObtenerPuntajeUsuarios(grupo3A,0)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	return render(request, 'adminResultados/registroFaseGruposAdmin.html')
+
+# funcion para el registro en base de datos del list con los resultados registrados por el Administrador
+def RegistarResultadosFaseGruposAdmin(partido):
+	ResultadoPartido = FaseGruposAdminModel ( 
+		FechaPartido=partido[0],
+		Grupo=partido[1],
+		Equipo1=partido[2],
+		MarcadorEquipo1=partido[3],
+		Equipo2=partido[4],
+		MarcadorEquipo2 = partido[5],
+		Participante =ParticipantesModel.objects.get(id=partido[6])
+	)
+	ResultadoPartido.save (force_insert = True)
+
+#funcion para obtener el puntaje del usuario segun sea el resultado del partido registrado por el admin
+def ObtenerPuntajeUsuarios(partido,identificador):
+	ResultadosUsuarios =  FaseGruposUsuariosModel.objects.filter(FechaPartido=partido[0],Grupo=partido[1],Equipo1=partido[2],Equipo2=partido[4])
+	contador = 0
+	for i in ResultadosUsuarios:
+		if i.MarcadorEquipo1 == int(partido[3]) and i.MarcadorEquipo2 == int(partido[5]):
+			print('Ha obtenido 3 puntos')
+			contador += 3
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[3] > partido[5]:
+			print('Ha obtenido 1 puntos')
+			contador += 1
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2 and partido[3] < partido[5]:
+			print('Ha obtenido 1 puntos')
+			contador += 1
+		registroRanking(contador,i.Participante.id,identificador)
+
+def registroRanking(contador,idUsuario, identificador):
+	try:
+		RankingModel.objects.get(Participante=idUsuario)
+		# registro puntaje fase de GRUPOS 
+		if identificador == 0:
+			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
+			PuntajeUsuario.PuntajeFaseGrupos = int(PuntajeUsuario.PuntajeFaseGrupos) + contador
+			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
+			PuntajeUsuario.save()
+
+		# registro puntaje fase de octavos
+		if identificador == 1:
+			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
+			PuntajeUsuario.PuntajeOctavos = contador
+			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
+			PuntajeUsuario.save()
+
+		# registro puntaje fase de cuartos
+		if identificador == 2:
+			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
+			PuntajeUsuario.PuntajeCuartos = contador
+			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
+			PuntajeUsuario.save()
+
+		# registro puntaje fase de semifinales
+		if identificador == 3:
+			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
+			PuntajeUsuario.PuntajeSeminFinales = contador
+			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
+			PuntajeUsuario.save()
+
+		# registro puntaje fase de Final
+		if identificador == '4':
+			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
+			PuntajeUsuario.PuntajeFinal = contador
+			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
+			PuntajeUsuario.save()
+
+	except RankingModel.DoesNotExist:
+		PuntajeUsuario = RankingModel ( 
+		Participante=ParticipantesModel.objects.get(id=idUsuario),
+		PuntajeFaseGrupos=contador,
+		Puntaje = contador
+		)
+		PuntajeUsuario.save (force_insert = True)
+        
+
+
+
+
+
+
+

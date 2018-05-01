@@ -66,6 +66,23 @@ class ParticipantesModel(AbstractUser):
 	CargoEmpresa = models.CharField(max_length=15)
 
 
+# modelo para el registro de los participantes en la polla 
+class RankingModel(models.Model):
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	PuntajeFaseGrupos = models.IntegerField(null=True, blank=True)
+	PuntajeOctavos = models.IntegerField(null=True, blank=True)
+	PuntajeCuartos = models.IntegerField(null=True, blank=True)
+	PuntajeSeminFinales = models.IntegerField(null=True, blank=True)
+	PuntajeFinal = models.IntegerField(null=True, blank=True)
+	Puntaje = models.IntegerField()
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+	FechaModifica = models.DateTimeField(auto_now=True, null=True, blank=True)
+
+	class Meta:
+		db_table = 'tblRankingUsuarios'
+		unique_together = (('Participante'),)
+
+
 # modelo para el regitro de los resultados en la fase de grupos por participantes de la polla mundialista
 class FaseGruposUsuariosModel(models.Model):
 	FechaPartido = models.DateField()
@@ -79,6 +96,21 @@ class FaseGruposUsuariosModel(models.Model):
 
 	class Meta:
 		db_table = 'tblFaseGruposUsuarios'
+		unique_together = (('Grupo','Equipo1','Equipo2','Participante'),)
+
+# modelo para el regitro de los resultados en la fase de grupos por el administrador de la polla mundialista
+class FaseGruposAdminModel(models.Model):
+	FechaPartido = models.DateField()
+	Grupo = models.CharField(max_length=10)
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseGruposAdmin'
 		unique_together = (('Grupo','Equipo1','Equipo2','Participante'),)
 
 
