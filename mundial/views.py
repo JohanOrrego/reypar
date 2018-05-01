@@ -248,6 +248,7 @@ def verFaseGruposView(request):
 	Final = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id)
 	print FaseGrupos
 	return render(request,'verFaseGrupos.html',{'FaseGrupos':FaseGrupos,'Octavos':Octavos,'Cuartos':Cuartos,'Semis':Semis,'Final':Final})
+
 # funcion para el registro de los equipos en la tablas de posiciones por usuarios
 def RegistroPosicionesEquiposUsuarios(partidojugado):
 	equipoUno = TablasPosocionesUsuariosModel.objects.filter(Grupo=partidojugado[1] , Equipo=partidojugado[2], Participante=partidojugado[6]).exists()
@@ -881,6 +882,7 @@ def RegistroFaseGruposAdminView(request):
 			grupo1A = request.POST.getlist('1_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo1A)
 			ObtenerPuntajeUsuarios(grupo1A,0)
+			RegistroPosicionesEquiposUsuarios(grupo1A)
 			sweetify.success(request, 'Registro exitoso!')
 
 		except IntegrityError as e:
@@ -893,6 +895,7 @@ def RegistroFaseGruposAdminView(request):
 			grupo2A = request.POST.getlist('2_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo2A)
 			ObtenerPuntajeUsuarios(grupo2A,0)
+			RegistroPosicionesEquiposUsuarios(grupo2A)
 			sweetify.success(request, 'Registro exitoso!')
 
 		except IntegrityError as e:
@@ -905,6 +908,592 @@ def RegistroFaseGruposAdminView(request):
 			grupo3A = request.POST.getlist('3_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo3A)
 			ObtenerPuntajeUsuarios(grupo3A,0)
+			RegistroPosicionesEquiposUsuarios(grupo3A)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_A' in request.POST:
+		try:
+
+			grupo4A = request.POST.getlist('4_Groups_A')
+			RegistarResultadosFaseGruposAdmin(grupo4A)
+			ObtenerPuntajeUsuarios(grupo4A,0)
+			RegistroPosicionesEquiposUsuarios(grupo4A)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_A' in request.POST:
+		try:
+
+			grupo5A = request.POST.getlist('5_Groups_A')
+			RegistarResultadosFaseGruposAdmin(grupo5A)
+			ObtenerPuntajeUsuarios(grupo5A,0)
+			RegistroPosicionesEquiposUsuarios(grupo5A)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_A' in request.POST:
+		try:
+
+			grupo6A = request.POST.getlist('6_Groups_A')
+			RegistarResultadosFaseGruposAdmin(grupo6A)
+			ObtenerPuntajeUsuarios(grupo6A,0)
+			RegistroPosicionesEquiposUsuarios(grupo6A)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_B' in request.POST:
+		try:
+
+			grupo1B = request.POST.getlist('1_Groups_B')
+			RegistarResultadosFaseGruposAdmin(grupo1B)
+			ObtenerPuntajeUsuarios(grupo1B,0)
+			RegistroPosicionesEquiposUsuarios(grupo1B)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_B' in request.POST:
+		try:
+
+			grupo2B = request.POST.getlist('2_Groups_B')
+			RegistarResultadosFaseGruposAdmin(grupo2B)
+			ObtenerPuntajeUsuarios(grupo2B,0)
+			RegistroPosicionesEquiposUsuarios(grupo2B)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_B' in request.POST:
+		try:
+
+			grupo3B = request.POST.getlist('3_Groups_B')
+			RegistarResultadosFaseGruposAdmin(grupo3B)
+			ObtenerPuntajeUsuarios(grupo3B,0)
+			RegistroPosicionesEquiposUsuarios(grupo3B)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_B' in request.POST:
+		try:
+
+			grupo4B = request.POST.getlist('4_Groups_B')
+			RegistarResultadosFaseGruposAdmin(grupo4B)
+			ObtenerPuntajeUsuarios(grupo4B,0)
+			RegistroPosicionesEquiposUsuarios(grupo4B)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_B' in request.POST:
+		try:
+
+			grupo5B = request.POST.getlist('5_Groups_B')
+			RegistarResultadosFaseGruposAdmin(grupo5B)
+			ObtenerPuntajeUsuarios(grupo5B,0)
+			RegistroPosicionesEquiposUsuarios(grupo5B)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_B' in request.POST:
+		try:
+
+			grupo6B = request.POST.getlist('6_Groups_B')
+			RegistarResultadosFaseGruposAdmin(grupo6B)
+			ObtenerPuntajeUsuarios(grupo6B,0)
+			RegistroPosicionesEquiposUsuarios(grupo6B)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_C' in request.POST:
+		try:
+
+			grupo1C = request.POST.getlist('1_Groups_C')
+			RegistarResultadosFaseGruposAdmin(grupo1C)
+			ObtenerPuntajeUsuarios(grupo1C,0)
+			RegistroPosicionesEquiposUsuarios(grupo1C)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_C' in request.POST:
+		try:
+
+			grupo2C = request.POST.getlist('2_Groups_C')
+			RegistarResultadosFaseGruposAdmin(grupo2C)
+			ObtenerPuntajeUsuarios(grupo2C,0)
+			RegistroPosicionesEquiposUsuarios(grupo2C)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_C' in request.POST:
+		try:
+
+			grupo3C = request.POST.getlist('3_Groups_C')
+			RegistarResultadosFaseGruposAdmin(grupo3C)
+			ObtenerPuntajeUsuarios(grupo3C,0)
+			RegistroPosicionesEquiposUsuarios(grupo3C)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_C' in request.POST:
+		try:
+
+			grupo4C = request.POST.getlist('4_Groups_C')
+			RegistarResultadosFaseGruposAdmin(grupo4C)
+			ObtenerPuntajeUsuarios(grupo4C,0)
+			RegistroPosicionesEquiposUsuarios(grupo4C)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_C' in request.POST:
+		try:
+
+			grupo5C = request.POST.getlist('5_Groups_C')
+			RegistarResultadosFaseGruposAdmin(grupo5C)
+			ObtenerPuntajeUsuarios(grupo5C,0)
+			RegistroPosicionesEquiposUsuarios(grupo5C)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_C' in request.POST:
+		try:
+
+			grupo6C = request.POST.getlist('6_Groups_C')
+			RegistarResultadosFaseGruposAdmin(grupo6C)
+			ObtenerPuntajeUsuarios(grupo6C,0)
+			RegistroPosicionesEquiposUsuarios(grupo6C)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_D' in request.POST:
+		try:
+
+			grupo1D = request.POST.getlist('1_Groups_D')
+			RegistarResultadosFaseGruposAdmin(grupo1D)
+			ObtenerPuntajeUsuarios(grupo1D,0)
+			RegistroPosicionesEquiposUsuarios(grupo1D)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_D' in request.POST:
+		try:
+
+			grupo2D = request.POST.getlist('2_Groups_D')
+			RegistarResultadosFaseGruposAdmin(grupo2D)
+			ObtenerPuntajeUsuarios(grupo2D,0)
+			RegistroPosicionesEquiposUsuarios(grupo2D)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_D' in request.POST:
+		try:
+
+			grupo3D = request.POST.getlist('3_Groups_D')
+			RegistarResultadosFaseGruposAdmin(grupo3D)
+			ObtenerPuntajeUsuarios(grupo3D,0)
+			RegistroPosicionesEquiposUsuarios(grupo3D)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_D' in request.POST:
+		try:
+
+			grupo4D = request.POST.getlist('4_Groups_D')
+			RegistarResultadosFaseGruposAdmin(grupo4D)
+			ObtenerPuntajeUsuarios(grupo4D,0)
+			RegistroPosicionesEquiposUsuarios(grupo4D)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_D' in request.POST:
+		try:
+
+			grupo5D = request.POST.getlist('5_Groups_D')
+			RegistarResultadosFaseGruposAdmin(grupo5D)
+			ObtenerPuntajeUsuarios(grupo5D,0)
+			RegistroPosicionesEquiposUsuarios(grupo5D)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_D' in request.POST:
+		try:
+
+			grupo6D = request.POST.getlist('6_Groups_D')
+			RegistarResultadosFaseGruposAdmin(grupo6D)
+			ObtenerPuntajeUsuarios(grupo6D,0)
+			RegistroPosicionesEquiposUsuarios(grupo6D)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_E' in request.POST:
+		try:
+
+			grupo1E = request.POST.getlist('1_Groups_E')
+			RegistarResultadosFaseGruposAdmin(grupo1E)
+			ObtenerPuntajeUsuarios(grupo1E,0)
+			RegistroPosicionesEquiposUsuarios(grupo1E)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_E' in request.POST:
+		try:
+
+			grupo2E = request.POST.getlist('2_Groups_E')
+			RegistarResultadosFaseGruposAdmin(grupo2E)
+			ObtenerPuntajeUsuarios(grupo2E,0)
+			RegistroPosicionesEquiposUsuarios(grupo2E)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_E' in request.POST:
+		try:
+
+			grupo3E = request.POST.getlist('3_Groups_E')
+			RegistarResultadosFaseGruposAdmin(grupo3E)
+			ObtenerPuntajeUsuarios(grupo3E,0)
+			RegistroPosicionesEquiposUsuarios(grupo3E)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_E' in request.POST:
+		try:
+
+			grupo4E = request.POST.getlist('4_Groups_E')
+			RegistarResultadosFaseGruposAdmin(grupo4E)
+			ObtenerPuntajeUsuarios(grupo4E,0)
+			RegistroPosicionesEquiposUsuarios(grupo4E)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_E' in request.POST:
+		try:
+
+			grupo5E = request.POST.getlist('5_Groups_E')
+			RegistarResultadosFaseGruposAdmin(grupo5E)
+			ObtenerPuntajeUsuarios(grupo5E,0)
+			RegistroPosicionesEquiposUsuarios(grupo5E)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_E' in request.POST:
+		try:
+
+			grupo6E = request.POST.getlist('6_Groups_E')
+			RegistarResultadosFaseGruposAdmin(grupo6E)
+			ObtenerPuntajeUsuarios(grupo6E,0)
+			RegistroPosicionesEquiposUsuarios(grupo6E)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_F' in request.POST:
+		try:
+
+			grupo1F = request.POST.getlist('1_Groups_F')
+			RegistarResultadosFaseGruposAdmin(grupo1F)
+			ObtenerPuntajeUsuarios(grupo1F,0)
+			RegistroPosicionesEquiposUsuarios(grupo1F)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_F' in request.POST:
+		try:
+
+			grupo2F = request.POST.getlist('2_Groups_F')
+			RegistarResultadosFaseGruposAdmin(grupo2F)
+			ObtenerPuntajeUsuarios(grupo2F,0)
+			RegistroPosicionesEquiposUsuarios(grupo2F)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_F' in request.POST:
+		try:
+
+			grupo3F = request.POST.getlist('3_Groups_F')
+			RegistarResultadosFaseGruposAdmin(grupo3F)
+			ObtenerPuntajeUsuarios(grupo3F,0)
+			RegistroPosicionesEquiposUsuarios(grupo3F)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_F' in request.POST:
+		try:
+
+			grupo4F = request.POST.getlist('4_Groups_F')
+			RegistarResultadosFaseGruposAdmin(grupo4F)
+			ObtenerPuntajeUsuarios(grupo4F,0)
+			RegistroPosicionesEquiposUsuarios(grupo4F)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_F' in request.POST:
+		try:
+
+			grupo5F = request.POST.getlist('5_Groups_F')
+			RegistarResultadosFaseGruposAdmin(grupo5F)
+			ObtenerPuntajeUsuarios(grupo5F,0)
+			RegistroPosicionesEquiposUsuarios(grupo5F)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_F' in request.POST:
+		try:
+
+			grupo6F = request.POST.getlist('6_Groups_F')
+			RegistarResultadosFaseGruposAdmin(grupo6F)
+			ObtenerPuntajeUsuarios(grupo6F,0)
+			RegistroPosicionesEquiposUsuarios(grupo6F)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_G' in request.POST:
+		try:
+
+			grupo1G = request.POST.getlist('1_Groups_G')
+			RegistarResultadosFaseGruposAdmin(grupo1G)
+			ObtenerPuntajeUsuarios(grupo1G,0)
+			RegistroPosicionesEquiposUsuarios(grupo1G)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_G' in request.POST:
+		try:
+
+			grupo2G = request.POST.getlist('2_Groups_G')
+			RegistarResultadosFaseGruposAdmin(grupo2G)
+			ObtenerPuntajeUsuarios(grupo2G,0)
+			RegistroPosicionesEquiposUsuarios(grupo2G)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_G' in request.POST:
+		try:
+
+			grupo3G = request.POST.getlist('3_Groups_G')
+			RegistarResultadosFaseGruposAdmin(grupo3G)
+			ObtenerPuntajeUsuarios(grupo3G,0)
+			RegistroPosicionesEquiposUsuarios(grupo3G)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_G' in request.POST:
+		try:
+
+			grupo4G = request.POST.getlist('4_Groups_G')
+			RegistarResultadosFaseGruposAdmin(grupo4G)
+			ObtenerPuntajeUsuarios(grupo4G,0)
+			RegistroPosicionesEquiposUsuarios(grupo4G)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_G' in request.POST:
+		try:
+
+			grupo5G = request.POST.getlist('5_Groups_G')
+			RegistarResultadosFaseGruposAdmin(grupo5G)
+			ObtenerPuntajeUsuarios(grupo5G,0)
+			RegistroPosicionesEquiposUsuarios(grupo5G)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_G' in request.POST:
+		try:
+
+			grupo6G = request.POST.getlist('6_Groups_G')
+			RegistarResultadosFaseGruposAdmin(grupo6G)
+			ObtenerPuntajeUsuarios(grupo6G,0)
+			RegistroPosicionesEquiposUsuarios(grupo6G)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_1_Groups_H' in request.POST:
+		try:
+
+			grupo1H = request.POST.getlist('1_Groups_H')
+			RegistarResultadosFaseGruposAdmin(grupo1H)
+			ObtenerPuntajeUsuarios(grupo1H,0)
+			RegistroPosicionesEquiposUsuarios(grupo1H)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_2_Groups_H' in request.POST:
+		try:
+
+			grupo2H = request.POST.getlist('2_Groups_H')
+			RegistarResultadosFaseGruposAdmin(grupo2H)
+			ObtenerPuntajeUsuarios(grupo2H,0)
+			RegistroPosicionesEquiposUsuarios(grupo2H)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_3_Groups_H' in request.POST:
+		try:
+
+			grupo3H = request.POST.getlist('3_Groups_H')
+			RegistarResultadosFaseGruposAdmin(grupo3H)
+			ObtenerPuntajeUsuarios(grupo3H,0)
+			RegistroPosicionesEquiposUsuarios(grupo3H)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_4_Groups_H' in request.POST:
+		try:
+
+			grupo4H = request.POST.getlist('4_Groups_H')
+			RegistarResultadosFaseGruposAdmin(grupo4H)
+			ObtenerPuntajeUsuarios(grupo4H,0)
+			RegistroPosicionesEquiposUsuarios(grupo4H)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_5_Groups_H' in request.POST:
+		try:
+
+			grupo5H = request.POST.getlist('5_Groups_H')
+			RegistarResultadosFaseGruposAdmin(grupo5H)
+			ObtenerPuntajeUsuarios(grupo5H,0)
+			RegistroPosicionesEquiposUsuarios(grupo5H)
+			sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_6_Groups_H' in request.POST:
+		try:
+
+			grupo6H = request.POST.getlist('6_Groups_H')
+			RegistarResultadosFaseGruposAdmin(grupo6H)
+			ObtenerPuntajeUsuarios(grupo6H,0)
+			RegistroPosicionesEquiposUsuarios(grupo6H)
 			sweetify.success(request, 'Registro exitoso!')
 
 		except IntegrityError as e:
@@ -932,13 +1521,10 @@ def ObtenerPuntajeUsuarios(partido,identificador):
 	contador = 0
 	for i in ResultadosUsuarios:
 		if i.MarcadorEquipo1 == int(partido[3]) and i.MarcadorEquipo2 == int(partido[5]):
-			print('Ha obtenido 3 puntos')
 			contador += 3
 		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[3] > partido[5]:
-			print('Ha obtenido 1 puntos')
 			contador += 1
 		if i.MarcadorEquipo1 < i.MarcadorEquipo2 and partido[3] < partido[5]:
-			print('Ha obtenido 1 puntos')
 			contador += 1
 		registroRanking(contador,i.Participante.id,identificador)
 
