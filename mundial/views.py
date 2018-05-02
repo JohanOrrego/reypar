@@ -881,7 +881,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1A = request.POST.getlist('1_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo1A)
-			ObtenerPuntajeUsuarios(grupo1A,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1A,0)
 			RegistroPosicionesEquiposUsuarios(grupo1A)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -894,7 +894,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2A = request.POST.getlist('2_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo2A)
-			ObtenerPuntajeUsuarios(grupo2A,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2A,0)
 			RegistroPosicionesEquiposUsuarios(grupo2A)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -907,7 +907,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3A = request.POST.getlist('3_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo3A)
-			ObtenerPuntajeUsuarios(grupo3A,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3A,0)
 			RegistroPosicionesEquiposUsuarios(grupo3A)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -920,7 +920,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4A = request.POST.getlist('4_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo4A)
-			ObtenerPuntajeUsuarios(grupo4A,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4A,0)
 			RegistroPosicionesEquiposUsuarios(grupo4A)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -933,7 +933,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5A = request.POST.getlist('5_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo5A)
-			ObtenerPuntajeUsuarios(grupo5A,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5A,0)
 			RegistroPosicionesEquiposUsuarios(grupo5A)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -946,7 +946,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6A = request.POST.getlist('6_Groups_A')
 			RegistarResultadosFaseGruposAdmin(grupo6A)
-			ObtenerPuntajeUsuarios(grupo6A,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6A,0)
 			RegistroPosicionesEquiposUsuarios(grupo6A)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -959,7 +959,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1B = request.POST.getlist('1_Groups_B')
 			RegistarResultadosFaseGruposAdmin(grupo1B)
-			ObtenerPuntajeUsuarios(grupo1B,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1B,0)
 			RegistroPosicionesEquiposUsuarios(grupo1B)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -972,7 +972,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2B = request.POST.getlist('2_Groups_B')
 			RegistarResultadosFaseGruposAdmin(grupo2B)
-			ObtenerPuntajeUsuarios(grupo2B,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2B,0)
 			RegistroPosicionesEquiposUsuarios(grupo2B)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -985,7 +985,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3B = request.POST.getlist('3_Groups_B')
 			RegistarResultadosFaseGruposAdmin(grupo3B)
-			ObtenerPuntajeUsuarios(grupo3B,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3B,0)
 			RegistroPosicionesEquiposUsuarios(grupo3B)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -998,7 +998,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4B = request.POST.getlist('4_Groups_B')
 			RegistarResultadosFaseGruposAdmin(grupo4B)
-			ObtenerPuntajeUsuarios(grupo4B,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4B,0)
 			RegistroPosicionesEquiposUsuarios(grupo4B)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1011,7 +1011,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5B = request.POST.getlist('5_Groups_B')
 			RegistarResultadosFaseGruposAdmin(grupo5B)
-			ObtenerPuntajeUsuarios(grupo5B,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5B,0)
 			RegistroPosicionesEquiposUsuarios(grupo5B)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1024,7 +1024,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6B = request.POST.getlist('6_Groups_B')
 			RegistarResultadosFaseGruposAdmin(grupo6B)
-			ObtenerPuntajeUsuarios(grupo6B,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6B,0)
 			RegistroPosicionesEquiposUsuarios(grupo6B)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1037,7 +1037,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1C = request.POST.getlist('1_Groups_C')
 			RegistarResultadosFaseGruposAdmin(grupo1C)
-			ObtenerPuntajeUsuarios(grupo1C,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1C,0)
 			RegistroPosicionesEquiposUsuarios(grupo1C)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1050,7 +1050,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2C = request.POST.getlist('2_Groups_C')
 			RegistarResultadosFaseGruposAdmin(grupo2C)
-			ObtenerPuntajeUsuarios(grupo2C,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2C,0)
 			RegistroPosicionesEquiposUsuarios(grupo2C)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1063,7 +1063,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3C = request.POST.getlist('3_Groups_C')
 			RegistarResultadosFaseGruposAdmin(grupo3C)
-			ObtenerPuntajeUsuarios(grupo3C,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3C,0)
 			RegistroPosicionesEquiposUsuarios(grupo3C)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1076,7 +1076,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4C = request.POST.getlist('4_Groups_C')
 			RegistarResultadosFaseGruposAdmin(grupo4C)
-			ObtenerPuntajeUsuarios(grupo4C,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4C,0)
 			RegistroPosicionesEquiposUsuarios(grupo4C)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1089,7 +1089,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5C = request.POST.getlist('5_Groups_C')
 			RegistarResultadosFaseGruposAdmin(grupo5C)
-			ObtenerPuntajeUsuarios(grupo5C,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5C,0)
 			RegistroPosicionesEquiposUsuarios(grupo5C)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1102,7 +1102,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6C = request.POST.getlist('6_Groups_C')
 			RegistarResultadosFaseGruposAdmin(grupo6C)
-			ObtenerPuntajeUsuarios(grupo6C,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6C,0)
 			RegistroPosicionesEquiposUsuarios(grupo6C)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1115,7 +1115,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1D = request.POST.getlist('1_Groups_D')
 			RegistarResultadosFaseGruposAdmin(grupo1D)
-			ObtenerPuntajeUsuarios(grupo1D,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1D,0)
 			RegistroPosicionesEquiposUsuarios(grupo1D)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1128,7 +1128,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2D = request.POST.getlist('2_Groups_D')
 			RegistarResultadosFaseGruposAdmin(grupo2D)
-			ObtenerPuntajeUsuarios(grupo2D,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2D,0)
 			RegistroPosicionesEquiposUsuarios(grupo2D)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1141,7 +1141,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3D = request.POST.getlist('3_Groups_D')
 			RegistarResultadosFaseGruposAdmin(grupo3D)
-			ObtenerPuntajeUsuarios(grupo3D,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3D,0)
 			RegistroPosicionesEquiposUsuarios(grupo3D)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1154,7 +1154,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4D = request.POST.getlist('4_Groups_D')
 			RegistarResultadosFaseGruposAdmin(grupo4D)
-			ObtenerPuntajeUsuarios(grupo4D,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4D,0)
 			RegistroPosicionesEquiposUsuarios(grupo4D)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1167,7 +1167,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5D = request.POST.getlist('5_Groups_D')
 			RegistarResultadosFaseGruposAdmin(grupo5D)
-			ObtenerPuntajeUsuarios(grupo5D,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5D,0)
 			RegistroPosicionesEquiposUsuarios(grupo5D)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1180,7 +1180,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6D = request.POST.getlist('6_Groups_D')
 			RegistarResultadosFaseGruposAdmin(grupo6D)
-			ObtenerPuntajeUsuarios(grupo6D,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6D,0)
 			RegistroPosicionesEquiposUsuarios(grupo6D)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1193,7 +1193,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1E = request.POST.getlist('1_Groups_E')
 			RegistarResultadosFaseGruposAdmin(grupo1E)
-			ObtenerPuntajeUsuarios(grupo1E,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1E,0)
 			RegistroPosicionesEquiposUsuarios(grupo1E)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1206,7 +1206,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2E = request.POST.getlist('2_Groups_E')
 			RegistarResultadosFaseGruposAdmin(grupo2E)
-			ObtenerPuntajeUsuarios(grupo2E,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2E,0)
 			RegistroPosicionesEquiposUsuarios(grupo2E)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1219,7 +1219,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3E = request.POST.getlist('3_Groups_E')
 			RegistarResultadosFaseGruposAdmin(grupo3E)
-			ObtenerPuntajeUsuarios(grupo3E,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3E,0)
 			RegistroPosicionesEquiposUsuarios(grupo3E)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1232,7 +1232,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4E = request.POST.getlist('4_Groups_E')
 			RegistarResultadosFaseGruposAdmin(grupo4E)
-			ObtenerPuntajeUsuarios(grupo4E,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4E,0)
 			RegistroPosicionesEquiposUsuarios(grupo4E)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1245,7 +1245,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5E = request.POST.getlist('5_Groups_E')
 			RegistarResultadosFaseGruposAdmin(grupo5E)
-			ObtenerPuntajeUsuarios(grupo5E,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5E,0)
 			RegistroPosicionesEquiposUsuarios(grupo5E)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1258,7 +1258,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6E = request.POST.getlist('6_Groups_E')
 			RegistarResultadosFaseGruposAdmin(grupo6E)
-			ObtenerPuntajeUsuarios(grupo6E,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6E,0)
 			RegistroPosicionesEquiposUsuarios(grupo6E)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1271,7 +1271,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1F = request.POST.getlist('1_Groups_F')
 			RegistarResultadosFaseGruposAdmin(grupo1F)
-			ObtenerPuntajeUsuarios(grupo1F,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1F,0)
 			RegistroPosicionesEquiposUsuarios(grupo1F)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1284,7 +1284,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2F = request.POST.getlist('2_Groups_F')
 			RegistarResultadosFaseGruposAdmin(grupo2F)
-			ObtenerPuntajeUsuarios(grupo2F,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2F,0)
 			RegistroPosicionesEquiposUsuarios(grupo2F)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1297,7 +1297,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3F = request.POST.getlist('3_Groups_F')
 			RegistarResultadosFaseGruposAdmin(grupo3F)
-			ObtenerPuntajeUsuarios(grupo3F,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3F,0)
 			RegistroPosicionesEquiposUsuarios(grupo3F)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1310,7 +1310,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4F = request.POST.getlist('4_Groups_F')
 			RegistarResultadosFaseGruposAdmin(grupo4F)
-			ObtenerPuntajeUsuarios(grupo4F,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4F,0)
 			RegistroPosicionesEquiposUsuarios(grupo4F)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1323,7 +1323,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5F = request.POST.getlist('5_Groups_F')
 			RegistarResultadosFaseGruposAdmin(grupo5F)
-			ObtenerPuntajeUsuarios(grupo5F,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5F,0)
 			RegistroPosicionesEquiposUsuarios(grupo5F)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1336,7 +1336,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6F = request.POST.getlist('6_Groups_F')
 			RegistarResultadosFaseGruposAdmin(grupo6F)
-			ObtenerPuntajeUsuarios(grupo6F,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6F,0)
 			RegistroPosicionesEquiposUsuarios(grupo6F)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1349,7 +1349,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1G = request.POST.getlist('1_Groups_G')
 			RegistarResultadosFaseGruposAdmin(grupo1G)
-			ObtenerPuntajeUsuarios(grupo1G,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1G,0)
 			RegistroPosicionesEquiposUsuarios(grupo1G)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1362,7 +1362,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2G = request.POST.getlist('2_Groups_G')
 			RegistarResultadosFaseGruposAdmin(grupo2G)
-			ObtenerPuntajeUsuarios(grupo2G,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2G,0)
 			RegistroPosicionesEquiposUsuarios(grupo2G)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1375,7 +1375,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3G = request.POST.getlist('3_Groups_G')
 			RegistarResultadosFaseGruposAdmin(grupo3G)
-			ObtenerPuntajeUsuarios(grupo3G,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3G,0)
 			RegistroPosicionesEquiposUsuarios(grupo3G)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1388,7 +1388,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4G = request.POST.getlist('4_Groups_G')
 			RegistarResultadosFaseGruposAdmin(grupo4G)
-			ObtenerPuntajeUsuarios(grupo4G,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4G,0)
 			RegistroPosicionesEquiposUsuarios(grupo4G)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1401,7 +1401,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5G = request.POST.getlist('5_Groups_G')
 			RegistarResultadosFaseGruposAdmin(grupo5G)
-			ObtenerPuntajeUsuarios(grupo5G,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5G,0)
 			RegistroPosicionesEquiposUsuarios(grupo5G)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1414,7 +1414,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6G = request.POST.getlist('6_Groups_G')
 			RegistarResultadosFaseGruposAdmin(grupo6G)
-			ObtenerPuntajeUsuarios(grupo6G,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6G,0)
 			RegistroPosicionesEquiposUsuarios(grupo6G)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1427,7 +1427,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo1H = request.POST.getlist('1_Groups_H')
 			RegistarResultadosFaseGruposAdmin(grupo1H)
-			ObtenerPuntajeUsuarios(grupo1H,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo1H,0)
 			RegistroPosicionesEquiposUsuarios(grupo1H)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1440,7 +1440,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo2H = request.POST.getlist('2_Groups_H')
 			RegistarResultadosFaseGruposAdmin(grupo2H)
-			ObtenerPuntajeUsuarios(grupo2H,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo2H,0)
 			RegistroPosicionesEquiposUsuarios(grupo2H)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1453,7 +1453,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo3H = request.POST.getlist('3_Groups_H')
 			RegistarResultadosFaseGruposAdmin(grupo3H)
-			ObtenerPuntajeUsuarios(grupo3H,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo3H,0)
 			RegistroPosicionesEquiposUsuarios(grupo3H)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1466,7 +1466,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo4H = request.POST.getlist('4_Groups_H')
 			RegistarResultadosFaseGruposAdmin(grupo4H)
-			ObtenerPuntajeUsuarios(grupo4H,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo4H,0)
 			RegistroPosicionesEquiposUsuarios(grupo4H)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1479,7 +1479,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo5H = request.POST.getlist('5_Groups_H')
 			RegistarResultadosFaseGruposAdmin(grupo5H)
-			ObtenerPuntajeUsuarios(grupo5H,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo5H,0)
 			RegistroPosicionesEquiposUsuarios(grupo5H)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1492,7 +1492,7 @@ def RegistroFaseGruposAdminView(request):
 
 			grupo6H = request.POST.getlist('6_Groups_H')
 			RegistarResultadosFaseGruposAdmin(grupo6H)
-			ObtenerPuntajeUsuarios(grupo6H,0)
+			ObtenerPuntajeFaseGruposUsuarios(grupo6H,0)
 			RegistroPosicionesEquiposUsuarios(grupo6H)
 			sweetify.success(request, 'Registro exitoso!')
 
@@ -1515,8 +1515,8 @@ def RegistarResultadosFaseGruposAdmin(partido):
 	)
 	ResultadoPartido.save (force_insert = True)
 
-#funcion para obtener el puntaje del usuario segun sea el resultado del partido registrado por el admin
-def ObtenerPuntajeUsuarios(partido,identificador):
+#funcion para obtener el puntaje del usuario segun sea el resultado del partido registrado en la fase de grupos por el admin
+def ObtenerPuntajeFaseGruposUsuarios(partido,identificador):
 	ResultadosUsuarios =  FaseGruposUsuariosModel.objects.filter(FechaPartido=partido[0],Grupo=partido[1],Equipo1=partido[2],Equipo2=partido[4])
 	contador = 0
 	for i in ResultadosUsuarios:
@@ -1560,7 +1560,7 @@ def registroRanking(contador,idUsuario, identificador):
 			PuntajeUsuario.save()
 
 		# registro puntaje fase de Final
-		if identificador == '4':
+		if identificador == 4:
 			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
 			PuntajeUsuario.PuntajeFinal = contador
 			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
@@ -1573,10 +1573,264 @@ def registroRanking(contador,idUsuario, identificador):
 		Puntaje = contador
 		)
 		PuntajeUsuario.save (force_insert = True)
+
+# vista para el registro de los octavos de admin
+def RegistroOctavosAdminView(request):
+	grupos = TablasPosocionesUsuariosModel.objects.values('Grupo').filter(Participante= request.user.id).distinct()
+	mejoresDosEquipos =[]
+	for grupo in grupos:
+		mejoresDosEquipos += TablasPosocionesUsuariosModel.objects.values('Grupo','Equipo').filter(Grupo__in=grupo['Grupo'],Participante= request.user.id).order_by('-Puntos','-GolDiferencia')[:2]
+
+	partido1 = [mejoresDosEquipos[0],mejoresDosEquipos[3], {'fecha':datetime.datetime(2018, 06, 30)},{'identificador':49}]
+	partido2 = [mejoresDosEquipos[4],mejoresDosEquipos[7], {'fecha':datetime.datetime(2018, 06, 30)},{'identificador':50}]
+	partido3 = [mejoresDosEquipos[2],mejoresDosEquipos[1], {'fecha':datetime.datetime(2018, 07, 01)},{'identificador':51}]
+	partido4 = [mejoresDosEquipos[6],mejoresDosEquipos[5], {'fecha':datetime.datetime(2018, 07, 01)},{'identificador':52}]
+	partido5 = [mejoresDosEquipos[8],mejoresDosEquipos[11], {'fecha':datetime.datetime(2018, 07, 02)},{'identificador':53}]
+	partido6 = [mejoresDosEquipos[12],mejoresDosEquipos[15], {'fecha':datetime.datetime(2018, 07, 02)},{'identificador':54}]
+	partido7 = [mejoresDosEquipos[10],mejoresDosEquipos[9], {'fecha':datetime.datetime(2018, 07, 03)},{'identificador':55}]
+	partido8 = [mejoresDosEquipos[14],mejoresDosEquipos[13], {'fecha':datetime.datetime(2018, 07, 03)},{'identificador':56}]
+
+
+	if request.method=='POST' and 'btn_partido1' in request.POST:
+		try:
+
+			resultadoOctavos1 = request.POST.getlist('partido1')
+
+			if len(resultadoOctavos1) < 8:
+				resultadoOctavos1.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos1)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos1)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos1,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido2' in request.POST:
+		try:
+
+			resultadoOctavos2 = request.POST.getlist('partido2')
+
+			if len(resultadoOctavos2) < 8:
+				resultadoOctavos2.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos2)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos2)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos2,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido3' in request.POST:
+		try:
+
+			resultadoOctavos3 = request.POST.getlist('partido3')
+
+			if len(resultadoOctavos3) < 8:
+				resultadoOctavos3.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos3)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos3)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos3,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido4' in request.POST:
+		try:
+
+			resultadoOctavos4 = request.POST.getlist('partido4')
+
+			if len(resultadoOctavos4) < 8:
+				resultadoOctavos4.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos4)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos4)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos4,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido5' in request.POST:
+		try:
+
+			resultadoOctavos5 = request.POST.getlist('partido5')
+
+			if len(resultadoOctavos5) < 8:
+				resultadoOctavos5.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos5)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos5)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos5,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido6' in request.POST:
+		try:
+
+			resultadoOctavos6 = request.POST.getlist('partido6')
+
+			if len(resultadoOctavos6) < 8:
+				resultadoOctavos6.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos6)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos6)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos6,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido7' in request.POST:
+		try:
+
+			resultadoOctavos7 = request.POST.getlist('partido7')
+
+			if len(resultadoOctavos7) < 8:
+				resultadoOctavos7.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos7)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos7)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos7,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido8' in request.POST:
+		try:
+
+			resultadoOctavos8 = request.POST.getlist('partido8')
+
+			if len(resultadoOctavos8) < 8:
+				resultadoOctavos8.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin(resultadoOctavos8)
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseOctavosAdmin(resultadoOctavos8)
+				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos8,1)
+				sweetify.success(request, 'Registro exitoso!')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	return render(request,'adminResultados/registroOctavosAdmin.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'partido3':partido3, 'partido4':partido4,
+		'partido5':partido5, 'partido6':partido6,
+		'partido7':partido7, 'partido8':partido8,
+		})
         
+# funcion para el registro en base de datos del list con los resultados registrados para la fase de octavos por el administrador
+def RegistarResultadosFaseOctavosAdmin(ListResultado):
+    objs = [
+        FaseOctavosAdminModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
 
+        )
+    for e in ListResultado
+    ]
+    detalleFaseOctavosAdmin = FaseOctavosAdminModel.objects.bulk_create(objs)
 
+#funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de octavos registrado por el admin
+def ObtenerPuntajeFaseOctavosUsuarios(partido,identificador):
+	ResultadosUsuarios =  FaseOctavosUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
+	contador = 0
+	for i in ResultadosUsuarios:
+		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
+			contador += 3
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
+			contador += 1
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2 and partido[2] < partido[4]:
+			contador += 1
+		if i.PenalEquipoGanador == partido[5]:
+			contador += 1
+		registroRanking(contador,i.Participante.id,identificador)
 
+# funcion para validar si existen resultados en cero en las diferentres fases
+def ValidarEmpateAdmin(partido):
+	contar=0
+	for i in partido:
+		if i[2] == i[4]:
+			if i[5] == '0':
+				contar += contar + 1
+	return contar
 
 
 

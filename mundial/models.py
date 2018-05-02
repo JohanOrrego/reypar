@@ -149,6 +149,22 @@ class FaseOctavosUsuariosModel(models.Model):
 		db_table = 'tblFaseOctavosUsuarios'
 		unique_together = (('Equipo1','Equipo2','Participante'),)
 
+# modelo para el regitro de los resultados en la fase de octavos por participantes de la polla mundialista
+class FaseOctavosAdminModel(models.Model):
+	FechaPartido = models.DateField()
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	PenalEquipoGanador = models.CharField(max_length=50)
+	Identificador = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseOctavosAdmin'
+		unique_together = (('Equipo1','Equipo2','Participante'),)
+
 # modelo para el regitro de los resultados en la fase de Cuartos por participantes de la polla mundialista
 class FaseCuartosUsuariosModel(models.Model):
 	FechaPartido = models.DateField()
