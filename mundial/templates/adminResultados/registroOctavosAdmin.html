@@ -1,4 +1,3 @@
-
 {% extends 'base/base.html' %}
 {% load staticfiles %}
 {% block content %}
@@ -68,7 +67,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
+                        {% if btnPartido1 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido1">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido1" name="partido1" value="{{partido1.3.identificador}}">
                       <input type="hidden" id="partido1" name="partido1" value="{{user.id}}">
@@ -112,7 +113,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                        <td class="col-xs-1">
+                        {% if btnPartido2 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido2">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido2" name="partido2" value="{{partido2.3.identificador}}">
                       <input type="hidden" id="partido2" name="partido2" value="{{user.id}}">
@@ -156,7 +159,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                        <td class="col-xs-1">
+                        {% if btnPartido3 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido3">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido3" name="partido3" value="{{partido3.3.identificador}}">
                       <input type="hidden" id="partido3" name="partido3" value="{{user.id}}">
@@ -200,7 +205,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
+                        {% if btnPartido4 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido4">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido4" name="partido4" value="{{partido4.3.identificador}}">
                       <input type="hidden" id="partido4" name="partido4" value="{{user.id}}">
@@ -244,7 +251,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
+                        {% if btnPartido5 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido5">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido5" name="partido5" value="{{partido5.3.identificador}}">
                       <input type="hidden" id="partido5" name="partido5" value="{{user.id}}">
@@ -288,7 +297,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
+                        {% if btnPartido6 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido6">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido6" name="partido6" value="{{partido6.3.identificador}}">
                       <input type="hidden" id="partido6" name="partido6" value="{{user.id}}">
@@ -332,7 +343,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
+                        {% if btnPartido7 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido7">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido7" name="partido7" value="{{partido7.3.identificador}}">
                       <input type="hidden" id="partido7" name="partido7" value="{{user.id}}">
@@ -376,7 +389,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                        <td class="col-xs-1">
+                        {% if btnPartido8 == 0 %}
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido8">Registrar resultado</button>
+                        {% endif %}
                       </td>
                       <input type="hidden" id="partido8" name="partido8" value="{{partido8.3.identificador}}">
                       <input type="hidden" id="partido8" name="partido8" value="{{user.id}}">
@@ -386,8 +401,8 @@ p{    font-size: 15px;
                   </div>
 
                   <div class="col-xs-12 text-center">
-                     <button type="submit" class="btn btn-success btn-lg" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
-                  </div>
+                    <a class="btn btn-warning" href="{% url 'PrincipalRegistroResultados' %}">volver</a>
+                </div>
             </div>
           </form>
         </div>

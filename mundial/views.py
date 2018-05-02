@@ -823,8 +823,6 @@ def RegistroFaseFinalView(request):
 			if len(resultadoTercerPuesto) < 8:
 				resultadoTercerPuesto.insert(5, 0)
 
-
-
 			ListResultado=[resultadoFinal,resultadoTercerPuesto]
 
 			Empate = ValidarEmpate(ListResultado)
@@ -871,11 +869,281 @@ def RegistarResultadosFaseFinal(ListResultado):
 
 
 # vista para cargar el template principal del admin para registro de resultados
-class RegistroResultadosAdminView(TemplateView):
-	template_name = 'adminResultados/principalRegistroResultadosAdmin.html'
+def RegistroResultadosAdminView(request):
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id).count() == 48:
+		btnRegistroFaseGrupos = True
+	else:
+		btnRegistroFaseGrupos = False
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id).count() == 8:
+		btnRegistroFaseOctavos = True
+	else:
+		btnRegistroFaseOctavos = False
+
+	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id).count() == 4:
+		btnRegistroFaseCuartos = True
+	else:
+		btnRegistroFaseCuartos = False
+
+	if FaseSemifinalesAdminModel.objects.filter(Participante = request.user.id).count() == 2:
+		btnRegistroFaseSemi = True
+	else:
+		btnRegistroFaseSemi = False
+
+	if FaseFinalAdminModel.objects.filter(Participante = request.user.id).count() == 2:
+		btnRegistroFaseFinal = True
+	else:
+		btnRegistroFaseFinal = False
+
+	return render(request,'adminResultados/principalRegistroResultadosAdmin.html',
+		{ 'btnRegistroFaseGrupos':btnRegistroFaseGrupos, 'btnRegistroFaseOctavos':btnRegistroFaseOctavos,
+		'btnRegistroFaseCuartos':btnRegistroFaseCuartos, 'btnRegistroFaseSemi':btnRegistroFaseSemi,
+		'btnRegistroFaseFinal':btnRegistroFaseFinal
+		})
 
 # vista para el registro de los resultados de la fase de grupos por el Administrador
 def RegistroFaseGruposAdminView(request):
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=1).count() > 0:
+		btnPartido1 = 1
+	else:
+		btnPartido1 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=2).count() > 0:
+		btnPartido2 = 1
+	else:
+		btnPartido2 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=3).count() > 0:
+		btnPartido3 = 1
+	else:
+		btnPartido3 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=4).count() > 0:
+		btnPartido4 = 1
+	else:
+		btnPartido4 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=5).count() > 0:
+		btnPartido5 = 1
+	else:
+		btnPartido5 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=6).count() > 0:
+		btnPartido6 = 1
+	else:
+		btnPartido6 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=7).count() > 0:
+		btnPartido7 = 1
+	else:
+		btnPartido7 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=8).count() > 0:
+		btnPartido8 = 1
+	else:
+		btnPartido8 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=9).count() > 0:
+		btnPartido9 = 1
+	else:
+		btnPartido9 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=10).count() > 0:
+		btnPartido10 = 1
+	else:
+		btnPartido10 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=11).count() > 0:
+		btnPartido11 = 1
+	else:
+		btnPartido11 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=12).count() > 0:
+		btnPartido12 = 1
+	else:
+		btnPartido12 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=13).count() > 0:
+		btnPartido13 = 1
+	else:
+		btnPartido13 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=14).count() > 0:
+		btnPartido14 = 1
+	else:
+		btnPartido14 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=15).count() > 0:
+		btnPartido15 = 1
+	else:
+		btnPartido15 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=16).count() > 0:
+		btnPartido16 = 1
+	else:
+		btnPartido16 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=17).count() > 0:
+		btnPartido17 = 1
+	else:
+		btnPartido17 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=18).count() > 0:
+		btnPartido18 = 1
+	else:
+		btnPartido18 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=19).count() > 0:
+		btnPartido19 = 1
+	else:
+		btnPartido19 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=20).count() > 0:
+		btnPartido20 = 1
+	else:
+		btnPartido20 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=21).count() > 0:
+		btnPartido21 = 1
+	else:
+		btnPartido21 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=22).count() > 0:
+		btnPartido22 = 1
+	else:
+		btnPartido22 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=23).count() > 0:
+		btnPartido23 = 1
+	else:
+		btnPartido23 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=24).count() > 0:
+		btnPartido24 = 1
+	else:
+		btnPartido24 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=25).count() > 0:
+		btnPartido25 = 1
+	else:
+		btnPartido25 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=26).count() > 0:
+		btnPartido26 = 1
+	else:
+		btnPartido26 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=27).count() > 0:
+		btnPartido27 = 1
+	else:
+		btnPartido27 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=28).count() > 0:
+		btnPartido28 = 1
+	else:
+		btnPartido28 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=29).count() > 0:
+		btnPartido29 = 1
+	else:
+		btnPartido29 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=30).count() > 0:
+		btnPartido30 = 1
+	else:
+		btnPartido30 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=31).count() > 0:
+		btnPartido31 = 1
+	else:
+		btnPartido31 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=32).count() > 0:
+		btnPartido32 = 1
+	else:
+		btnPartido32 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=33).count() > 0:
+		btnPartido33 = 1
+	else:
+		btnPartido33 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=34).count() > 0:
+		btnPartido34 = 1
+	else:
+		btnPartido34 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=35).count() > 0:
+		btnPartido35 = 1
+	else:
+		btnPartido35 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=36).count() > 0:
+		btnPartido36 = 1
+	else:
+		btnPartido36 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=37).count() > 0:
+		btnPartido37 = 1
+	else:
+		btnPartido37 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=38).count() > 0:
+		btnPartido38 = 1
+	else:
+		btnPartido38 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=39).count() > 0:
+		btnPartido39 = 1
+	else:
+		btnPartido39 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=40).count() > 0:
+		btnPartido40 = 1
+	else:
+		btnPartido40 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=41).count() > 0:
+		btnPartido41 = 1
+	else:
+		btnPartido41 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=42).count() > 0:
+		btnPartido42 = 1
+	else:
+		btnPartido42 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=43).count() > 0:
+		btnPartido43 = 1
+	else:
+		btnPartido43 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=44).count() > 0:
+		btnPartido44 = 1
+	else:
+		btnPartido44 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=45).count() > 0:
+		btnPartido45 = 1
+	else:
+		btnPartido45 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=46).count() > 0:
+		btnPartido46 = 1
+	else:
+		btnPartido46 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=47).count() > 0:
+		btnPartido47 = 1
+	else:
+		btnPartido47 = 0
+
+	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=48).count() > 0:
+		btnPartido48 = 1
+	else:
+		btnPartido48 = 0
+
+
 	if request.method=='POST' and 'btn_1_Groups_A' in request.POST:
 		try:
 
@@ -884,6 +1152,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1A,0)
 			RegistroPosicionesEquiposUsuarios(grupo1A)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 
@@ -897,6 +1166,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2A,0)
 			RegistroPosicionesEquiposUsuarios(grupo2A)
 			sweetify.success(request, 'Registro exitoso!')
+			return redirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -910,6 +1180,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3A,0)
 			RegistroPosicionesEquiposUsuarios(grupo3A)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -923,6 +1194,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4A,0)
 			RegistroPosicionesEquiposUsuarios(grupo4A)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -936,6 +1208,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5A,0)
 			RegistroPosicionesEquiposUsuarios(grupo5A)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -949,6 +1222,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6A,0)
 			RegistroPosicionesEquiposUsuarios(grupo6A)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -962,6 +1236,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1B,0)
 			RegistroPosicionesEquiposUsuarios(grupo1B)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -975,6 +1250,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2B,0)
 			RegistroPosicionesEquiposUsuarios(grupo2B)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -988,6 +1264,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3B,0)
 			RegistroPosicionesEquiposUsuarios(grupo3B)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1001,6 +1278,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4B,0)
 			RegistroPosicionesEquiposUsuarios(grupo4B)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1014,6 +1292,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5B,0)
 			RegistroPosicionesEquiposUsuarios(grupo5B)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1027,6 +1306,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6B,0)
 			RegistroPosicionesEquiposUsuarios(grupo6B)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1040,6 +1320,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1C,0)
 			RegistroPosicionesEquiposUsuarios(grupo1C)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1053,6 +1334,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2C,0)
 			RegistroPosicionesEquiposUsuarios(grupo2C)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1066,6 +1348,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3C,0)
 			RegistroPosicionesEquiposUsuarios(grupo3C)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1079,6 +1362,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4C,0)
 			RegistroPosicionesEquiposUsuarios(grupo4C)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1092,6 +1376,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5C,0)
 			RegistroPosicionesEquiposUsuarios(grupo5C)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1105,6 +1390,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6C,0)
 			RegistroPosicionesEquiposUsuarios(grupo6C)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1118,6 +1404,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1D,0)
 			RegistroPosicionesEquiposUsuarios(grupo1D)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1131,6 +1418,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2D,0)
 			RegistroPosicionesEquiposUsuarios(grupo2D)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1144,6 +1432,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3D,0)
 			RegistroPosicionesEquiposUsuarios(grupo3D)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1157,6 +1446,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4D,0)
 			RegistroPosicionesEquiposUsuarios(grupo4D)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1170,6 +1460,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5D,0)
 			RegistroPosicionesEquiposUsuarios(grupo5D)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1183,6 +1474,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6D,0)
 			RegistroPosicionesEquiposUsuarios(grupo6D)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1196,6 +1488,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1E,0)
 			RegistroPosicionesEquiposUsuarios(grupo1E)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1209,6 +1502,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2E,0)
 			RegistroPosicionesEquiposUsuarios(grupo2E)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1222,6 +1516,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3E,0)
 			RegistroPosicionesEquiposUsuarios(grupo3E)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1235,6 +1530,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4E,0)
 			RegistroPosicionesEquiposUsuarios(grupo4E)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1248,6 +1544,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5E,0)
 			RegistroPosicionesEquiposUsuarios(grupo5E)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1261,6 +1558,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6E,0)
 			RegistroPosicionesEquiposUsuarios(grupo6E)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1274,6 +1572,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1F,0)
 			RegistroPosicionesEquiposUsuarios(grupo1F)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1287,6 +1586,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2F,0)
 			RegistroPosicionesEquiposUsuarios(grupo2F)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1300,6 +1600,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3F,0)
 			RegistroPosicionesEquiposUsuarios(grupo3F)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1313,6 +1614,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4F,0)
 			RegistroPosicionesEquiposUsuarios(grupo4F)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1326,6 +1628,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5F,0)
 			RegistroPosicionesEquiposUsuarios(grupo5F)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1339,6 +1642,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6F,0)
 			RegistroPosicionesEquiposUsuarios(grupo6F)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1352,6 +1656,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1G,0)
 			RegistroPosicionesEquiposUsuarios(grupo1G)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1365,6 +1670,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2G,0)
 			RegistroPosicionesEquiposUsuarios(grupo2G)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1378,6 +1684,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3G,0)
 			RegistroPosicionesEquiposUsuarios(grupo3G)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1391,6 +1698,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4G,0)
 			RegistroPosicionesEquiposUsuarios(grupo4G)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1404,6 +1712,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5G,0)
 			RegistroPosicionesEquiposUsuarios(grupo5G)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1417,6 +1726,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6G,0)
 			RegistroPosicionesEquiposUsuarios(grupo6G)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1430,6 +1740,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo1H,0)
 			RegistroPosicionesEquiposUsuarios(grupo1H)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1443,6 +1754,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo2H,0)
 			RegistroPosicionesEquiposUsuarios(grupo2H)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1456,6 +1768,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo3H,0)
 			RegistroPosicionesEquiposUsuarios(grupo3H)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1469,6 +1782,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo4H,0)
 			RegistroPosicionesEquiposUsuarios(grupo4H)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1482,6 +1796,7 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo5H,0)
 			RegistroPosicionesEquiposUsuarios(grupo5H)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1495,12 +1810,25 @@ def RegistroFaseGruposAdminView(request):
 			ObtenerPuntajeFaseGruposUsuarios(grupo6H,0)
 			RegistroPosicionesEquiposUsuarios(grupo6H)
 			sweetify.success(request, 'Registro exitoso!')
+			return HttpResponseRedirect('/registroFaseGruposAdmin/')
 
 		except IntegrityError as e:
 			
 		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
 
-	return render(request, 'adminResultados/registroFaseGruposAdmin.html')
+	return render(request, 'adminResultados/registroFaseGruposAdmin.html',
+		{'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,'btnPartido3':btnPartido3,'btnPartido4':btnPartido4,
+		'btnPartido5':btnPartido5,'btnPartido6':btnPartido6,'btnPartido7':btnPartido7,'btnPartido8':btnPartido8,
+		'btnPartido9':btnPartido9,'btnPartido10':btnPartido10,'btnPartido11':btnPartido11,'btnPartido12':btnPartido12,
+		'btnPartido13':btnPartido13,'btnPartido14':btnPartido14,'btnPartido15':btnPartido15,'btnPartido16':btnPartido16,
+		'btnPartido17':btnPartido17,'btnPartido18':btnPartido18,'btnPartido19':btnPartido19,'btnPartido20':btnPartido20,
+		'btnPartido21':btnPartido21,'btnPartido22':btnPartido22,'btnPartido23':btnPartido23,'btnPartido24':btnPartido24,
+		'btnPartido25':btnPartido25,'btnPartido26':btnPartido26,'btnPartido27':btnPartido27,'btnPartido28':btnPartido28,
+		'btnPartido29':btnPartido29,'btnPartido30':btnPartido30,'btnPartido31':btnPartido31,'btnPartido32':btnPartido32,
+		'btnPartido33':btnPartido33,'btnPartido34':btnPartido34,'btnPartido35':btnPartido35,'btnPartido36':btnPartido36,'btnPartido37':btnPartido37,
+		'btnPartido38':btnPartido38,'btnPartido39':btnPartido39,'btnPartido40':btnPartido40,'btnPartido41':btnPartido41,
+		'btnPartido42':btnPartido42,'btnPartido43':btnPartido43,'btnPartido44':btnPartido44,'btnPartido45':btnPartido45,
+		'btnPartido46':btnPartido46,'btnPartido47':btnPartido47,'btnPartido48':btnPartido48})
 
 # funcion para el registro en base de datos del list con los resultados registrados por el Administrador
 def RegistarResultadosFaseGruposAdmin(partido):
@@ -1511,7 +1839,8 @@ def RegistarResultadosFaseGruposAdmin(partido):
 		MarcadorEquipo1=partido[3],
 		Equipo2=partido[4],
 		MarcadorEquipo2 = partido[5],
-		Participante =ParticipantesModel.objects.get(id=partido[6])
+		Participante =ParticipantesModel.objects.get(id=partido[6]),
+		Identificador = partido[7]
 	)
 	ResultadoPartido.save (force_insert = True)
 
@@ -1541,28 +1870,28 @@ def registroRanking(contador,idUsuario, identificador):
 		# registro puntaje fase de octavos
 		if identificador == 1:
 			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
-			PuntajeUsuario.PuntajeOctavos = contador
+			PuntajeUsuario.PuntajeOctavos = int(PuntajeUsuario.PuntajeOctavos) + contador
 			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
 			PuntajeUsuario.save()
 
 		# registro puntaje fase de cuartos
 		if identificador == 2:
 			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
-			PuntajeUsuario.PuntajeCuartos = contador
+			PuntajeUsuario.PuntajeCuartos = int(PuntajeUsuario.PuntajeCuartos) + contador
 			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
 			PuntajeUsuario.save()
 
 		# registro puntaje fase de semifinales
 		if identificador == 3:
 			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
-			PuntajeUsuario.PuntajeSeminFinales = contador
+			PuntajeUsuario.PuntajeSeminFinales = int(PuntajeUsuario.PuntajeSeminFinales) + contador
 			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
 			PuntajeUsuario.save()
 
 		# registro puntaje fase de Final
 		if identificador == 4:
 			PuntajeUsuario = RankingModel.objects.get(Participante=idUsuario)
-			PuntajeUsuario.PuntajeFinal = contador
+			PuntajeUsuario.PuntajeFinal = int(PuntajeUsuario.PuntajeFinal) + contador
 			PuntajeUsuario.Puntaje = int(PuntajeUsuario.Puntaje) + contador
 			PuntajeUsuario.save()
 
@@ -1576,6 +1905,45 @@ def registroRanking(contador,idUsuario, identificador):
 
 # vista para el registro de los octavos de admin
 def RegistroOctavosAdminView(request):
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=49).count() > 0:
+		btnPartido1 = 1
+	else:
+		btnPartido1 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=50).count() > 0:
+		btnPartido2 = 1
+	else:
+		btnPartido2 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=51).count() > 0:
+		btnPartido3 = 1
+	else:
+		btnPartido3 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=52).count() > 0:
+		btnPartido4 = 1
+	else:
+		btnPartido4 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=53).count() > 0:
+		btnPartido5 = 1
+	else:
+		btnPartido5 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=54).count() > 0:
+		btnPartido6 = 1
+	else:
+		btnPartido6 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=55).count() > 0:
+		btnPartido7 = 1
+	else:
+		btnPartido7 = 0
+
+	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=56).count() > 0:
+		btnPartido8 = 1
+	else:
+		btnPartido8 = 0
 	grupos = TablasPosocionesUsuariosModel.objects.values('Grupo').filter(Participante= request.user.id).distinct()
 	mejoresDosEquipos =[]
 	for grupo in grupos:
@@ -1599,7 +1967,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos1) < 8:
 				resultadoOctavos1.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos1)
+			Empate = ValidarEmpateAdmin([resultadoOctavos1])
 
 			if Empate > 0:
 
@@ -1607,9 +1975,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos1)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos1,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos1])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos1,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1623,7 +1992,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos2) < 8:
 				resultadoOctavos2.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos2)
+			Empate = ValidarEmpateAdmin([resultadoOctavos2])
 
 			if Empate > 0:
 
@@ -1631,9 +2000,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos2)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos2,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos2])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos2,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1647,7 +2017,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos3) < 8:
 				resultadoOctavos3.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos3)
+			Empate = ValidarEmpateAdmin([resultadoOctavos3])
 
 			if Empate > 0:
 
@@ -1655,9 +2025,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos3)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos3,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos3])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos3,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1671,7 +2042,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos4) < 8:
 				resultadoOctavos4.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos4)
+			Empate = ValidarEmpateAdmin([resultadoOctavos4])
 
 			if Empate > 0:
 
@@ -1679,9 +2050,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos4)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos4,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos4])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos4,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1695,7 +2067,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos5) < 8:
 				resultadoOctavos5.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos5)
+			Empate = ValidarEmpateAdmin([resultadoOctavos5])
 
 			if Empate > 0:
 
@@ -1703,9 +2075,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos5)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos5,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos5])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos5,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1719,7 +2092,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos6) < 8:
 				resultadoOctavos6.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos6)
+			Empate = ValidarEmpateAdmin([resultadoOctavos6])
 
 			if Empate > 0:
 
@@ -1727,9 +2100,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos6)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos6,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos6])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos6,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1743,7 +2117,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos7) < 8:
 				resultadoOctavos7.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos7)
+			Empate = ValidarEmpateAdmin([resultadoOctavos7])
 
 			if Empate > 0:
 
@@ -1751,9 +2125,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos7)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos7,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos7])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos7,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1767,7 +2142,7 @@ def RegistroOctavosAdminView(request):
 			if len(resultadoOctavos8) < 8:
 				resultadoOctavos8.insert(5, 0)
 
-			Empate = ValidarEmpateAdmin(resultadoOctavos8)
+			Empate = ValidarEmpateAdmin([resultadoOctavos8])
 
 			if Empate > 0:
 
@@ -1775,9 +2150,10 @@ def RegistroOctavosAdminView(request):
 
 			else:
 
-				RegistarResultadosFaseOctavosAdmin(resultadoOctavos8)
-				ObtenerPuntajeFaseGruposUsuarios(resultadoOctavos8,1)
+				RegistarResultadosFaseOctavosAdmin([resultadoOctavos8])
+				ObtenerPuntajeFaseOctavosUsuarios(resultadoOctavos8,1)
 				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroOctavosAdmin/')
 
 		except IntegrityError as e:
 			
@@ -1788,10 +2164,12 @@ def RegistroOctavosAdminView(request):
 		'partido3':partido3, 'partido4':partido4,
 		'partido5':partido5, 'partido6':partido6,
 		'partido7':partido7, 'partido8':partido8,
+		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,'btnPartido3':btnPartido3,'btnPartido4':btnPartido4,
+		'btnPartido5':btnPartido5,'btnPartido6':btnPartido6,'btnPartido7':btnPartido7,'btnPartido8':btnPartido8
 		})
         
 # funcion para el registro en base de datos del list con los resultados registrados para la fase de octavos por el administrador
-def RegistarResultadosFaseOctavosAdmin(ListResultado):
+def RegistarResultadosFaseOctavosAdmin(partido):
     objs = [
         FaseOctavosAdminModel(
         	FechaPartido = e[0],
@@ -1804,7 +2182,7 @@ def RegistarResultadosFaseOctavosAdmin(ListResultado):
 			Participante = ParticipantesModel.objects.get(id=e[7]),  
 
         )
-    for e in ListResultado
+    for e in partido
     ]
     detalleFaseOctavosAdmin = FaseOctavosAdminModel.objects.bulk_create(objs)
 
@@ -1831,6 +2209,484 @@ def ValidarEmpateAdmin(partido):
 			if i[5] == '0':
 				contar += contar + 1
 	return contar
+
+#vista para el formulario de registro de fase de cuartos por el admin
+def RegistroFaseCuartosAdminView(request):
+	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id, Identificador=57).count() > 0:
+		btnPartido1 = 1
+	else:
+		btnPartido1 = 0
+
+	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id, Identificador=58).count() > 0:
+		btnPartido2 = 1
+	else:
+		btnPartido2 = 0
+
+	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id, Identificador=59).count() > 0:
+		btnPartido3 = 1
+	else:
+		btnPartido3 = 0
+
+	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id, Identificador=60).count() > 0:
+		btnPartido4 = 1
+	else:
+		btnPartido4 = 0
+
+	EquiposCuartos = FaseOctavosAdminModel.objects.filter(Participante= request.user.id)
+
+	equipos =[]
+	for i in EquiposCuartos:
+		if i.MarcadorEquipo1 == i.MarcadorEquipo2:
+			if i.PenalEquipoGanador == '1':
+				equipos += [[i.Equipo1]]
+			if i.PenalEquipoGanador == '2':
+				equipos += [[i.Equipo2]]
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2:
+			equipos += [[i.Equipo1]]
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
+			equipos += [[i.Equipo2]]
+	
+	for x in equipos[0]:
+		equipo1=x
+
+	for x in equipos[1]:
+		equipo2=x
+
+	for x in equipos[2]:
+		equipo3=x
+
+	for x in equipos[3]:
+		equipo4=x
+
+	for x in equipos[4]:
+		equipo5=x
+
+	for x in equipos[5]:
+		equipo6=x
+
+	for x in equipos[6]:
+		equipo7=x
+
+	for x in equipos[7]:
+		equipo8=x
+
+	
+	partido1 = [{'Equipo':equipo1},{'Equipo':equipo2}, {'fecha':datetime.datetime(2018, 07, 06)},{'identificador':57}]
+	partido2 = [{'Equipo':equipo3},{'Equipo':equipo4}, {'fecha':datetime.datetime(2018, 07, 06)},{'identificador':58}]
+	partido3 = [{'Equipo':equipo5},{'Equipo':equipo6}, {'fecha':datetime.datetime(2018, 07, 07)},{'identificador':59}]
+	partido4 = [{'Equipo':equipo7},{'Equipo':equipo8}, {'fecha':datetime.datetime(2018, 07, 07)},{'identificador':60}]
+
+	if request.method=='POST' and 'btn_partido1' in request.POST:
+		try:
+
+			resultadoCuartos1 = request.POST.getlist('partido1')
+
+			if len(resultadoCuartos1) < 8:
+				resultadoCuartos1.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoCuartos1])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseCuartoAdmin([resultadoCuartos1])
+				ObtenerPuntajeFaseCuartosAdmin(resultadoCuartos1,2)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroCuartosAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido2' in request.POST:
+		try:
+
+			resultadoCuartos2 = request.POST.getlist('partido2')
+
+			if len(resultadoCuartos2) < 8:
+				resultadoCuartos2.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoCuartos2])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseCuartoAdmin([resultadoCuartos2])
+				ObtenerPuntajeFaseCuartosAdmin(resultadoCuartos2,2)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroCuartosAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido3' in request.POST:
+		try:
+
+			resultadoCuartos3 = request.POST.getlist('partido3')
+
+			if len(resultadoCuartos3) < 8:
+				resultadoCuartos3.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoCuartos3])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseCuartoAdmin([resultadoCuartos3])
+				ObtenerPuntajeFaseCuartosAdmin(resultadoCuartos3,2)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroCuartosAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido4' in request.POST:
+		try:
+
+			resultadoCuartos4 = request.POST.getlist('partido4')
+
+			if len(resultadoCuartos4) < 8:
+				resultadoCuartos4.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoCuartos4])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseCuartoAdmin([resultadoCuartos4])
+				ObtenerPuntajeFaseCuartosAdmin(resultadoCuartos4,2)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroCuartosAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	return render(request,'adminResultados/registroCuartosAdmin.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'partido3':partido3, 'partido4':partido4,
+		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,'btnPartido3':btnPartido3,'btnPartido4':btnPartido4,
+		})
+
+# funcion para el registro en base de datos del list con los resultados registrados para la fase de cuartos por el usuario
+def RegistarResultadosFaseCuartoAdmin(partido):
+    objs = [
+        FaseCuartosAdminModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
+
+        )
+    for e in partido
+    ]
+    detalleFaseCuartosAdmin = FaseCuartosAdminModel.objects.bulk_create(objs)
+
+#funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de cuartos registrado por el admin
+def ObtenerPuntajeFaseCuartosAdmin(partido,identificador):
+	ResultadosUsuarios =  FaseCuartosUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
+	contador = 0
+	for i in ResultadosUsuarios:
+		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
+			contador += 3
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
+			contador += 1
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2 and partido[2] < partido[4]:
+			contador += 1
+		if i.PenalEquipoGanador == partido[5]:
+			contador += 1
+		registroRanking(contador,i.Participante.id,identificador)
+
+
+#vista para el formulario de registro de fase de semifinales del admin
+def RegistroFaseSemifinalesAdminView(request):
+	if FaseSemifinalesAdminModel.objects.filter(Participante = request.user.id, Identificador=61).count() > 0:
+		btnPartido1 = 1
+	else:
+		btnPartido1 = 0
+
+	if FaseSemifinalesAdminModel.objects.filter(Participante = request.user.id, Identificador=62).count() > 0:
+		btnPartido2 = 1
+	else:
+		btnPartido2 = 0
+
+	EquiposSemifinales = FaseCuartosAdminModel.objects.filter(Participante= request.user.id)
+	equipos =[]
+	for i in EquiposSemifinales:
+		if i.MarcadorEquipo1 == i.MarcadorEquipo2:
+			if i.PenalEquipoGanador == '1':
+				equipos += [[i.Equipo1]]
+			if i.PenalEquipoGanador == '2':
+				equipos += [[i.Equipo2]]
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2:
+			equipos += [[i.Equipo1]]
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
+			equipos += [[i.Equipo2]]
+
+	print(equipos)
+	
+	for x in equipos[0]:
+		equipo1=x
+
+	for x in equipos[1]:
+		equipo2=x
+
+	for x in equipos[2]:
+		equipo3=x
+
+	for x in equipos[3]:
+		equipo4=x
+
+
+	partido1 = [{'Equipo':equipo1},{'Equipo':equipo2}, {'fecha':datetime.datetime(2018, 07, 10)},{'identificador':61}]
+	partido2 = [{'Equipo':equipo3},{'Equipo':equipo4}, {'fecha':datetime.datetime(2018, 07, 11)},{'identificador':62}]
+
+	if request.method=='POST' and 'btn_partido1' in request.POST:
+		try:
+
+			resultadoCuartos1 = request.POST.getlist('partido1')
+
+			if len(resultadoCuartos1) < 8:
+				resultadoCuartos1.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoCuartos1])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseSemifinalesAdmin([resultadoCuartos1])
+				ObtenerPuntajeFaseSemifinalesAdmin(resultadoCuartos1,3)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroSemifinalesAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido2' in request.POST:
+		try:
+
+			resultadoCuartos2 = request.POST.getlist('partido2')
+
+			if len(resultadoCuartos2) < 8:
+				resultadoCuartos2.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoCuartos2])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseSemifinalesAdmin([resultadoCuartos2])
+				ObtenerPuntajeFaseSemifinalesAdmin(resultadoCuartos2,3)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroSemifinalesAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+
+	return render(request,'adminResultados/registroSemifinalesAdmin.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,
+		})
+
+# funcion para el registro en base de datos del list con los resultados registrados para la fase de cuartos por el admin
+def RegistarResultadosFaseSemifinalesAdmin(partido):
+    objs = [
+        FaseSemifinalesAdminModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
+
+        )
+    for e in partido
+    ]
+    detalleFaseSemifinalesAdmin = FaseSemifinalesAdminModel.objects.bulk_create(objs)
+
+#funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de semi finales registrado por el admin
+def ObtenerPuntajeFaseSemifinalesAdmin(partido,identificador):
+	ResultadosUsuarios =  FaseSemifinalesUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
+	contador = 0
+	for i in ResultadosUsuarios:
+		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
+			contador += 3
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
+			contador += 1
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2 and partido[2] < partido[4]:
+			contador += 1
+		if i.PenalEquipoGanador == partido[5]:
+			contador += 1
+		registroRanking(contador,i.Participante.id,identificador)
+
+#vista para el formulario de registro de fase de finales
+def RegistroFaseFinalAdminView(request):
+	if FaseFinalAdminModel.objects.filter(Participante = request.user.id, Identificador=61).count() > 0:
+		btnPartido1 = 1
+	else:
+		btnPartido1 = 0
+
+	if FaseFinalAdminModel.objects.filter(Participante = request.user.id, Identificador=62).count() > 0:
+		btnPartido2 = 1
+	else:
+		btnPartido2 = 0
+
+	EquiposFinales = FaseSemifinalesAdminModel.objects.filter(Participante= request.user.id)
+	equiposGanadores =[]
+	equiposPerdedores =[]
+
+	for i in EquiposFinales:
+		if i.MarcadorEquipo1 == i.MarcadorEquipo2:
+			if i.PenalEquipoGanador == '1':
+				equiposGanadores += [[i.Equipo1]]
+				equiposPerdedores += [[i.Equipo2]]
+				
+			if i.PenalEquipoGanador == '2':
+				equiposGanadores += [[i.Equipo2]]
+				equiposPerdedores += [[i.Equipo1]]
+			
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2:
+			equiposGanadores += [[i.Equipo1]]
+			equiposPerdedores += [[i.Equipo2]]
+
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
+			equiposGanadores += [[i.Equipo2]]
+			equiposPerdedores += [[i.Equipo1]]
+			
+
+	for x in equiposGanadores[0]:
+		equipo1=x
+
+	for x in equiposGanadores[1]:
+		equipo2=x
+
+	for x in equiposPerdedores[0]:
+		equipo3=x
+
+	for x in equiposPerdedores[1]:
+		equipo4=x
+
+
+	partido1 = [{'Equipo':equipo1},{'Equipo':equipo2}, {'fecha':datetime.datetime(2018, 07, 15)},{'identificador':61}]
+	partido2 = [{'Equipo':equipo3},{'Equipo':equipo4}, {'fecha':datetime.datetime(2018, 07, 14)},{'identificador':62}]
+
+	if request.method=='POST' and 'btn_partido1' in request.POST:
+		try:
+
+			resultadoFinal = request.POST.getlist('partido1')
+
+			if len(resultadoFinal) < 8:
+				resultadoFinal.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoFinal])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseFinalAdmin([resultadoFinal])
+				ObtenerPuntajeFaseFinalAdmin(resultadoFinal,4)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroFinalesAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+	if request.method=='POST' and 'btn_partido2' in request.POST:
+		try:
+
+			resultadoTercerPuesto = request.POST.getlist('partido2')
+
+			if len(resultadoTercerPuesto) < 8:
+				resultadoTercerPuesto.insert(5, 0)
+
+			Empate = ValidarEmpateAdmin([resultadoTercerPuesto])
+
+			if Empate > 0:
+
+				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
+
+			else:
+
+				RegistarResultadosFaseFinalAdmin([resultadoTercerPuesto])
+				ObtenerPuntajeFaseFinalAdmin(resultadoTercerPuesto,4)
+				sweetify.success(request, 'Registro exitoso!')
+				return HttpResponseRedirect('/registroFinalesAdmin/')
+
+		except IntegrityError as e:
+			
+		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
+
+
+	return render(request,'adminResultados/registroFinalesAdmin.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,
+		})
+
+# funcion para el registro en base de datos del list con los resultados registrados para la final por el usuario
+def RegistarResultadosFaseFinalAdmin(partido):
+    objs = [
+        FaseFinalAdminModel(
+        	FechaPartido = e[0],
+			Equipo1 = e[1],
+			MarcadorEquipo1 = e[2],
+			Equipo2 = e[3],
+			MarcadorEquipo2 = e[4],
+			PenalEquipoGanador = e[5],
+			Identificador = e[6],
+			Participante = ParticipantesModel.objects.get(id=e[7]),  
+
+        )
+    for e in partido
+    ]
+    detalleFaseFinalAdmin = FaseFinalAdminModel.objects.bulk_create(objs)
+
+#funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de finales registrado por el admin
+def ObtenerPuntajeFaseFinalAdmin(partido,identificador):
+	ResultadosUsuarios =  FaseFinalUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
+	contador = 0
+	for i in ResultadosUsuarios:
+		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
+			contador += 3
+		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
+			contador += 1
+		if i.MarcadorEquipo1 < i.MarcadorEquipo2 and partido[2] < partido[4]:
+			contador += 1
+		if i.PenalEquipoGanador == partido[5]:
+			contador += 1
+		registroRanking(contador,i.Participante.id,identificador)
 
 
 

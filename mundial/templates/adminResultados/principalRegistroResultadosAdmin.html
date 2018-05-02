@@ -31,7 +31,7 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <a class="btn btn-success btn-xs" href="{% url 'registroFaseGruposAdmin' %}"><i class="fa fa-pencil">
+                      <a class="btn btn-success btn-xs" {% if btnRegistroFaseGrupos == True %}disabled{% endif %} href="{% if btnRegistroFaseGrupos == False %}{% url 'registroFaseGruposAdmin' %}{% endif %}"><i class="fa fa-pencil">
                         </i> Registro Resultados</a>
                       <button type="button" class="btn btn-primary btn-xs">
                         <i class="fa fa-file-text-o"> </i> Ver Resultados
@@ -51,7 +51,7 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <a class="btn btn-success btn-xs" href="{% url 'registroOctavosAdmin' %}"><i class="fa fa-pencil">
+                      <a class="btn btn-success btn-xs" {% if btnRegistroFaseOctavos == True %}disabled{% endif %} href="{% if btnRegistroFaseOctavos == False %}{% url 'registroOctavosAdmin' %}{% endif %}"><i class="fa fa-pencil">
                         </i> Registro Resultados</a>
                       <button type="button" class="btn btn-primary btn-xs">
                         <i class="fa fa-file-text-o"> </i> Ver Resultados
@@ -71,8 +71,8 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-pencil">
-                        </i> Registro Resultados</button>
+                      <a class="btn btn-success btn-xs" {% if btnRegistroFaseCuartos == True %}disabled{% endif %} href="{% if btnRegistroFaseCuartos == False %}{% url 'registroCuartosAdmin' %}{% endif %}"><i class="fa fa-pencil">
+                        </i> Registro Resultados</a>
                       <button type="button" class="btn btn-primary btn-xs">
                         <i class="fa fa-file-text-o"> </i> Ver Resultados
                       </button>
@@ -91,8 +91,8 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-pencil">
-                        </i> Registro Resultados</button>
+                      <a class="btn btn-success btn-xs" {% if btnRegistroFaseSemi == True %}disabled{% endif %} href="{% if btnRegistroFaseSemi == False %}{% url 'registroSemifinalesAdmin' %}{% endif %}"><i class="fa fa-pencil">
+                        </i> Registro Resultados</a>
                       <button type="button" class="btn btn-primary btn-xs">
                         <i class="fa fa-file-text-o"> </i> Ver Resultados
                       </button>
@@ -111,8 +111,8 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-pencil">
-                        </i> Registro Resultados</button>
+                      <a class="btn btn-success btn-xs" {% if btnRegistroFaseFinal == True %}disabled{% endif %} href="{% if btnRegistroFaseFinal == False %}{% url 'registroFinalesAdmin' %}{% endif %}"><i class="fa fa-pencil">
+                        </i> Registro Resultados</a>
                       <button type="button" class="btn btn-primary btn-xs">
                         <i class="fa fa-file-text-o"> </i> Ver Resultados
                       </button>

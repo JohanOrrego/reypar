@@ -22,8 +22,11 @@ urlpatterns = [
 	url(r'^verFaseGrupos/$', login_required(verFaseGruposView), name='verFaseGrupos'),
 
 	# registro de resultados por parte del adminstrador
-	url(r'^PrincipalRegistroResultados/$', login_required(RegistroResultadosAdminView.as_view()), name='PrincipalRegistroResultados'),
+	url(r'^PrincipalRegistroResultados/$', login_required(RegistroResultadosAdminView), name='PrincipalRegistroResultados'),
 	url(r'^registroFaseGruposAdmin/$', login_required(RegistroFaseGruposAdminView), name='registroFaseGruposAdmin'),
 	url(r'^registroOctavosAdmin/$', login_required(RegistroOctavosAdminView), name='registroOctavosAdmin'),
+	url(r'^registroCuartosAdmin/$', login_required(RegistroFaseCuartosAdminView), name='registroCuartosAdmin'),
+	url(r'^registroSemifinalesAdmin/$', login_required(RegistroFaseSemifinalesAdminView), name='registroSemifinalesAdmin'),
+	url(r'^registroFinalesAdmin/$', login_required(RegistroFaseFinalAdminView), name='registroFinalesAdmin'),
 
 ]

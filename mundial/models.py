@@ -69,11 +69,11 @@ class ParticipantesModel(AbstractUser):
 # modelo para el registro de los participantes en la polla 
 class RankingModel(models.Model):
 	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
-	PuntajeFaseGrupos = models.IntegerField(null=True, blank=True)
-	PuntajeOctavos = models.IntegerField(null=True, blank=True)
-	PuntajeCuartos = models.IntegerField(null=True, blank=True)
-	PuntajeSeminFinales = models.IntegerField(null=True, blank=True)
-	PuntajeFinal = models.IntegerField(null=True, blank=True)
+	PuntajeFaseGrupos = models.IntegerField(default=0)
+	PuntajeOctavos = models.IntegerField(default=0)
+	PuntajeCuartos = models.IntegerField(default=0)
+	PuntajeSeminFinales = models.IntegerField(default=0)
+	PuntajeFinal = models.IntegerField(default=0)
 	Puntaje = models.IntegerField()
 	FechaRegistro = models.DateTimeField(auto_now_add=True)
 	FechaModifica = models.DateTimeField(auto_now=True, null=True, blank=True)
@@ -107,6 +107,7 @@ class FaseGruposAdminModel(models.Model):
 	Equipo2 = models.CharField(max_length=50)
 	MarcadorEquipo2 = models.IntegerField()
 	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	Identificador = models.IntegerField()
 	FechaRegistro = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
@@ -181,6 +182,22 @@ class FaseCuartosUsuariosModel(models.Model):
 		db_table = 'tblFaseCuartosUsuarios'
 		unique_together = (('Equipo1','Equipo2','Participante'),)
 
+# modelo para el regitro de los resultados en la fase de Cuartos por el admin de la polla mundialista
+class FaseCuartosAdminModel(models.Model):
+	FechaPartido = models.DateField()
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	PenalEquipoGanador = models.CharField(max_length=50)
+	Identificador = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseCuartosAdmin'
+		unique_together = (('Equipo1','Equipo2','Participante'),)
+
 # modelo para el regitro de los resultados en la fase de semifinales por participantes de la polla mundialista
 class FaseSemifinalesUsuariosModel(models.Model):
 	FechaPartido = models.DateField()
@@ -197,6 +214,22 @@ class FaseSemifinalesUsuariosModel(models.Model):
 		db_table = 'tblFaseSemifinalesUsuarios'
 		unique_together = (('Equipo1','Equipo2','Participante'),)
 
+# modelo para el regitro de los resultados en la fase de semifinales por el admin de la polla mundialista
+class FaseSemifinalesAdminModel(models.Model):
+	FechaPartido = models.DateField()
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	PenalEquipoGanador = models.CharField(max_length=50)
+	Identificador = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseSemifinalesAdmin'
+		unique_together = (('Equipo1','Equipo2','Participante'),)
+
 # modelo para el regitro de los resultados de la final por participantes de la polla mundialista
 class FaseFinalUsuariosModel(models.Model):
 	FechaPartido = models.DateField()
@@ -211,6 +244,22 @@ class FaseFinalUsuariosModel(models.Model):
 
 	class Meta:
 		db_table = 'tblFaseFinalUsuarios'
+		unique_together = (('Equipo1','Equipo2','Participante'),)
+
+# modelo para el regitro de los resultados de la final por el admin de la polla mundialista
+class FaseFinalAdminModel(models.Model):
+	FechaPartido = models.DateField()
+	Equipo1 = models.CharField(max_length=50)
+	MarcadorEquipo1 = models.IntegerField()
+	Equipo2 = models.CharField(max_length=50)
+	MarcadorEquipo2 = models.IntegerField()
+	PenalEquipoGanador = models.CharField(max_length=50)
+	Identificador = models.IntegerField()
+	Participante = models.ForeignKey(ParticipantesModel, models.DO_NOTHING)
+	FechaRegistro = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		db_table = 'tblFaseFinalAdmin'
 		unique_together = (('Equipo1','Equipo2','Participante'),)
 
 

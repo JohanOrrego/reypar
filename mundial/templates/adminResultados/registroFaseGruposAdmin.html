@@ -28,7 +28,7 @@ p{    font-size: 15px;
           <div class="alert alert-warning alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
             <p><span class="fa fa-info-circle"></span><strong> Información!</strong></p>
-            <p>Ingrese los pronósticos de resultados de la fase de grupos, para continuar a la fase de octavos.</p>
+            <p>Ingrese los pronósticos de resultados de la fase de grupos.</p>
           </div>
           {% csrf_token %}
           <h3 style="text-shadow:none; color: white">Grupo A </h3>
@@ -57,8 +57,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_A" name="1_Groups_A" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇸🇦 Arabia Saudí</td>
                   <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
                   <td>
+                    {% if btnPartido1 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_A">Registrar resultado</button>
+                    {% endif %}
                   </td>
                 </tr>
 
@@ -73,8 +76,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_A" name="2_Groups_A" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇺🇾 Uruguay</td>
                   <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="2">
                   <td>
+                    {% if btnPartido2 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_A">Registrar resultado</button>
+                    {% endif %}
                   </td>
                 </tr>
 
@@ -89,8 +95,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_A" name="3_Groups_A" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇪🇬 Egipto</td>
                   <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="3">
                   <td>
+                    {% if btnPartido3 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_A">Registrar resultado</button>
+                    {% endif %}
                   </td>
                 </tr>
 
@@ -105,8 +114,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_A" name="4_Groups_A" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇸🇦 Arabia Saudí</td>
                   <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="4">
                   <td>
+                    {% if btnPartido4 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_A">Registrar resultado</button>
+                    {% endif %}
                   </td>
                 </tr>
 
@@ -121,8 +133,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_A" name="5_Groups_A" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇪🇬 Egipto</td>
                   <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="5">
                   <td>
-                    <button type="submit" class="btn btn-primary btn-block" name="bnt_5_Groups_A">Registrar resultado</button>
+                    {% if btnPartido5 == 0 %}
+                    <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_A">Registrar resultado</button>
+                    {% endif %}
                   </td>
                 </tr>
 
@@ -138,8 +153,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_A" name="6_Groups_A" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇷🇺 Rusia</td>
                   <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="6">
                   <td>
+                    {% if btnPartido6 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_A">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -174,8 +192,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_B" name="1_Groups_B" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇮🇷 Irán</td>
                   <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="7">
                   <td>
+                    {% if btnPartido7 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_B">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -192,8 +213,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_B" name="2_Groups_B" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇪🇸 España</td>
                   <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="8">
                   <td>
+                    {% if btnPartido8 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_B">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -210,8 +234,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_B" name="3_Groups_B" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇪🇸 España</td>
                   <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="9">
                   <td>
+                    {% if btnPartido9 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_B">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -228,8 +255,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_B" name="4_Groups_B" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇲🇦 Marruecos</td>
                   <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="10">
                   <td>
+                    {% if btnPartido10 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_B">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -246,8 +276,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_B" name="5_Groups_B" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇵🇹 Portugal</td>
                   <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="11">
                   <td>
+                    {% if btnPartido11 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_B">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -264,8 +297,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_B" name="6_Groups_B" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇲🇦 Marruecos</td>
                   <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="12">
                   <td>
+                    {% if btnPartido12 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_B">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -300,8 +336,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_C" name="1_Groups_C" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇦🇺 Australia</td>
                   <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="13">
                   <td>
+                    {% if btnPartido13 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_C">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -318,8 +357,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_C" name="2_Groups_C" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇩🇰 Dinamarca</td>
                   <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="14">
                   <td>
+                    {% if btnPartido14 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_C">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -336,8 +378,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_C" name="3_Groups_C" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇦🇺 Australia</td>
                   <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="15">
                   <td>
+                    {% if btnPartido15 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_C">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -354,8 +399,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_C" name="4_Groups_C" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇵🇪 Perú</td>
                   <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="16">
                   <td>
+                    {% if btnPartido16 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_C">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -372,8 +420,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_C" name="5_Groups_C" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇵🇪 Perú</td>
                   <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="17">
                   <td>
+                    {% if btnPartido17 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_C">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -390,8 +441,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_C" name="6_Groups_C" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇫🇷 Francia</td>
                   <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="18">
                   <td>
+                    {% if btnPartido18 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_C">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -427,8 +481,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_D" name="1_Groups_D" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇧🇻 Islandia</td>
                   <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="19">
                   <td>
+                    {% if btnPartido19 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_D">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -445,8 +502,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_D" name="2_Groups_D" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇳🇪 Nigeria</td>
                   <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="20">
                   <td>
+                    {% if btnPartido20 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_D">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -463,8 +523,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_D" name="3_Groups_D" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇭🇷 Croacia</td>
                   <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="21">
                   <td>
+                    {% if btnPartido21 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_D">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -480,8 +543,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_D" name="4_Groups_D" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇧🇻 Islandia</td>
                   <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="22">
                   <td>
+                    {% if btnPartido22 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_D">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -497,8 +563,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_D" name="5_Groups_D" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇭🇷 Croacia</td>
                   <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="23">
                   <td>
+                    {% if btnPartido23 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_D">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -514,8 +583,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_D" name="6_Groups_D" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇦🇷 Argentina</td>
                   <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="24">
                   <td>
+                    {% if btnPartido24 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_D">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -550,8 +622,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_E" name="1_Groups_E" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇨🇭 Suiza</td>
                   <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="25">
                   <td>
+                    {% if btnPartido25 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_E">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -568,8 +643,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_E" name="2_Groups_E" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇷🇸 Serbia</td>
                   <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="26">
                   <td>
+                    {% if btnPartido26 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_E">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -585,8 +663,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_E" name="3_Groups_E" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇨🇷 Costa Rica</td>
                   <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="27">
                   <td>
+                    {% if btnPartido27 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_E">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -603,8 +684,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_E" name="4_Groups_E" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇨🇭 Suiza</td>
                   <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="28">
                   <td>
+                    {% if btnPartido28 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_E">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -621,8 +705,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_E" name="5_Groups_E" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇧🇷 Brasil</td>
                   <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="29">
                   <td>
+                    {% if btnPartido29 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_E">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -638,8 +725,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_E" name="6_Groups_E" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇨🇷 Costa Rica</td>
                   <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="30">
                   <td>
+                    {% if btnPartido30 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_E">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -673,8 +763,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_F" name="1_Groups_F" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇲🇽 México</td>
                   <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="31">
                   <td>
+                    {% if btnPartido31 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_F">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
 
@@ -690,10 +783,13 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_F" name="2_Groups_F" value="0" required=""></td>
                   <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="Corea del Sur">
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_F" name="2_Groups_F" value="0" required=""></td>
-                  <td>🇰🇷 Corea del Sur</td>
+                  <td style="text-shadow:none; color: white">🇰🇷 Corea del Sur</td>
                   <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="32">
                   <td>
+                    {% if btnPartido32 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_F">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -710,8 +806,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_F" name="3_Groups_F" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇸🇪 Suecia</td>
                   <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="33">
                   <td>
+                    {% if btnPartido33 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_F">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -728,8 +827,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_F" name="4_Groups_F" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇲🇽 México</td>
                   <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="34">
                   <td>
+                    {% if btnPartido34 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_F">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -746,8 +848,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_F" name="5_Groups_F" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇩🇪 Alemania</td>
                   <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="35">
                   <td>
+                    {% if btnPartido35 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_F">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -764,8 +869,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_F" name="6_Groups_F" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇸🇪 Suecia</td>
                   <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="36">
                   <td>
-                    <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_F">Registrar resultado</button>
+                    {% if btnPartido36 == 0 %}
+                    <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_F">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -799,8 +907,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_G" name="1_Groups_G" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇵🇦 Panamá</td>
                   <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="37">
                   <td>
+                    {% if btnPartido37 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_G">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -817,8 +928,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_G" name="2_Groups_G" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇬🇧 Inglaterra</td>
                   <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="38">
                   <td>
+                    {% if btnPartido38 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_G">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -835,8 +949,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_G" name="3_Groups_G" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇹🇳 Túnez</td>
                   <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="39">
                   <td>
+                    {% if btnPartido39 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_G">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -853,8 +970,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_G" name="4_Groups_G" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇵🇦 Panamá</td>
                   <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="40">
                   <td>
+                    {% if btnPartido40 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_G">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -871,8 +991,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_G" name="5_Groups_G" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇹🇳 Túnez</td>
                   <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="41">
                   <td>
+                    {% if btnPartido41 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_G">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -889,8 +1012,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_G" name="6_Groups_G" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇹🇳 Bélgica</td>
                   <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="42">
                   <td>
+                    {% if btnPartido42 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_G">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -925,8 +1051,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="1_Groups_H" name="1_Groups_H" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇯🇵 Japón</td>
                   <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="43">
                   <td>
+                    {% if btnPartido43 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_H">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -943,8 +1072,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="2_Groups_H" name="2_Groups_H" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇸🇳 Senegal</td>
                   <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="{{user.id}}">
+                  <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="44">
                   <td>
+                    {% if btnPartido44 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_H">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -961,8 +1093,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="3_Groups_H" name="3_Groups_H" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇸🇳 Senegal</td>
                   <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="{{user.id}}">
+                  <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="45">
                   <td>
+                    {% if btnPartido45 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_H">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -979,8 +1114,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="4_Groups_H" name="4_Groups_H" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇨🇴 Colombia</td>
                   <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="{{user.id}}">
+                  <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="46">
                   <td>
+                    {% if btnPartido46 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_H">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -997,8 +1135,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="5_Groups_H" name="5_Groups_H" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇵🇱 Polonia</td>
                   <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="{{user.id}}">
+                  <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="47">
                   <td>
+                    {% if btnPartido47 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_H">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
@@ -1014,8 +1155,11 @@ p{    font-size: 15px;
                   <td class="col-xs-1" style="text-shadow:none; color: white"><input type="number" min="0" class="form-control" id="6_Groups_H" name="6_Groups_H" value="0" required=""></td>
                   <td style="text-shadow:none; color: white">🇨🇴 Colombia</td>
                   <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="{{user.id}}">
+                  <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="48">
                   <td>
+                    {% if btnPartido48 == 0 %}
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_H">Registrar resultado</button>
+                    {% endif %}
                   </td>
 
                 </tr>
