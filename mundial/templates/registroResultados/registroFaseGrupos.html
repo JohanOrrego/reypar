@@ -871,8 +871,33 @@ p{    font-size: 15px;
             </table>
           </div>
           <div class="col-xs-12 text-center">
-           <button type="submit" class="btn btn-success btn-lg" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Registrar Resultados</button>
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">Registrar Resultados</button>
+           
          </div>
+          <!-- Large modal -->
+          
+          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">Menjase de confirmación</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Esta seguro que desea confirmar los resulatos ?</p>
+                  <p>Al guardar los resultados no hay retroceso en sus pronósticos</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-success" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Confirmar Resultados</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
        </form>
      </div>
      <div class="footer">
