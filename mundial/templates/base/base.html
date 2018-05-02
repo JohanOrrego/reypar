@@ -88,7 +88,7 @@
                  </a>
                </li>
                {% if user.is_superuser == 1 %}
-                <li><a href="#"><i class="fa fa-pencil-square-o"></i> Registro <br/> resultados
+                <li><a href="{% url 'PrincipalRegistroResultados' %}"><i class="fa fa-pencil-square-o"></i> Registro <br/> resultados
                  </a>
                </li>
                {% endif %}
