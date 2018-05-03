@@ -112,6 +112,9 @@ def InicioView(request):
 		return HttpResponseRedirect('/verFaseGrupos/')
 
 # vista para el registro de los resultados de la fase de grupos por usuario
+def RankingView(request):
+	ranking=RankingModel.objects.order_by(('-Puntaje'))
+	return render(request,'ranking.html',{'ranking':ranking})
 def RegistroFaseGruposView(request):
 	if request.method == 'POST':
 		try:
@@ -903,6 +906,15 @@ def RegistroResultadosAdminView(request):
 
 # vista para el registro de los resultados de la fase de grupos por el Administrador
 def RegistroFaseGruposAdminView(request):
+	GrupoA=FaseGruposAdminModel.objects.filter(Grupo='A').order_by('FechaPartido')
+	GrupoB=FaseGruposAdminModel.objects.filter(Grupo='B').order_by('FechaPartido')
+	GrupoC=FaseGruposAdminModel.objects.filter(Grupo='C').order_by('FechaPartido')
+	GrupoD=FaseGruposAdminModel.objects.filter(Grupo='D').order_by('FechaPartido')
+	GrupoE=FaseGruposAdminModel.objects.filter(Grupo='E').order_by('FechaPartido')
+	GrupoF=FaseGruposAdminModel.objects.filter(Grupo='F').order_by('FechaPartido')
+	GrupoG=FaseGruposAdminModel.objects.filter(Grupo='G').order_by('FechaPartido')
+	GrupoH=FaseGruposAdminModel.objects.filter(Grupo='H').order_by('FechaPartido')
+
 	if FaseGruposAdminModel.objects.filter(Participante = request.user.id, Identificador=1).count() > 0:
 		btnPartido1 = 1
 	else:
@@ -1817,7 +1829,8 @@ def RegistroFaseGruposAdminView(request):
 		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
 
 	return render(request, 'adminResultados/registroFaseGruposAdmin.html',
-		{'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,'btnPartido3':btnPartido3,'btnPartido4':btnPartido4,
+		{'GrupoA':GrupoA,'GrupoB':GrupoB,'GrupoC':GrupoC,'GrupoD':GrupoD,'GrupoE':GrupoE,'GrupoF':GrupoF,'GrupoG':GrupoG,'GrupoH':GrupoH,
+		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,'btnPartido3':btnPartido3,'btnPartido4':btnPartido4,
 		'btnPartido5':btnPartido5,'btnPartido6':btnPartido6,'btnPartido7':btnPartido7,'btnPartido8':btnPartido8,
 		'btnPartido9':btnPartido9,'btnPartido10':btnPartido10,'btnPartido11':btnPartido11,'btnPartido12':btnPartido12,
 		'btnPartido13':btnPartido13,'btnPartido14':btnPartido14,'btnPartido15':btnPartido15,'btnPartido16':btnPartido16,
@@ -1905,6 +1918,7 @@ def registroRanking(contador,idUsuario, identificador):
 
 # vista para el registro de los octavos de admin
 def RegistroOctavosAdminView(request):
+	Octavosuno=FaseOctavosAdminModel.objects.order_by('FechaPartido')
 	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id, Identificador=49).count() > 0:
 		btnPartido1 = 1
 	else:
@@ -2160,7 +2174,7 @@ def RegistroOctavosAdminView(request):
 		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
 
 	return render(request,'adminResultados/registroOctavosAdmin.html',
-		{'partido1':partido1, 'partido2':partido2,
+		{'Octavosuno':Octavosuno,'partido1':partido1, 'partido2':partido2,
 		'partido3':partido3, 'partido4':partido4,
 		'partido5':partido5, 'partido6':partido6,
 		'partido7':partido7, 'partido8':partido8,
@@ -2212,6 +2226,8 @@ def ValidarEmpateAdmin(partido):
 
 #vista para el formulario de registro de fase de cuartos por el admin
 def RegistroFaseCuartosAdminView(request):
+	Cuartos=FaseCuartosAdminModel.objects.order_by('FechaPartido')
+
 	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id, Identificador=57).count() > 0:
 		btnPartido1 = 1
 	else:
@@ -2377,7 +2393,7 @@ def RegistroFaseCuartosAdminView(request):
 		    sweetify.error(request, 'Ya se registro el resultado de este partido!')
 
 	return render(request,'adminResultados/registroCuartosAdmin.html',
-		{'partido1':partido1, 'partido2':partido2,
+		{'Cuartos':Cuartos,'partido1':partido1, 'partido2':partido2,
 		'partido3':partido3, 'partido4':partido4,
 		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,'btnPartido3':btnPartido3,'btnPartido4':btnPartido4,
 		})
@@ -2418,6 +2434,8 @@ def ObtenerPuntajeFaseCuartosAdmin(partido,identificador):
 
 #vista para el formulario de registro de fase de semifinales del admin
 def RegistroFaseSemifinalesAdminView(request):
+	Semis=FaseSemifinalesAdminModel.objects.order_by('FechaPartido')
+
 	if FaseSemifinalesAdminModel.objects.filter(Participante = request.user.id, Identificador=61).count() > 0:
 		btnPartido1 = 1
 	else:
@@ -2511,7 +2529,7 @@ def RegistroFaseSemifinalesAdminView(request):
 
 
 	return render(request,'adminResultados/registroSemifinalesAdmin.html',
-		{'partido1':partido1, 'partido2':partido2,
+		{'Semis':Semis,'partido1':partido1, 'partido2':partido2,
 		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,
 		})
 
@@ -2550,6 +2568,7 @@ def ObtenerPuntajeFaseSemifinalesAdmin(partido,identificador):
 
 #vista para el formulario de registro de fase de finales
 def RegistroFaseFinalAdminView(request):
+	Final=FaseFinalAdminModel.objects.order_by('FechaPartido')
 	if FaseFinalAdminModel.objects.filter(Participante = request.user.id, Identificador=61).count() > 0:
 		btnPartido1 = 1
 	else:
@@ -2651,7 +2670,7 @@ def RegistroFaseFinalAdminView(request):
 
 
 	return render(request,'adminResultados/registroFinalesAdmin.html',
-		{'partido1':partido1, 'partido2':partido2,
+		{'Final':Final,'partido1':partido1, 'partido2':partido2,
 		'btnPartido1':btnPartido1,'btnPartido2':btnPartido2,
 		})
 

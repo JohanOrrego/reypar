@@ -34,6 +34,60 @@ p{    font-size: 15px;
               <p>Al guardar cada fase no hay retroceso en sus pronósticos</p>
             </div>
             {% csrf_token %}
+            {%if Cuartos%}
+          <h3 style=" text-shadow:none; color: white">Partidos ya registrados </h3>
+          <div class="panel panel-default" style="background:none">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style=" text-shadow:none; color: white">Fecha</th>
+                  <th style=" text-shadow:none; color: white">Equipo 1</th>
+                  <th style=" text-shadow:none; color: white">Goles</th>
+                  <th style=" text-shadow:none; color: white">Goles</th>
+                  <th style=" text-shadow:none; color: white">Equipo 2</th>
+                  <th style=" text-shadow:none; color: white">Ganador por Penales</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 {%for partido in Cuartos%}
+                 <tr>
+                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido.FechaPartido|date:"j \d\e F \d\e Y"}}</td>
+
+                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido.Equipo1}}</td>
+
+                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                    {{partido.MarcadorEquipo1}}
+                  </td>
+
+                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                    {{partido.MarcadorEquipo2}}
+                  </td>
+                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+
+                    {%if partido.PenalEquipoGanador == '1' %}
+                    {{partido.Equipo1}}
+                    {%elif partido.PenalEquipoGanador == '2'%}
+                    {{partido.Equipo2}}
+                    {%else%}
+                    ---------
+
+                    {%endif%}
+                  </td>
+                </tr>
+                {% endfor %}
+
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {%endif%}
+
+
+{% if btnPartido1 == 0 %}
+
               <h3 style=" text-shadow:none; color: white">Partido 1 </h3>
                 <div class="panel panel-default" style="background:none">
                   <table class="table">
@@ -70,9 +124,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
-                        {% if btnPartido1 == 0 %}
+                        
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido1">Registrar resultado</button>
-                        {% endif %}
+                       
                       </td>
                       <input type="hidden" id="partido1" name="partido1" value="{{partido1.3.identificador}}">
                       <input type="hidden" id="partido1" name="partido1" value="{{user.id}}">
@@ -80,7 +134,8 @@ p{    font-size: 15px;
                     </tbody>
                   </table>
                   </div>
-
+ {% endif %}
+ {% if btnPartido2 == 0 %}
                 <h3 style=" text-shadow:none; color: white">Partido 2 </h3>
                 <div class="panel panel-default" style="background:none">
                   <table class="table">
@@ -116,9 +171,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
-                        {% if btnPartido2 == 0 %}
+                        
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido2">Registrar resultado</button>
-                        {% endif %}
+                        
                       </td>
                       <input type="hidden" id="partido2" name="partido2" value="{{partido2.3.identificador}}">
                       <input type="hidden" id="partido2" name="partido2" value="{{user.id}}">
@@ -126,7 +181,8 @@ p{    font-size: 15px;
                     </tbody>
                   </table>
                   </div>
-
+{% endif %}
+{% if btnPartido3 == 0 %}
                 <h3 style=" text-shadow:none; color: white">Partido 3 </h3>
                 <div class="panel panel-default" style="background:none">
                   <table class="table">
@@ -162,9 +218,9 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
-                        {% if btnPartido3 == 0 %}
+                        
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido3">Registrar resultado</button>
-                        {% endif %}
+                        
                       </td>
                       <input type="hidden" id="partido3" name="partido3" value="{{partido3.3.identificador}}">
                       <input type="hidden" id="partido3" name="partido3" value="{{user.id}}">
@@ -172,7 +228,8 @@ p{    font-size: 15px;
                     </tbody>
                   </table>
                   </div>
-
+{% endif %}
+{% if btnPartido4 == 0 %}
                 <h3 style=" text-shadow:none; color: white">Partido 4 </h3>
                 <div class="panel panel-default" style="background:none">
                   <table class="table">
@@ -208,15 +265,18 @@ p{    font-size: 15px;
                           </select>
                       </td>
                       <td class="col-xs-1">
-                        {% if btnPartido4 == 0 %}
+                        
                         <button type="submit" class="btn btn-primary btn-block" name="btn_partido4">Registrar resultado</button>
-                        {% endif %}
+                       
                       </td>
                       <input type="hidden" id="partido4" name="partido4" value="{{partido4.3.identificador}}">
                       <input type="hidden" id="partido4" name="partido4" value="{{user.id}}">
                     </tr>
                     </tbody>
                   </table>
+ {% endif %}
+
+                  
                   </div>
                    <div class="col-xs-12 text-center">
                     <a class="btn btn-warning" href="{% url 'PrincipalRegistroResultados' %}">volver</a>

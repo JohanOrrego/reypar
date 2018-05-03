@@ -46,7 +46,7 @@ p{    font-size: 15px;
               </thead>
               <tbody>
 
-                <tr>
+                <tr>   {% if btnPartido1 == 0 %}
                   <td style="text-shadow:none; color: white">14 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="2018-06-14">
                   <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="A">
@@ -59,13 +59,34 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
                   <td>
-                    {% if btnPartido1 == 0 %}
+                 
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_A">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoA%}
+                    {%for partido in GrupoA%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
                     {% endif %}
-                  </td>
-                </tr>
+                    {% endif %}
 
-                <tr>
+               
+            
+
+                <tr> {% if btnPartido2 == 0 %}
                   <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="2018-06-16">
                   <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="A">
@@ -78,13 +99,13 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_A" name="2_Groups_A" value="2">
                   <td>
-                    {% if btnPartido2 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_A">Registrar resultado</button>
                     {% endif %}
                   </td>
                 </tr>
 
-                <tr>
+                <tr>{% if btnPartido3 == 0 %}
                   <td style="text-shadow:none; color: white">19 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="2018-06-19">
                   <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="A">
@@ -97,13 +118,13 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_A" name="3_Groups_A" value="3">
                   <td>
-                    {% if btnPartido3 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_A">Registrar resultado</button>
                     {% endif %}
                   </td>
                 </tr>
 
-                <tr>
+                <tr> {% if btnPartido4 == 0 %}
                   <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="2018-06-20">
                   <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="A">
@@ -116,13 +137,13 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_A" name="4_Groups_A" value="4">
                   <td>
-                    {% if btnPartido4 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_A">Registrar resultado</button>
                     {% endif %}
                   </td>
                 </tr>
 
-                <tr>
+                <tr>{% if btnPartido5 == 0 %}
                   <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="2018-06-25">
                   <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="A">
@@ -135,13 +156,13 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_A" name="5_Groups_A" value="5">
                   <td>
-                    {% if btnPartido5 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_A">Registrar resultado</button>
                     {% endif %}
                   </td>
                 </tr>
 
-                <tr>
+                <tr>{% if btnPartido6 == 0 %}
 
                   <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="2018-06-25">
@@ -155,7 +176,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_A" name="6_Groups_A" value="6">
                   <td>
-                    {% if btnPartido6 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_A">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -180,7 +201,7 @@ p{    font-size: 15px;
               </thead>
               <tbody>
 
-                <tr>
+                <tr>{% if btnPartido7 == 0 %}
 
                   <td style="text-shadow:none; color: white">15 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="2018-06-15">
@@ -194,14 +215,34 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_B" name="1_Groups_B" value="7">
                   <td>
-                    {% if btnPartido7 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_B">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoB%}
+                    {%for partido in GrupoB%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
                 </tr>
 
-                <tr>
+                <tr> {% if btnPartido8 == 0 %}
 
                   <td style="text-shadow:none; color: white">15 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="2018-06-15">
@@ -215,14 +256,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_B" name="2_Groups_B" value="8">
                   <td>
-                    {% if btnPartido8 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_B">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
 
-                <tr>
+                <tr>{% if btnPartido9 == 0 %}
 
                   <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="2018-06-20">
@@ -236,7 +277,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_B" name="3_Groups_B" value="9">
                   <td>
-                    {% if btnPartido9 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_B">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -244,7 +285,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido10 == 0 %}
                   <td style="text-shadow:none; color: white">20 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="2018-06-20">
                   <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="B">
@@ -257,7 +298,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_B" name="4_Groups_B" value="10">
                   <td>
-                    {% if btnPartido10 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_B">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -265,7 +306,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido11 == 0 %}
                   <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="2018-06-25">
                   <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="B">
@@ -278,14 +319,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_B" name="5_Groups_B" value="11">
                   <td>
-                    {% if btnPartido11 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_B">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
 
-                <tr>
+                <tr> {% if btnPartido12 == 0 %}
 
                   <td style="text-shadow:none; color: white">25 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="2018-06-25">
@@ -299,7 +340,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_B" name="6_Groups_B" value="12">
                   <td>
-                    {% if btnPartido12 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_B">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -324,7 +365,7 @@ p{    font-size: 15px;
               </thead>
               <tbody>
 
-                <tr>
+                <tr>{% if btnPartido13 == 0 %}
 
                   <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="2018-06-16">
@@ -338,15 +379,35 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_C" name="1_Groups_C" value="13">
                   <td>
-                    {% if btnPartido13 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_C">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoC%}
+                    {%for partido in GrupoC%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
                 </tr>
 
                 <tr>
-
+{% if btnPartido14 == 0 %}
                   <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="2018-06-16">
                   <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="C">
@@ -359,7 +420,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_C" name="2_Groups_C" value="14">
                   <td>
-                    {% if btnPartido14 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_C">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -367,7 +428,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido15 == 0 %}
                   <td style="text-shadow:none; color: white">21 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="2018-06-21">
                   <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="C">
@@ -380,7 +441,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_C" name="3_Groups_C" value="15">
                   <td>
-                    {% if btnPartido15 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_C">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -388,7 +449,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+ {% if btnPartido16 == 0 %}
                   <td style="text-shadow:none; color: white">21 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="2018-06-21">
                   <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="C">
@@ -401,14 +462,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_C" name="4_Groups_C" value="16">
                   <td>
-                    {% if btnPartido16 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_C">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
 
-                <tr>
+                <tr> {% if btnPartido17 == 0 %}
 
                   <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="2018-06-26">
@@ -422,7 +483,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_C" name="5_Groups_C" value="17">
                   <td>
-                    {% if btnPartido17 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_C">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -430,7 +491,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+   {% if btnPartido18 == 0 %}
                   <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="2018-06-26">
                   <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="C">
@@ -443,7 +504,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_C" name="6_Groups_C" value="18">
                   <td>
-                    {% if btnPartido18 == 0 %}
+                 
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_C">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -469,7 +530,7 @@ p{    font-size: 15px;
               </thead>
               <tbody>
 
-                <tr>
+                <tr>{% if btnPartido19 == 0 %}
 
                   <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="2018-06-16">
@@ -483,14 +544,34 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_D" name="1_Groups_D" value="19">
                   <td>
-                    {% if btnPartido19 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_D">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoD%}
+                    {%for partido in GrupoD%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
                 </tr>
 
-                <tr>
+                <tr> {% if btnPartido20 == 0 %}
 
                   <td style="text-shadow:none; color: white">16 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="2018-06-16">
@@ -504,7 +585,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_D" name="2_Groups_D" value="20">
                   <td>
-                    {% if btnPartido20 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_D">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -512,7 +593,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido21 == 0 %}
                   <td style="text-shadow:none; color: white">21 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="2018-06-21">
                   <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="D">
@@ -525,14 +606,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_D" name="3_Groups_D" value="21">
                   <td>
-                    {% if btnPartido21 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_D">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
                 <tr>
-
+{% if btnPartido22 == 0 %}
                   <td style="text-shadow:none; color: white">22 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="2018-06-22">
                   <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="D">
@@ -545,14 +626,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_D" name="4_Groups_D" value="22">
                   <td>
-                    {% if btnPartido22 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_D">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
                 <tr>
-
+{% if btnPartido23 == 0 %}
                   <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="2018-06-26">
                   <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="D">
@@ -565,14 +646,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_D" name="5_Groups_D" value="23">
                   <td>
-                    {% if btnPartido23 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_D">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
                 <tr>
-
+{% if btnPartido24 == 0 %}
                   <td style="text-shadow:none; color: white">26 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="2018-06-26">
                   <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="D">
@@ -585,7 +666,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_D" name="6_Groups_D" value="24">
                   <td>
-                    {% if btnPartido24 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_D">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -610,7 +691,7 @@ p{    font-size: 15px;
               </thead>
               <tbody>
 
-                <tr>
+                <tr>{% if btnPartido25 == 0 %}
 
                   <td style="text-shadow:none; color: white">17 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="2018-06-17">
@@ -624,15 +705,35 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_E" name="1_Groups_E" value="25">
                   <td>
-                    {% if btnPartido25 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_E">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoE%}
+                    {%for partido in GrupoE%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
                 </tr>
 
                 <tr>
-
+{% if btnPartido26 == 0 %}
                   <td style="text-shadow:none; color: white">17 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="2018-06-17">
                   <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="E">
@@ -645,14 +746,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_E" name="2_Groups_E" value="26">
                   <td>
-                    {% if btnPartido26 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_E">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
                 <tr>
-
+{% if btnPartido27 == 0 %}
                   <td style="text-shadow:none; color: white">22 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="2018-06-22">
                   <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="E">
@@ -665,7 +766,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_E" name="3_Groups_E" value="27">
                   <td>
-                    {% if btnPartido27 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_E">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -673,7 +774,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido28 == 0 %}
                   <td style="text-shadow:none; color: white">22 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="2018-06-22">
                   <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="E">
@@ -686,7 +787,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_E" name="4_Groups_E" value="28">
                   <td>
-                    {% if btnPartido28 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_E">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -694,7 +795,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido29 == 0 %}
                   <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="2018-06-27">
                   <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="E">
@@ -707,14 +808,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_E" name="5_Groups_E" value="29">
                   <td>
-                    {% if btnPartido29 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_E">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
                 <tr>
-
+{% if btnPartido30 == 0 %}
                   <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="2018-06-27">
                   <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="E">
@@ -727,7 +828,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_E" name="6_Groups_E" value="30">
                   <td>
-                    {% if btnPartido30 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_E">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -751,7 +852,7 @@ p{    font-size: 15px;
               </thead>
               <tbody>
 
-                <tr>
+                <tr>{% if btnPartido31 == 0 %}
 
                   <td style="text-shadow:none; color: white">17 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="2018-06-17">
@@ -765,8 +866,28 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_F" name="1_Groups_F" value="31">
                   <td>
-                    {% if btnPartido31 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_F">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoF%}
+                    {%for partido in GrupoF%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
@@ -774,7 +895,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido32 == 0 %}
                   <td style="text-shadow:none; color: white">18 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="2018-06-18">
                   <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="F">
@@ -787,7 +908,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_F" name="2_Groups_F" value="32">
                   <td>
-                    {% if btnPartido32 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_F">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -795,7 +916,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido33 == 0 %}
                   <td style="text-shadow:none; color: white">23 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="2018-06-23">
                   <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="F">
@@ -808,7 +929,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_F" name="3_Groups_F" value="33">
                   <td>
-                    {% if btnPartido33 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_F">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -816,7 +937,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+ {% if btnPartido34 == 0 %}
                   <td style="text-shadow:none; color: white">23 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="2018-06-23">
                   <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="F">
@@ -829,7 +950,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_F" name="4_Groups_F" value="34">
                   <td>
-                    {% if btnPartido34 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_F">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -837,7 +958,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido35 == 0 %}
                   <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="2018-06-27">
                   <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="F">
@@ -850,7 +971,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_F" name="5_Groups_F" value="35">
                   <td>
-                    {% if btnPartido35 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_F">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -858,7 +979,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido36 == 0 %}
                   <td style="text-shadow:none; color: white">27 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="2018-06-27">
                   <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="F">
@@ -871,7 +992,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_F" name="6_Groups_F" value="36">
                   <td>
-                    {% if btnPartido36 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_F">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -896,7 +1017,7 @@ p{    font-size: 15px;
               <tbody>
 
                 <tr>
-
+  {% if btnPartido37 == 0 %}
                   <td style="text-shadow:none; color: white">18 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="2018-06-18">
                   <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="G">
@@ -909,15 +1030,35 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_G" name="1_Groups_G" value="37">
                   <td>
-                    {% if btnPartido37 == 0 %}
+                  
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_G">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoG%}
+                    {%for partido in GrupoG%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
                 </tr>
 
                 <tr>
-
+{% if btnPartido38 == 0 %}
                   <td style="text-shadow:none; color: white">18 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="2018-06-18">
                   <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="G">
@@ -930,7 +1071,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_G" name="2_Groups_G" value="38">
                   <td>
-                    {% if btnPartido38 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_G">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -938,7 +1079,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido39 == 0 %}
                   <td style="text-shadow:none; color: white">23 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="2018-06-23">
                   <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="G">
@@ -951,7 +1092,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_G" name="3_Groups_G" value="39">
                   <td>
-                    {% if btnPartido39 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_G">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -959,7 +1100,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido40 == 0 %}
                   <td style="text-shadow:none; color: white">24 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="2018-06-24">
                   <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="G">
@@ -972,7 +1113,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_G" name="4_Groups_G" value="40">
                   <td>
-                    {% if btnPartido40 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_G">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -980,7 +1121,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido41 == 0 %}
                   <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="2018-06-28">
                   <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="G">
@@ -993,7 +1134,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_G" name="5_Groups_G" value="41">
                   <td>
-                    {% if btnPartido41 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_G">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -1001,7 +1142,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido42 == 0 %}
                   <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="2018-06-28">
                   <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="G">
@@ -1014,7 +1155,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_G" name="6_Groups_G" value="42">
                   <td>
-                    {% if btnPartido42 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_G">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -1040,7 +1181,7 @@ p{    font-size: 15px;
               <tbody>
 
                 <tr>
-
+{% if btnPartido43 == 0 %}
                   <td style="text-shadow:none; color: white">19 de Junio de 2018</td>
                   <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="2018-06-19">
                   <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="H">
@@ -1053,15 +1194,35 @@ p{    font-size: 15px;
                   <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="{{user.id}}">
                   <input type="hidden" id="1_Groups_H" name="1_Groups_H" value="43">
                   <td>
-                    {% if btnPartido43 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_1_Groups_H">Registrar resultado</button>
+                    {%else%}
+                    {%if GrupoH%}
+                    {%for partido in GrupoH%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 
                 </tr>
 
                 <tr>
-
+ {% if btnPartido44 == 0 %}
                   <td style="text-shadow:none; color: white">19 de Junio de 2018</td>
                   <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="2018-06-19">
                   <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="H">
@@ -1074,7 +1235,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="{{user.id}}">
                   <input type="hidden" id="2_Groups_H" name="2_Groups_H" value="44">
                   <td>
-                    {% if btnPartido44 == 0 %}
+                   
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_H">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -1082,7 +1243,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido45 == 0 %}
                   <td style="text-shadow:none; color: white">24 de Junio de 2018</td>
                   <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="2018-06-24">
                   <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="H">
@@ -1095,7 +1256,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="{{user.id}}">
                   <input type="hidden" id="3_Groups_H" name="3_Groups_H" value="45">
                   <td>
-                    {% if btnPartido45 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_3_Groups_H">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -1103,7 +1264,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido46 == 0 %}
                   <td style="text-shadow:none; color: white">24 de Junio de 2018</td>
                   <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="2018-06-24">
                   <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="H">
@@ -1116,7 +1277,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="{{user.id}}">
                   <input type="hidden" id="4_Groups_H" name="4_Groups_H" value="46">
                   <td>
-                    {% if btnPartido46 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_4_Groups_H">Registrar resultado</button>
                     {% endif %}
                   </td>
@@ -1124,7 +1285,7 @@ p{    font-size: 15px;
                 </tr>
 
                 <tr>
-
+{% if btnPartido47 == 0 %}
                   <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
                   <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="2018-06-28">
                   <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="H">
@@ -1137,14 +1298,14 @@ p{    font-size: 15px;
                   <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="{{user.id}}">
                   <input type="hidden" id="5_Groups_H" name="5_Groups_H" value="47">
                   <td>
-                    {% if btnPartido47 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_5_Groups_H">Registrar resultado</button>
                     {% endif %}
                   </td>
 
                 </tr>
                 <tr>
-
+{% if btnPartido48 == 0 %}
                   <td style="text-shadow:none; color: white">28 de Junio de 2018</td>
                   <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="2018-06-28">
                   <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="H">
@@ -1157,7 +1318,7 @@ p{    font-size: 15px;
                   <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="{{user.id}}">
                   <input type="hidden" id="6_Groups_H" name="6_Groups_H" value="48">
                   <td>
-                    {% if btnPartido48 == 0 %}
+                    
                     <button type="submit" class="btn btn-primary btn-block" name="btn_6_Groups_H">Registrar resultado</button>
                     {% endif %}
                   </td>

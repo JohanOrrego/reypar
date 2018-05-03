@@ -32,6 +32,7 @@ p{    font-size: 15px;
             <p>Al guardar cada fase no hay retroceso en sus pronósticos</p>
           </div>
           {% csrf_token %}
+
           <h3 style="text-shadow:none; color: white">Grupo A </h3>
           <div class="panel panel-default" style="background:none">
             <table class="table">
@@ -870,27 +871,30 @@ p{    font-size: 15px;
               </tbody>
             </table>
           </div>
-          <div class="col-xs-12 text-center">
-            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">Registrar Resultados</button>
-           
-         </div>
+          <div class="col-xs-12 col-sm-12 col-xs-12 text-center">
+            <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+              <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
+            </div>
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">Registrar Pronostico</button>
+
+          </div>
           <!-- Large modal -->
           
           <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
 
-                <div class="modal-header">
+                <div class="modal-header" style="background-color:#169F85">
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                   </button>
-                  <h4 class="modal-title" id="myModalLabel">Menjase de confirmación</h4>
+                  <h4 class="modal-title" id="myModalLabel" style="color: white">Mensaje de confirmación</h4>
                 </div>
                 <div class="modal-body">
-                  <p>Esta seguro que desea confirmar los resulatos ?</p>
+                  <p>¿ Está seguro que desea confirmar los resultados?</p>
                   <p>Al guardar los resultados no hay retroceso en sus pronósticos</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                   <button type="submit" class="btn btn-success" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Procesando">Confirmar Resultados</button>
                 </div>
 
@@ -898,15 +902,11 @@ p{    font-size: 15px;
             </div>
           </div>
 
-       </form>
-     </div>
-     <div class="footer">
-      <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
-        <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
+        </form>
       </div>
+
     </div>
   </div>
-</div>
 </div>
 <!-- jQuery -->
 <script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
@@ -926,7 +926,7 @@ p{    font-size: 15px;
 <script src="{% static "base/build/js/custom.min.js" %}"></script>
 <!-- page script -->
 <script type="text/javascript">
-  
+
  $('.btn').on('click', function() {
   var $this = $(this);
   $this.button('loading');
