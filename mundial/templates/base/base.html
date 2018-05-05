@@ -1,6 +1,29 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+<style>
+
+
+.sidebar {
+  float: left;
+  width: 350px;
+
+}
+
+.content1 {
+  float: right;
+  width: 640px;
+
+  height: 1000px;
+}
+
+.footer {
+  clear: both;
+
+
+  height: 0px;
+}
+</style>
 <head>
  {% block head_meta_charset %}
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,67 +82,72 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title">
-            <a href="{% url 'index'%}" class="site_title"><i class="fa  fa-soccer-ball-o" aria-hidden="true"></i><span> Reypar</span></a>
+            <a href="{% url 'index'%}" class="site_title"><i class="fa  fa-home" aria-hidden="true"></i><span> Reypar</span></a>
           </div>
 
           <div class="clearfix"></div>
 
-          <!-- menu profile quick info -->
-          <div class="profile clearfix">
-            <div class="profile_info">
-              <span>Bienvenido,</span>
-
-              <h2> {{user.first_name}} {{user.last_name}} </h2>
-            </div>
-          </div>
-          <!-- /menu profile quick info -->
-
-          <br />
-
-          <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
             <div class="menu_section">
               <h3>Menú</h3>
               <ul class="nav side-menu">
-               <li><a href="{% url 'ranking' %}"><i class="fa fa-line-chart"></i> Raking
-                 </a>
-               </li>
-               <li><a href="{% url 'verFaseGrupos' %}"><i class="fa fa-trophy"></i> Pronosticos
-                 </a>
-               </li>
-               {% if user.is_superuser == 1 %}
-                <li><a href="{% url 'PrincipalRegistroResultados' %}"><i class="fa fa-pencil-square-o"></i> Registro <br/> resultados
-                 </a>
-               </li>
-               {% endif %}
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/BETO.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/SRS.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/EBI.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/CFB.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/KAPARS.png" %}"  height="30"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/TAKSIM.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/TEKNOROT.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/ELRING.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/ASAM.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/Renault-logo.png" %}"  height="40"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/MAPA.png" %}"  height="40"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/EBI.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/AUTOMOTOR.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/MAHLE.png" %}"  height="25"></li>
-               <li style="padding-top: 12px"><img align="left_col" src="{% static "images/KAUTEK.png" %}"  height="23"></li>
-              </ul>
-             </div>
-           </div>
-           <!-- /sidebar menu -->
 
-     <!-- /menu footer buttons -->
-     <div class="sidebar-footer hidden-small">
-      <a data-toggle="tooltip" data-placement="top" title="Cerrar sesión" href="{% url 'logout'%}">
-        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-      </a>
+               <li><a href="{% url 'ranking' %}"><i class="fa fa-line-chart"></i> Raking
+               </a>
+             </li>
+             <li><a href="{% url 'verFaseGrupos' %}"><i class="fa fa-trophy"></i> Pronosticos
+             </a>
+           </li>
+           {% if user.is_superuser == 1 %}
+           <li><a href="{% url 'PrincipalRegistroResultados' %}"><i class="fa fa-pencil-square-o"></i> Registro <br/> resultados
+           </a>
+         </li>
+         {% endif %}
+       </div>
+       <div class="container">
+        <div class="header">
+
+        </div>
+        <div class="sidebar sticky">
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/BETO.png" %}"  height="26"></ul>
+          <ul style="padding-top:2px;padding-left: 0px" ><img align="left_col" src="{% static "images/SRS.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/EBI.png" %}"  height="28"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/CFB.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/KAPARS.png" %}"  height="30"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/TAKSIM.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/TEKNOROT.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/ELRING.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/ASAM.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/Renault-logo.png" %}"  height="40"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/MAPA.png" %}"  height="40"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/EBI.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/AUTOMOTOR.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/MAHLE.png" %}"  height="25"></ul>
+          <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/KAUTEK.png" %}"  height="23"></ul>
+        </ul>
+      </div>
+      <div class="content1" style="height: 10px">
+
+      </div>
+      <div class="footer">
+        <div class="sticky-stopper"></div>
+
+      </div>
     </div>
-    <!-- /menu footer buttons -->
+
   </div>
+
+  <!-- /sidebar menu -->
+
+  <!-- /menu footer buttons -->
+  <div class="sidebar-footer hidden-small">
+    <a data-toggle="tooltip" data-placement="top" title="Cerrar sesión" href="{% url 'logout'%}">
+      <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+    </a>
+  </div>
+  <!-- /menu footer buttons -->
+</div>
 </div>
 
 <!-- top navigation -->
@@ -127,7 +155,7 @@
 
   <div class="nav_menu">
     <nav>
-    
+
 
       <ul class="nav navbar-nav navbar-right">
         <li class="">
@@ -135,16 +163,16 @@
 
 
            <i class="fa  fa-soccer-ball-o" aria-hidden="true"></i>
-         
+
            <span class=" fa fa-angle-down"></span>
          </a>
          <ul class="dropdown-menu dropdown-usermenu pull-right">
-          
+
           <li><a href="{% url 'logout'%}"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a></li>
         </ul>
       </li>
 
-    
+
     </ul>
   </nav>
 </div>
@@ -166,5 +194,35 @@
 <script src="{% static "/base/vendors/sweetalert.min.js" %}"></script>
 {% load sweetify %}
 {% sweetify %}
+<script type="text/javascript">
+  $( document ).ready(function() {
+    console.log( "document ready!" );
+
+    var $sticky = $('.sticky');
+    var $stickyrStopper = $('.sticky-stopper');
+  if (!!$sticky.offset()) { // make sure ".sticky" element exists
+
+    var generalSidebarHeight = $sticky.innerHeight();
+  var stickyTop = $sticky.offset().top;
+  var stickOffset = 0;
+  var stickyStopperPosition = $stickyrStopper.offset().top;
+  var stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+  var diff = stopPoint + stickOffset;
+
+    $(window).scroll(function(){ // scroll event
+      var windowTop = $(window).scrollTop(); // returns number
+
+      if (stopPoint < windowTop) {
+        $sticky.css({ position: 'absolute', top: diff });
+      } else if (stickyTop < windowTop+stickOffset) {
+        $sticky.css({ position: 'fixed', top: stickOffset });
+      } else {
+        $sticky.css({position: 'absolute', top: 'initial'});
+      }
+    });
+
+  }
+});
+</script>
 </body>
 </html>

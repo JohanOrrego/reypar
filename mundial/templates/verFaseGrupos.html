@@ -56,7 +56,7 @@
         {%else%}
         <center><h3 style="color: white">Pronostico no Registrado</h3></center> 
         <a href="{% url 'Principal' %}" ><center><h2 style="color: yellow">Click para registar</h2></center> </a>
-        {%endif%}
+       
       </tbody>
     </table>
 
@@ -64,7 +64,7 @@
 
 </div>
 </div>
-
+ {%endif%}
 {%if Octavos%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Octavos <small style=" text-shadow:none; color: white"></small></h3></center>
 
@@ -107,7 +107,7 @@
         </tr>
         {%endfor%}
         
-        {%endif%}
+      
       </tbody>
     </table>
 
@@ -115,7 +115,7 @@
 
 </div>
 </div>
-
+  {%endif%}
 {%if Cuartos%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Cuartos <small style=" text-shadow:none; color: white"></small></h3></center>
 
@@ -157,14 +157,14 @@
         </tr>
         {%endfor%}
         
-        {%endif%}
+       
       </tbody>
     </table>
 
   </div>
 
 </div>
-</div>
+</div> {%endif%}
 {%if Semis%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Semifinal <small style=" text-shadow:none; color: white"></small></h3></center>
 
@@ -206,7 +206,7 @@
         </tr>
         {%endfor%}
         
-        {%endif%}
+       
       </tbody>
     </table>
 
@@ -214,7 +214,7 @@
 
 </div>
 </div>
-
+ {%endif%}
 {%if Final%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase Final <small style=" text-shadow:none; color: white"></small></h3></center>
 

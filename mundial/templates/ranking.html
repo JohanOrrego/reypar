@@ -11,10 +11,13 @@
    </div>
 
  </div>
+<div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+  <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
 
- {%if ranking%}
+</div>
+
  <center><h3  style=" text-shadow:none; color: white">Ranking<small style=" text-shadow:none; color: white"></small></h3></center>
-
+ {%if ranking%}
  <div class="x_panel" style="background:none;border:none" >
   <div class="x_content">
    <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
@@ -46,11 +49,43 @@
 
 </div>
 </div>
-{%endif%}
+{%else%}
+ <div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+    <table class="table" style="color:white" align="center">
+      <thead>
+        <tr>
+   
+          <th>Nombre</th>
+          <th>Puntaje</th>
+         
+        </tr>
+      </thead>
+      <tbody>
 
+        {% for usuario in usuarios %}
+        <tr>
+         
+          <td>{{usuario.first_name}} {{usuario.first_name}}</td>
+          <td>0</td>
+      
+   
+        </tr>
+        {%endfor%}
+    
+      </tbody>
+    </table>
 
+  </div>{%endif%}
 <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
   <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
+
+</div>
+</div>
+
+
+
 </div>
 </div>
 
