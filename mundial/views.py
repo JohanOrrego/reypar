@@ -386,8 +386,8 @@ def RegistroPosicionesEquiposUsuarios(partidojugado):
 			EquipoResultado2.Ganados = int(EquipoResultado2.Ganados) + 1
 			EquipoResultado2.Empatados = int(EquipoResultado2.Empatados) + 0
 			EquipoResultado2.Perdidos = int(EquipoResultado2.Perdidos) + 0
-			EquipoResultado2.GolaFavor = int(EquipoResultado2.GolaFavor) + int(partidojugado[3])
-			EquipoResultado2.GolContra = int(EquipoResultado2.GolContra) + int(partidojugado[5])
+			EquipoResultado2.GolaFavor = int(EquipoResultado2.GolaFavor) + int(partidojugado[5])
+			EquipoResultado2.GolContra = int(EquipoResultado2.GolContra) + int(partidojugado[3])
 			EquipoResultado2.GolDiferencia = int(EquipoResultado2.GolaFavor) - int(EquipoResultado2.GolContra)
 			EquipoResultado2.Puntos = int(EquipoResultado2.Puntos) + 3
 			EquipoResultado2.Participante = ParticipantesModel.objects.get(id=partidojugado[6])
