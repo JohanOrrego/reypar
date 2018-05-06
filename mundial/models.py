@@ -19,6 +19,7 @@ class ClasificacionClienteModel(models.Model):
 
 # modelo para el registro de los clientes
 class ClientesModel(models.Model):
+
 	NIT = models.CharField(max_length=15)
 	NombreComercial = models.CharField(max_length=50)
 	RazonSocial = models.CharField(max_length=50)

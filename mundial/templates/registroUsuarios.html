@@ -39,6 +39,7 @@
 </head>
 
 <body style="background: url('/static/images/background1.jpg') no-repeat center center fixed">
+  <p style="margin: 20px;color: white" align="left"><a style="color: white;font-size:15px" href="{% url 'index'%}"> <i class="fa fa-toggle-left fa-2x"></i> ATRAS</a></p>
   <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
       <div class="main_container">
             <header>
@@ -106,6 +107,7 @@
                   <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="password1">{{form.password1.label}} <span class="required">*</span></label>
                   <div class="col-md-5 col-sm-5 col-xs-12">
                     {{form.password1}}
+                     <label style="color: white">Use mayúsculas,minúsculas o números</label>
                   </div>
                 </div>
               </div>
@@ -114,7 +116,7 @@
                   <label style="color: white" class="col-md-3 col-sm-3 col-xs-12" for="password2">{{form.password2.label}} <span class="required">*</span></label>
                   <div class="col-md-5 col-sm-5 col-xs-12">
                     {{form.password2}}
-                    
+                   
                   </div>
                 </div>
               </div>

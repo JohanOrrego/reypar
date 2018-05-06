@@ -12,16 +12,13 @@
 
 .content1 {
   float: right;
-  width: 640px;
 
-  height: 1000px;
+
 }
 
 .footer {
   clear: both;
 
-
-  height: 0px;
 }
 </style>
 <head>
@@ -127,7 +124,7 @@
           <ul style="padding-top:2px;padding-left: 0px"><img align="left_col" src="{% static "images/KAUTEK.png" %}"  height="23"></ul>
         </ul>
       </div>
-      <div class="content1">
+      <div id="cont" class="content1">
 
       </div>
       <div class="footer">
@@ -195,8 +192,16 @@
 {% load sweetify %}
 {% sweetify %}
 <script type="text/javascript">
+  screen=$(window).height(); 
+var body = document.body,
+    html = document.documentElement;
+
+var height = Math.min( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+var height1=body.clientHeight-screen;
+  document.getElementById("cont").style.height = String(height1)+"px";
   $( document ).ready(function() {
-    console.log( "document ready!" );
+
 
     var $sticky = $('.sticky');
     var $stickyrStopper = $('.sticky-stopper');

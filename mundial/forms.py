@@ -68,7 +68,7 @@ class RegistroParticipantesForm(UserCreationForm):
 		'Sexo' : forms.Select(attrs={'class':'form-control'}),
 		'TipoDocumento' : forms.Select(attrs={'class':'form-control'}),
 		'Identificicacion':forms.TextInput(attrs={'class':'form-control'}),
-		'Ciudad':forms.TextInput(attrs={'class':'form-control'}),
+		'Ciudad':forms.TextInput(attrs={'class':'form-control','type':'text','pattern':'[a-zA-Z]*'}),
 		'Telefono':forms.TextInput(attrs={'class':'form-control', 'data-inputmask':'"mask": "999-99-99"','data-mask':'true'}),
 		'Celular':forms.TextInput(attrs={'class':'form-control', 'data-inputmask':'"mask": "(999) 999-99-99"','data-mask':'true'}),
 		'Direccion':forms.TextInput(attrs={'class':'form-control'}),

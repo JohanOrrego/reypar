@@ -50,7 +50,7 @@ class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 			countClientes = ParticipantesModel.objects.filter(NITEmpresa=form.cleaned_data['NITEmpresa']).count()
 			Empresa = ClientesModel.objects.get(NIT=form.cleaned_data['NITEmpresa'])
 			countCupos = Empresa.Clasificacion.Cupo
-			print(countCupos)
+			
 			if countClientes == countCupos:
 				sweetify.error(request, 'No se permiten mas participates para este cliente!')
 				return render(request, 'registroUsuarios.html', {'form': form })
@@ -114,7 +114,8 @@ def InicioView(request):
 # vista para el registro de los resultados de la fase de grupos por usuario
 def RankingView(request):
 	ranking=RankingModel.objects.order_by(('-Puntaje'))
-	return render(request,'ranking.html',{'ranking':ranking})
+	usuarios=ParticipantesModel.objects.all()
+	return render(request,'ranking.html',{'ranking':ranking,'usuarios':usuarios})
 def RegistroFaseGruposView(request):
 	if request.method == 'POST':
 		try:
@@ -249,7 +250,7 @@ def verFaseGruposView(request):
 	Cuartos = FaseCuartosUsuariosModel.objects.filter(Participante= request.user.id)
 	Semis = FaseSemifinalesUsuariosModel.objects.filter(Participante= request.user.id)
 	Final = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id)
-	print FaseGrupos
+	
 	return render(request,'verFaseGrupos.html',{'FaseGrupos':FaseGrupos,'Octavos':Octavos,'Cuartos':Cuartos,'Semis':Semis,'Final':Final})
 
 # funcion para el registro de los equipos en la tablas de posiciones por usuarios
@@ -693,7 +694,7 @@ def RegistroFaseSemifinalesView(request):
 		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
 			equipos += [[i.Equipo2]]
 
-	print(equipos)
+
 	
 	for x in equipos[0]:
 		equipo1=x
@@ -794,8 +795,6 @@ def RegistroFaseFinalView(request):
 			equiposPerdedores += [[i.Equipo1]]
 			
 
-	print(equiposGanadores)
-	print(equiposPerdedores)
 
 
 	for x in equiposGanadores[0]:
@@ -2459,7 +2458,7 @@ def RegistroFaseSemifinalesAdminView(request):
 		if i.MarcadorEquipo1 < i.MarcadorEquipo2:
 			equipos += [[i.Equipo2]]
 
-	print(equipos)
+
 	
 	for x in equipos[0]:
 		equipo1=x

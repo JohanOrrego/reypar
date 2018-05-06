@@ -5,67 +5,77 @@
 
 <!-- page content -->
 <div class="right_col"  role="main" style="background: url('/static/images/background1.jpg') no-repeat center center fixed;" >
-  <div class="page-title">
-    <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
-     <a href="{% url 'index' %}"> <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-polla.png" %}"  height="170"></a>
+  <div style="padding: 5px">
+
+    <div class="page-title">
+      <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+       <a href="{% url 'index' %}"> <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-polla.png" %}"  height="170"></a>
+     </div>
+
    </div>
 
- </div>
-  {%if Final%}
-    <center><h3  style=" text-shadow:none; color: gold">CAMPEÓN  <i class="fa fa-trophy"></i></h3></center>
-    {% if Final.0.MarcadorEquipo1 > Final.0.MarcadorEquipo2 %}
-    <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo1}}--<small style=" text-shadow:none; color: white"></small></h3></center>
-    <th scope="row"></th>
-    {% elif Final.0.MarcadorEquipo1 < Final.0.MarcadorEquipo2 %}
-    <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo2}}--<small style=" text-shadow:none; color: white"></small></h3></center>
-    {%else%}
-    {%if Final.0.PenalEquipoGanador == '1' %}
+   {%if Final%}
+   <center><h3  style=" text-shadow:none; color: gold">CAMPEÓN  <i class="fa fa-trophy"></i></h3></center>
+   {% if Final.0.MarcadorEquipo1 > Final.0.MarcadorEquipo2 %}
    <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo1}}--<small style=" text-shadow:none; color: white"></small></h3></center>
-    {%else%}
- <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo2}}--<small style=" text-shadow:none; color: white"></small></h3></center>
-    {%endif%}
-    {%endif%}
-    {%endif%}
- {%if FaseGrupos%}
- <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Grupos <small style=" text-shadow:none; color: white"></small></h3></center>
+   <th scope="row"></th>
+   {% elif Final.0.MarcadorEquipo1 < Final.0.MarcadorEquipo2 %}
+   <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo2}}--<small style=" text-shadow:none; color: white"></small></h3></center>
+   {%else%}
+   {%if Final.0.PenalEquipoGanador == '1' %}
+   <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo1}}--<small style=" text-shadow:none; color: white"></small></h3></center>
+   {%else%}
+   <center><h3  style=" text-shadow:none; color: gold">--{{Final.0.Equipo2}}--<small style=" text-shadow:none; color: white"></small></h3></center>
+   {%endif%}
+   {%endif%}
+   {%endif%}
 
- <div class="x_panel" style="background:none;border:none" >
-  <div class="x_content">
-   <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
-    <table class="table" style="color:white" align="center">
-      <thead>
-        <tr>
-          <th>Goles</th>
-          <th>Equipo 1</th>
-          <th>-</th>
-          <th>Equipo 2</th>
-          <th>Goles</th>
-        </tr>
-      </thead>
-      <tbody>
+   {%if FaseGrupos%}
+   <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Grupos <small style=" text-shadow:none; color: white"></small></h3></center>
 
-        {% for partido in FaseGrupos %}
-        <tr>
-          <th scope="row">{{partido.MarcadorEquipo1}}</th>
-          <td>{{partido.Equipo1}}</td>
-          <th align="left">VS</th>
-          <td>{{partido.Equipo2}}</td>
-          <th scope="row">{{partido.MarcadorEquipo2}}</th>
-        </tr>
-        {%endfor%}
-        {%else%}
-        <center><h3 style="color: white">Pronostico no Registrado</h3></center> 
-        <a href="{% url 'Principal' %}" ><center><h2 style="color: yellow">Click para registar</h2></center> </a>
-       
-      </tbody>
-    </table>
+   <div class="x_panel" style="background:none;border:none" >
+    <div class="x_content">
+     <div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3 col-sd-offset-3" >
+      <table class="table" style="color:white" align="center">
+        <thead>
+          <tr>
+            <th>Goles</th>
+            <th>Equipo 1</th>
+            <th>-</th>
+            <th>Equipo 2</th>
+            <th>Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for partido in FaseGrupos %}
+          <tr>
+            <th scope="row">{{partido.MarcadorEquipo1}}</th>
+            <td>{{partido.Equipo1}}</td>
+            <th align="left">VS</th>
+            <td>{{partido.Equipo2}}</td>
+            <th scope="row">{{partido.MarcadorEquipo2}}</th>
+          </tr>
+          {%endfor%}
+
+
+
+        </tbody>
+      </table>
+
+    </div>
 
   </div>
+</div>
+{%else%}
+<center><h3 style="color: white">Pronostico no Registrado</h3></center> 
+<a href="{% url 'Principal' %}" ><center><h2 style="color: yellow">Click para registar</h2></center> </a>
+{%endif%}
 
-</div>
-</div>
- {%endif%}
-{%if Octavos%}
+
+
+{% if Octavos %}
+
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Octavos <small style=" text-shadow:none; color: white"></small></h3></center>
 
 <div class="x_panel" style="background:none;border:none" >
@@ -107,7 +117,7 @@
         </tr>
         {%endfor%}
         
-      
+
       </tbody>
     </table>
 
@@ -115,7 +125,7 @@
 
 </div>
 </div>
-  {%endif%}
+{%endif%}
 {%if Cuartos%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase de Cuartos <small style=" text-shadow:none; color: white"></small></h3></center>
 
@@ -157,14 +167,15 @@
         </tr>
         {%endfor%}
         
-       
+
       </tbody>
     </table>
 
   </div>
 
 </div>
-</div> {%endif%}
+</div> 
+{%endif%}
 {%if Semis%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Semifinal <small style=" text-shadow:none; color: white"></small></h3></center>
 
@@ -206,7 +217,7 @@
         </tr>
         {%endfor%}
         
-       
+
       </tbody>
     </table>
 
@@ -214,7 +225,7 @@
 
 </div>
 </div>
- {%endif%}
+{%endif%}
 {%if Final%}
 <center><h3  style=" text-shadow:none; color: white">Resultados seleccionados Fase Final <small style=" text-shadow:none; color: white"></small></h3></center>
 
@@ -243,16 +254,24 @@
         </tr>
         {%endfor%}
         
-        {%endif%}
+
       </tbody>
     </table>
-</div>
-</div>
-<div div class="col-md-12 col-sm-12 col-xs-12" align="center">
-              <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
-            </div>
+  </div>
+</div>  
+
+
+</div>  
+{%endif%}
+<div class="x_panel" style="background:none;border:none" >
+  <div class="x_content">
+    <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+      <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
+    </div>
+  </div>
 </div>
 
+</div>
 </div>
 
 
