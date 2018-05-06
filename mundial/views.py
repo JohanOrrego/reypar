@@ -62,7 +62,7 @@ class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 		            'password': form.cleaned_data['password1']
 		        }
 				mensaje = get_template('plantillaCorreo.html').render(contexto_email)
-				email = EmailMessage('Reypar', mensaje , to=[form.cleaned_data['email']], from_email='johan4201@gmail.com')
+				email = EmailMessage('POLLA MUNDIALISTA REYPAR', mensaje , to=[form.cleaned_data['email']], from_email='johan4201@gmail.com')
 				email.content_subtype = "html"
 				email.send()
 				return HttpResponseRedirect('/accounts/login/')
