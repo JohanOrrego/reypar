@@ -51,9 +51,9 @@
           {% for partido in FaseGrupos %}
           <tr>
             <th scope="row">{{partido.MarcadorEquipo1}}</th>
-            <td>{{partido.Equipo1}}</td>
+            <td class="col-xs-1" >{{partido.Equipo1}}</td>
             <th align="left">VS</th>
-            <td>{{partido.Equipo2}}</td>
+            <td class="col-xs-1">{{partido.Equipo2}}</td>
             <th scope="row">{{partido.MarcadorEquipo2}}</th>
           </tr>
           {%endfor%}
@@ -97,9 +97,9 @@
         {% for partido in Octavos %}
         <tr>
           <th scope="row">{{partido.MarcadorEquipo1}}</th>
-          <td>{{partido.Equipo1}}</td>
+          <td class="col-xs-1">{{partido.Equipo1}}</td>
           <th align="left">VS</th>
-          <td>{{partido.Equipo2}}</td>
+          <td class="col-xs-1">{{partido.Equipo2}}</td>
           <th scope="row">{{partido.MarcadorEquipo2}}</th>
           {% if partido.MarcadorEquipo1 > partido.MarcadorEquipo2 %}
           <th scope="row">{{partido.Equipo1}}</th>
@@ -148,7 +148,7 @@
         {% for partido in Cuartos %}
         <tr>
           <th scope="row">{{partido.MarcadorEquipo1}}</th>
-          <td>{{partido.Equipo1}}</td>
+          <td class="col-xs-1">{{partido.Equipo1}}</td>
           <th align="left">VS</th>
           <td>{{partido.Equipo2}}</td>
           <th scope="row">{{partido.MarcadorEquipo2}}</th>

@@ -3,16 +3,73 @@
 {% load staticfiles %}
 {% block content %}
 <style>
+ td { 
 
-td {
-
-  text-align: left;
+    text-align: left;
   font-size: 18px;
+ 
+  max-width:70px; 
+  }
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
 
-}
-p{    font-size: 15px;
-
-
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr { 
+    display: block; 
+  }
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr { border: 1px solid #ccc; }
+  
+  td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+    text-align: left;
+    font-size: 18px;
+    max-width:100%; 
+  }
+  
+  td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+    text-align: left;
+  font-size: 18px;
+  }
+  
+  /*
+  Label the data
+  */
+  td:nth-of-type(1):before { content: ; }
+  td:nth-of-type(2):before { content: ; }
+  td:nth-of-type(3):before { content: ; }
+  td:nth-of-type(4):before { content: ; }
+  td:nth-of-type(5):before { content: ; }
+  td:nth-of-type(6):before { content: ; }
+  td:nth-of-type(7):before { content: ; }
+  td:nth-of-type(8):before { content: ; }
+  td:nth-of-type(9):before { content: ; }
+  td:nth-of-type(10):before { content: ; }
 }
 </style>
 <!-- page content -->
@@ -50,19 +107,19 @@ p{    font-size: 15px;
               </thead>
               <tbody>
                 <tr>
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido1.2.fecha|date:"j \d\e F \d\e Y"}}</td>
+                  <td  style=" text-shadow:none; color: white">{{partido1.2.fecha|date:"j \d\e F \d\e Y"}}</td>
                   <input type="hidden" id="partido1" name="partido1" value="{{partido1.2.fecha|date:'Y-m-d'}}">
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido1.0.Equipo}}</td>
+                  <td  style=" text-shadow:none; color: white">{{partido1.0.Equipo}}</td>
                   <input type="hidden" id="partido1" name="partido1" value="{{partido1.0.Equipo}}">
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white">
                     <input type="number" min="0" class="form-control" id="partido1_1" name="partido1" value="0" required="">
                   </td>
                   <input type="hidden" id="partido1" name="partido1" value="{{partido1.1.Equipo}}">
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white">
                     <input type="number" min="0" class="form-control" id="partido1_2" name="partido1" value="0" required="">
                   </td>
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido1.1.Equipo}}</td>
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white">{{partido1.1.Equipo}}</td>
+                  <td  style=" text-shadow:none; color: white">
                     <select class="form-control" name="partido1" id="penal1">
                       <option value="0">-------</option>
                       <option value="1">{{partido1.0.Equipo}}</option>
@@ -91,19 +148,19 @@ p{    font-size: 15px;
               </thead>
               <tbody>
                 <tr>
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido2.2.fecha|date:"j \d\e F \d\e Y"}}</td>
+                  <td  style=" text-shadow:none; color: white">{{partido2.2.fecha|date:"j \d\e F \d\e Y"}}</td>
                   <input type="hidden" id="partido2" name="partido2" value="{{partido2.2.fecha|date:'Y-m-d'}}">
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido2.0.Equipo}}</td>
+                  <td  style=" text-shadow:none; color: white">{{partido2.0.Equipo}}</td>
                   <input type="hidden" id="partido2" name="partido2" value="{{partido2.0.Equipo}}">
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white">
                     <input type="number" min="0" class="form-control" id="partido2_1" name="partido2" value="0" required="">
                   </td>
                   <input type="hidden" id="partido2" name="partido2" value="{{partido2.1.Equipo}}">
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white">
                     <input type="number" min="0" class="form-control" id="partido2_2" name="partido2" value="0" required="">
                   </td>
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">{{partido2.1.Equipo}}</td>
-                  <td class="col-xs-1" style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white">{{partido2.1.Equipo}}</td>
+                  <td  style=" text-shadow:none; color: white">
                     <select class="form-control" id="penal2" name="partido2">
                       <option value="0">-------</option>
                       <option value="1">{{partido2.0.Equipo}}</option>
