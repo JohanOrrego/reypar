@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SB Admin - Start Bootstrap Template</title>
+  <!-- Bootstrap core CSS-->
+
+  <link href="{% static "planeacion/publigns/startbootstrap/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static "planeacion/publigns/startbootstrap/vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="{% static "planeacion/publigns/startbootstrap/vendor/datatables/dataTables.bootstrap4.css" %}" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="{% static "planeacion/publigns/startbootstrap/css/sb-admin.css" %}" rel="stylesheet">
+  <link href="{% static "planeacion/publigns/startbootstrap/css/style.css" %}" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+  <!-- Navigation-->
+
+  <div  class="container">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+
+      <div class="container">
+        <div class="row">
+          <div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
+            <div class="icon">
+              <span class="fa fa-check"></span>
+            </div>
+            <!--/.icon-->
+            <h1>¡ Hola {{context.Nombre}} !</h1>
+            <p>Usted recibirá un email con las credenciales de acceso a la plataforma al correo registrado</p>
+            
+            <!-- Example DataTables Card-->
+           
+            <a class="btn btn-success" href="{% url 'index' %}">Listo</a>
+          </div>
+          <!--/.success-->
+        </div>
+        <!--/.row-->
+      </div>
+      <!--/.container-->
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button-->
+
+  <!-- Logout Modal-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/jquery/jquery.min.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/popper/popper.min.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/datatables/jquery.dataTables.js" %}"></script>
+
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/datatables/jquery.dataTables.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/vendor/datatables/dataTables.bootstrap4.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/js/sb-admin.min.js" %}"></script>
+  <script src="{% static "planeacion/publigns/startbootstrap/js/sb-admin-datatables.min.js" %}"></script>
+  
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      function disableBack() {window.history.forward()}
+
+      window.onload = disableBack();
+      window.onpageshow = function(event){ if (event.persisted) disableBack()}
+    });
+  </script>    
+
+
+</body>
+
+</html>

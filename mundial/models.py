@@ -65,6 +65,8 @@ class ParticipantesModel(AbstractUser):
 	Direccion = models.CharField(max_length=50)
 	NITEmpresa = models.CharField(max_length=15)
 	CargoEmpresa = models.CharField(max_length=15)
+	class Meta:
+		unique_together = (('email'),)
 
 
 # modelo para el registro de los participantes en la polla 

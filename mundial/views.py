@@ -65,7 +65,8 @@ class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 				email = EmailMessage('POLLA MUNDIALISTA REYPAR', mensaje , to=[form.cleaned_data['email']], from_email='johan4201@gmail.com')
 				email.content_subtype = "html"
 				email.send()
-				return HttpResponseRedirect('/accounts/login/')
+				return render(request,'registroexitoso.html',{'context':contexto_email})
+				
 		else:
 			return render(request, 'registroUsuarios.html', {'form': form }) 
 
