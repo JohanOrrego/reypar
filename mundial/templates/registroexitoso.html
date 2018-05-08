@@ -7,21 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
-  <!-- Bootstrap core CSS-->
 
-  <link href="{% static "planeacion/publigns/startbootstrap/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="{% static "planeacion/publigns/startbootstrap/vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="{% static "planeacion/publigns/startbootstrap/vendor/datatables/dataTables.bootstrap4.css" %}" rel="stylesheet">
+
+  <!-- Bootstrap -->
+ <link href="{% static "base/vendors/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+ <!-- Font Awesome -->
+ <link href="{% static "base/vendors/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+ <!-- Datatables -->
+ <link href="{% static "base/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" %}" rel="stylesheet">
+ <link href="{% static "base/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" %}" rel="stylesheet">
+ <link href="{% static "base/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" %}" rel="stylesheet">
+ <link href="{% static "base/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" %}" rel="stylesheet">
+
+
   <!-- Custom styles for this template-->
-  <link href="{% static "planeacion/publigns/startbootstrap/css/sb-admin.css" %}" rel="stylesheet">
-  <link href="{% static "planeacion/publigns/startbootstrap/css/style.css" %}" rel="stylesheet">
+  <link href="{% static "base/build/css/style.css" %}" rel="stylesheet">
 
 </head>
 
-<body class="bg-dark">
+<body style="background: url('/static/images/background1.jpg');background-position: center center;background-repeat: no-repeat;background-attachment: fixed;background-size: cover>
   <!-- Navigation-->
 
   <div  class="container">
@@ -36,7 +40,7 @@
             </div>
             <!--/.icon-->
             <h1>¡ Hola {{context.Nombre}} !</h1>
-            <p>Usted recibirá un email con las credenciales de acceso a la plataforma al correo registrado</p>
+            <p>Usted recibirá un email con las credenciales de acceso a la plataforma,¡REVISA YA EL CORREO REGISTRADO!</p>
             
             <!-- Example DataTables Card-->
            
@@ -54,29 +58,43 @@
 
   <!-- Logout Modal-->
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/jquery/jquery.min.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/popper/popper.min.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/jquery-easing/jquery.easing.min.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/datatables/jquery.dataTables.js" %}"></script>
+  <!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
 
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/datatables/jquery.dataTables.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/vendor/datatables/dataTables.bootstrap4.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/js/sb-admin.min.js" %}"></script>
-  <script src="{% static "planeacion/publigns/startbootstrap/js/sb-admin-datatables.min.js" %}"></script>
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+
+<!-- Datatables -->
+<script src="{% static "base/vendors/datatables.net/js/jquery.dataTables.min.js" %}"></script>
+<script src="{% static "base/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js" %}"></script>
+<script src="{% static "base/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js" %}"></script>
+<script src="{% static "base/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js" %}"></script>
+<script src="{% static "base/vendors/datatables.net-responsive/js/dataTables.responsive.min.js" %}"></script>
+<script src="{% static "base/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js" %}"></script>
+<script src="{% static "base/vendors/datatables.net-scroller/js/dataTables.scroller.min.js" %}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.min.js" %}"></script>
+
+
   
+<script type="text/javascript">
+  $(document).ready(function(){
 
-  <script type="text/javascript">
-    $(document).ready(function(){
+    function disableBack() {window.history.forward()}
 
-      function disableBack() {window.history.forward()}
-
-      window.onload = disableBack();
-      window.onpageshow = function(event){ if (event.persisted) disableBack()}
-    });
-  </script>    
+    window.onload = disableBack();
+    window.onpageshow = function(event){ if (event.persisted) disableBack()}
+  });
+</script>    
 
 
 </body>
