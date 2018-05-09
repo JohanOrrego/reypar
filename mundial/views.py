@@ -524,7 +524,20 @@ def RegistroOctavosView(request):
 			if Empate > 0:
 
 				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
-
+				return render(request,'registroResultados/registroOctavos.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'partido3':partido3, 'partido4':partido4,
+		'partido5':partido5, 'partido6':partido6,
+		'partido7':partido7, 'partido8':partido8,
+		'resultadoOctavos1':resultadoOctavos1,
+		'resultadoOctavos2':resultadoOctavos2,
+		'resultadoOctavos3':resultadoOctavos3,
+		'resultadoOctavos4':resultadoOctavos4,
+		'resultadoOctavos5':resultadoOctavos5,
+		'resultadoOctavos6':resultadoOctavos6,
+		'resultadoOctavos7':resultadoOctavos7,
+		'resultadoOctavos8':resultadoOctavos8,
+		})
 			else:
 
 				RegistarResultadosFaseOctavos(ListResultado)
@@ -643,7 +656,14 @@ def RegistroFaseCuartosView(request):
 			if Empate > 0:
 
 				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
-
+				return render(request,'registroResultados/registroCuartos.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'partido3':partido3, 'partido4':partido4,
+		'resultadoCuartos1':resultadoCuartos1,
+		'resultadoCuartos2':resultadoCuartos2,
+		'resultadoCuartos3':resultadoCuartos3,
+		'resultadoCuartos4':resultadoCuartos4,
+		})
 			else:
 
 				RegistarResultadosFaseCuarto(ListResultado)
@@ -734,7 +754,11 @@ def RegistroFaseSemifinalesView(request):
 			if Empate > 0:
 
 				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
-
+				return render(request,'registroResultados/registroSemifinales.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'resultadoSemifinales1':resultadoSemifinales1,
+		'resultadoSemifinales2':resultadoSemifinales2,
+		})
 			else:
 
 				RegistarResultadosFaseSemifinales(ListResultado)
@@ -833,7 +857,11 @@ def RegistroFaseFinalView(request):
 			if Empate > 0:
 
 				sweetify.warning(request, 'Para los empates, por favor ingresar resultado en los penales!')
-				return HttpResponseRedirect('/')
+				return render(request,'registroResultados/registroFinales.html',
+		{'partido1':partido1, 'partido2':partido2,
+		'resultadoFinal':resultadoFinal,
+		'resultadoTercerPuesto':resultadoTercerPuesto,
+		})
 
 			else:
 

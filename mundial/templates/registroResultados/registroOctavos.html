@@ -20,7 +20,7 @@ only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
   /* Force table to not be like tables anymore */
-  table, thead, tbody, th, td, tr { 
+  table, thead, tbody, td, tr { 
     display: block; 
   }
   
@@ -32,13 +32,13 @@ only screen and (max-width: 760px),
   }
   
   tr { border: 1px solid #ccc; }
-  
+
   td { 
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee; 
     position: relative;
-    padding-left: 50%; 
+     
     text-align: left;
     font-size: 18px;
     max-width:100%; 
@@ -60,16 +60,13 @@ only screen and (max-width: 760px),
   /*
   Label the data
   */
-  td:nth-of-type(1):before { content: ; }
+  td:nth-of-type(1):before { content:  ; }
   td:nth-of-type(2):before { content: ; }
   td:nth-of-type(3):before { content: ; }
   td:nth-of-type(4):before { content: ; }
   td:nth-of-type(5):before { content: ; }
   td:nth-of-type(6):before { content: ; }
-  td:nth-of-type(7):before { content: ; }
-  td:nth-of-type(8):before { content: ; }
-  td:nth-of-type(9):before { content: ; }
-  td:nth-of-type(10):before { content: ; }
+
 }
 </style>
 <!-- page content -->
@@ -110,14 +107,16 @@ only screen and (max-width: 760px),
                   <td  style=" text-shadow:none; color: white">{{partido1.0.Equipo}}</td>
                   <input type="hidden" id="partido1" name="partido1" value="{{partido1.0.Equipo}}">
                   <td  style=" text-shadow:none; color: white">
-                    <input type="tel" min="0" class="form-control" id="partido1_1" name="partido1" value="0" required="">
+                    <input type="tel" min="0" class="form-control" id="partido1_1" name="partido1" value="{%if resultadoOctavos1 %}{{resultadoOctavos1.2}}{%else%} 0{%endif%}"  required="">
                   </td>
                   <input type="hidden" id="partido1" name="partido1" value="{{partido1.1.Equipo}}">
                   <td  style=" text-shadow:none; color: white">
-                    <input type="tel" min="0" class="form-control" id="partido1_2" name="partido1" value="0" required="">
+                    <input type="tel" min="0" class="form-control" id="partido1_2" name="partido1" value="{%if resultadoOctavos1 %}{{resultadoOctavos1.4}}{%else%} 0{%endif%}" required="">
                   </td>
                   <td  style=" text-shadow:none; color: white">{{partido1.1.Equipo}}</td>
                   <td  style=" text-shadow:none; color: white">
+                    <p id="td1"></p>
+
                     <select class="form-control" name="partido1" id="penal1">
                       <option value="0">-------</option>
                       <option value="1">{{partido1.0.Equipo}}</option>
@@ -131,7 +130,7 @@ only screen and (max-width: 760px),
             </table>
           </div>
 
-          <h3 style=" text-shadow:none; color: white">Partido 2 </h3>
+          <h3 style=" text-shadow:none; color: white">Partido 2  </h3>
           <div class="panel panel-default" style="background:none">
             <table class="table">
               <thead class="thead-dark">
@@ -151,15 +150,17 @@ only screen and (max-width: 760px),
                   <td  style=" text-shadow:none; color: white">{{partido2.0.Equipo}}</td>
                   <input type="hidden" id="partido2" name="partido2" value="{{partido2.0.Equipo}}">
                   <td  style=" text-shadow:none; color: white">
-                    <input type="tel" min="0" class="form-control" id="partido2_1" name="partido2" value="0" required="">
+                    <input type="tel" min="0" class="form-control" id="partido2_1" name="partido2" value="{%if resultadoOctavos2 %}{{resultadoOctavos2.2}}{%else%} 0{%endif%}" required="">
                   </td>
                   <input type="hidden" id="partido2" name="partido2" value="{{partido2.1.Equipo}}">
                   <td  style=" text-shadow:none; color: white">
-                    <input type="tel" min="0" class="form-control" id="partido2_2" name="partido2" value="0" required="">
+                    <input type="tel" min="0" class="form-control" id="partido2_2" name="partido2" value="{%if resultadoOctavos2 %}{{resultadoOctavos2.4}}{%else%} 0{%endif%}" required="">
                   </td>
                   <td  style=" text-shadow:none; color: white">{{partido2.1.Equipo}}</td>
-                  <td  style=" text-shadow:none; color: white">
+                  <td  style=" text-shadow:none; color: white"> 
+                    <p id="td2"></p>
                     <select class="form-control" id="penal2" name="partido2">
+                     
                       <option value="0">-------</option>
                       <option value="1">{{partido2.0.Equipo}}</option>
                       <option value="2">{{partido2.1.Equipo}}</option>
@@ -192,15 +193,17 @@ only screen and (max-width: 760px),
                     <td  style=" text-shadow:none; color: white">{{partido3.0.Equipo}}</td>
                     <input type="hidden" id="partido3" name="partido3" value="{{partido3.0.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido3_1" name="partido3" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido3_1" name="partido3" value="{%if resultadoOctavos3 %}{{resultadoOctavos3.2}}{%else%}0{%endif%}" required="">
                     </td>
                     <input type="hidden" id="partido3" name="partido3" value="{{partido3.1.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido3_2" name="partido3" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido3_2" name="partido3" value="{%if resultadoOctavos3 %}{{resultadoOctavos3.4}}{%else%}0{%endif%}" required="">
                     </td>
                     <td  style=" text-shadow:none; color: white">{{partido3.1.Equipo}}</td>
                     <td  style=" text-shadow:none; color: white">
+                      <p id="td3"></p>
                       <select class="form-control" id="penal3" name="partido3">
+                        
                         <option value="0">-------</option>
                         <option value="1">{{partido3.0.Equipo}}</option>
                         <option value="2">{{partido3.1.Equipo}}</option>
@@ -233,15 +236,16 @@ only screen and (max-width: 760px),
                     <td  style=" text-shadow:none; color: white">{{partido4.0.Equipo}}</td>
                     <input type="hidden" id="partido4" name="partido4" value="{{partido4.0.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido4_1" name="partido4" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido4_1" name="partido4" value="{%if resultadoOctavos4 %}{{resultadoOctavos4.2}}{%else%} 0{%endif%}" required="">
                     </td>
                     <input type="hidden" id="partido4" name="partido4" value="{{partido4.1.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido4_2" name="partido4" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido4_2" name="partido4"  value="{%if resultadoOctavos4 %}{{resultadoOctavos4.4}}{%else%} 0{%endif%}"required="">
                     </td>
                     <td  style=" text-shadow:none; color: white">{{partido4.1.Equipo}}</td>
-                    <td  style=" text-shadow:none; color: white">
+                    <td  style=" text-shadow:none; color: white"><p id="td4"></p>
                       <select class="form-control" id="penal4" name="partido4">
+                        
                         <option value="0">-------</option>
                         <option value="1">{{partido4.0.Equipo}}</option>
                         <option value="2">{{partido4.1.Equipo}}</option>
@@ -274,15 +278,16 @@ only screen and (max-width: 760px),
                     <td  style=" text-shadow:none; color: white">{{partido5.0.Equipo}}</td>
                     <input type="hidden" id="partido5" name="partido5" value="{{partido5.0.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido5_1" name="partido5" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido5_1" name="partido5" value="{%if resultadoOctavos5 %}{{resultadoOctavos5.2}}{%else%} 0{%endif%}" required="">
                     </td>
                     <input type="hidden" id="partido5" name="partido5" value="{{partido5.1.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido5_2" name="partido5" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido5_2" name="partido5" value="{%if resultadoOctavos5 %}{{resultadoOctavos5.4}}{%else%} 0{%endif%}" required="">
                     </td>
                     <td  style=" text-shadow:none; color: white">{{partido5.1.Equipo}}</td>
-                    <td  style=" text-shadow:none; color: white">
+                    <td  style=" text-shadow:none; color: white"> <p id="td5"></p>
                       <select class="form-control" id="penal5" name="partido5">
+                       
                         <option value="0">-------</option>
                         <option value="1">{{partido5.0.Equipo}}</option>
                         <option value="2">{{partido5.1.Equipo}}</option>
@@ -315,15 +320,16 @@ only screen and (max-width: 760px),
                     <td  style=" text-shadow:none; color: white">{{partido6.0.Equipo}}</td>
                     <input type="hidden" id="partido6" name="partido6" value="{{partido6.0.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido6_1" name="partido6" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido6_1" name="partido6" value="{%if resultadoOctavos6 %}{{resultadoOctavos6.2}}{%else%} 0{%endif%}"required="">
                     </td>
                     <input type="hidden" id="partido6" name="partido6" value="{{partido6.1.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido6_2" name="partido6" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido6_2" name="partido6" value="{%if resultadoOctavos6 %}{{resultadoOctavos6.4}}{%else%} 0{%endif%}" required="">
                     </td>
                     <td  style=" text-shadow:none; color: white">{{partido6.1.Equipo}}</td>
-                    <td  style=" text-shadow:none; color: white">
+                    <td  style=" text-shadow:none; color: white"><p id="td6"></p>
                       <select class="form-control" id="penal6" name="partido6">
+                        
                         <option value="0">-------</option>
                         <option value="1">{{partido6.0.Equipo}}</option>
                         <option value="2">{{partido6.1.Equipo}}</option>
@@ -356,15 +362,16 @@ only screen and (max-width: 760px),
                     <td  style=" text-shadow:none; color: white">{{partido7.0.Equipo}}</td>
                     <input type="hidden" id="partido7" name="partido7" value="{{partido7.0.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido7_1" name="partido7" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido7_1" name="partido7" value="{%if resultadoOctavos7 %}{{resultadoOctavos7.2}}{%else%} 0{%endif%}" required="">
                     </td>
                     <input type="hidden" id="partido7" name="partido7" value="{{partido7.1.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido7_2" name="partido7" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido7_2" name="partido7" value="{%if resultadoOctavos7 %}{{resultadoOctavos7.4}}{%else%} 0{%endif%}" required="">
                     </td>
                     <td  style=" text-shadow:none; color: white">{{partido7.1.Equipo}}</td>
-                    <td  style=" text-shadow:none; color: white">
+                    <td  style=" text-shadow:none; color: white"><p id="td7"></p>
                       <select class="form-control" id="penal7" name="partido7">
+                        
                         <option value="0">-------</option>
                         <option value="1">{{partido7.0.Equipo}}</option>
                         <option value="2">{{partido7.1.Equipo}}</option>
@@ -397,15 +404,16 @@ only screen and (max-width: 760px),
                     <td  style=" text-shadow:none; color: white">{{partido8.0.Equipo}}</td>
                     <input type="hidden" id="partido8" name="partido8" value="{{partido8.0.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido8_1" name="partido8" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido8_1" name="partido8" value="{%if resultadoOctavos8 %}{{resultadoOctavos8.2}}{%else%} 0{%endif%}" required="">
                     </td>
                     <input type="hidden" id="partido8" name="partido8" value="{{partido8.1.Equipo}}">
                     <td  style=" text-shadow:none; color: white">
-                      <input type="tel" min="0" class="form-control" id="partido8_2" name="partido8" value="0" required="">
+                      <input type="tel" min="0" class="form-control" id="partido8_2" name="partido8" value="{%if resultadoOctavos8 %}{{resultadoOctavos8.4}}{%else%} 0{%endif%}" required="">
                     </td>
                     <td  style=" text-shadow:none; color: white">{{partido8.1.Equipo}}</td>
-                    <td  style=" text-shadow:none; color: white">
+                    <td  style=" text-shadow:none; color: white"><p id="td8"></p>
                       <select class="form-control" id="penal8" name="partido8">
+                        
                         <option value="0">-------</option>
                         <option value="1">{{partido8.0.Equipo}}</option>
                         <option value="2">{{partido8.1.Equipo}}</option>
@@ -469,8 +477,55 @@ only screen and (max-width: 760px),
   <script src="{% static "base/build/js/custom.min.js" %}"></script>
   <!-- page script -->
   <script type="text/javascript">
+    width=$(window).width();
+
+    if(width<1000){
+    document.getElementById("td1").innerHTML="Definición penales";
+    document.getElementById("td2").innerHTML="Definición penales";
+    document.getElementById("td3").innerHTML="Definición penales";
+    document.getElementById("td4").innerHTML="Definición penales";
+    document.getElementById("td5").innerHTML="Definición penales";
+    document.getElementById("td6").innerHTML="Definición penales";
+    document.getElementById("td7").innerHTML="Definición penales";
+    document.getElementById("td8").innerHTML="Definición penales";}
 
 
+
+     if(($("#partido1_1").val() != $("#partido1_2").val())) {
+        $("#penal1").attr('disabled', 'disabled');
+        $("#penal1").val("0")}
+
+    if($("#partido2_1").val() != $("#partido2_2").val()) {
+        $("#penal2").attr('disabled', 'disabled');
+        $("#penal2").val("0")
+      }
+      if(($("#partido3_1").val() != $("#partido3_2").val())) {
+        $("#penal3").attr('disabled', 'disabled');
+        $("#penal3").val("0")
+      }
+      if(($("#partido4_1").val() != $("#partido4_2").val())) {
+        $("#penal4").attr('disabled', 'disabled');
+        $("#penal4").val("0")
+      }
+      if(($("#partido5_1").val() != $("#partido5_2").val())) {
+        $("#penal5").attr('disabled', 'disabled');
+        $("#penal5").val("0")
+      }
+      if(($("#partido6_1").val() != $("#partido6_2").val())) {
+        $("#penal6").attr('disabled', 'disabled');
+        $("#penal6").val("0")
+      }
+      if(($("#partido7_1").val() != $("#partido7_2").val())) {
+        $("#pena7").attr('disabled', 'disabled');
+        $("#penal7").val("0")
+      }
+      if(($("#partido8_1").val() != $("#partido8_2").val())) {
+        $("#penal8").attr('disabled', 'disabled');
+        $("#penal8").val("0")
+      }
+
+
+    
     $('#partido1_1').change(function(event){
       if(($("#partido1_1").val() != $("#partido1_2").val())) {
         $("#penal1").attr('disabled', 'disabled');

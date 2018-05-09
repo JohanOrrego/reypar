@@ -7,6 +7,7 @@
 .sidebar {
   float: left;
   width: 30px;
+  background-color: none;
 
 }
 
@@ -194,15 +195,21 @@
 {% sweetify %}
 <script type="text/javascript">
   screen=$(window).height(); 
+  width=$(window).width(); 
 var body = document.body,
     html = document.documentElement;
 
 var height = Math.min( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 var height1=body.clientHeight-screen;
-  document.getElementById("cont").style.height = String(height1)+"px";
-  $( document ).ready(function() {
 
+  if (width>1000){
+
+  document.getElementById("cont").style.height = String(height1)+"px";
+}
+
+  $( document ).ready(function() {
+  
 
     var $sticky = $('.sticky');
     var $stickyrStopper = $('.sticky-stopper');
