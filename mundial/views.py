@@ -26,6 +26,7 @@ import json
 from django.db.models import Count
 from django.core.serializers.json import DjangoJSONEncoder
 import sweetify
+import datetime
 from sweetify.views import SweetifySuccessMixin
 from django.core.mail import EmailMessage
 import datetime
@@ -89,7 +90,34 @@ def ValidarClienteView(request):
 # vista para cargar el template de la pagina principal iframe 
 class PrincipalView(TemplateView):
 	template_name = 'principal.html'
-
+#index del administrador con resumenes y estadisticas
+def IndexAdmin(request):
+	participantes=ParticipantesModel.objects.extra(select={'day': 'date( date_joined )'}).values('day') \
+	.annotate(available=Count('date_joined'))
+	date=datetime.datetime.now()
+	mejorNit=ParticipantesModel.objects.values('NITEmpresa').latest('NITEmpresa')['NITEmpresa']
+	cliente=ClientesModel.objects.filter(NIT=mejorNit)[0]
+	return render(request,'indexadmin.html',{'participantes':participantes,'date':date,'cliente':cliente})
+def filtros(request):
+	if request.method=='POST':
+		form=FiltroForms(request.POST)
+		if form.is_valid():
+				nit=form.cleaned_data['criterio']
+				participantes=ParticipantesModel.objects.filter(NITEmpresa=nit)
+				
+				#filtro por Deporte
+				if len(participantes) >0:
+					cliente=ClientesModel.objects.filter(NIT=nit)[0]
+					countCupos = cliente.Clasificacion.Cupo
+					cuposdisp=int(countCupos)-participantes.count()
+					sweetify.success(request, 'Consulta con éxito!')
+					return render(request,'filtros.html',{'form':form,'participantes':participantes,'cliente':cliente,'cupos':countCupos,'cuposdisp':cuposdisp})
+				else:
+					sweetify.error(request,'Cliente no encontrado')
+				
+	else:
+		form=FiltroForms()
+	return render(request,'filtros.html',{'form':form})
 # pagina de inicio del usuario
 def InicioView(request):
 	countUsuarioFase = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id).count()
@@ -98,7 +126,7 @@ def InicioView(request):
 	countUsuarioSemifinales = FaseSemifinalesUsuariosModel.objects.filter(Participante= request.user.id).count()
 	countUsuariofinal = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id).count()
 	if request.user.is_superuser == 1:
-		return HttpResponseRedirect('/PrincipalRegistroResultados/')
+		return HttpResponseRedirect('/indexadmin')
 	if countUsuarioFase == 0:
 		return HttpResponseRedirect('/registroFaseGrupos/')
 	if countUsuarioOctavos == 0:

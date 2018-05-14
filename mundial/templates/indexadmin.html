@@ -1,0 +1,141 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="right_col" role="main">
+  <div class="row top_tiles">
+    <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-calendar"></i></div>
+        <div class="count">{{date|date:"j/n/Y"}}</div>
+        <h3>Fecha</h3>
+        <p>Datos Actualizados</p>
+      </div>
+    </div>
+    <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-user"></i></div>
+        <div class="count">{{participantes|length}}</div>
+        <h3>Total de Participantes</h3>
+        <p>Incritos a la fecha</p>
+      </div>
+    </div>
+    
+    <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-trophy"></i></div>
+        <div class="count">Mejor Cliente</div>
+        <h3>{{cliente.NombreComercial}}</h3>
+        <p>Mayor número de usuarios inscritos</p>
+      </div>
+    </div>
+    
+  </div>
+  <!-- /top tiles -->
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="dashboard_graph">
+          <div class="row x_title">
+            <div class="col-md-6">
+              <h3>Crecimiento Participantes<small> Conteo Diario</small></h3> 
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <canvas id="canvas_line33" height="100"></canvas>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>
+<footer >
+  <div class="pull-right">
+    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+  </div>
+  <div class="clearfix"></div>
+</footer>
+
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+<!-- NProgress -->
+<script src="{% static "base/vendors/nprogress/nprogress.js" %}" ></script>
+<!-- Chart.js -->
+<script src="{% static "base/vendors/Chart.js/dist/Chart.min.js" %}" ></script>
+<!-- gauge.js -->
+<script src="{% static "base/vendors/gauge.js/dist/gauge.min.js" %}" ></script>
+<!-- bootstrap-progressbar -->
+<script src="{% static "base/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js" %}" ></script>
+<!-- iCheck -->
+<script src="{% static "base/vendors/iCheck/icheck.min.js" %}" ></script>
+<!-- Skycons --> 
+<script src="{% static "base/vendors/skycons/skycons.js" %}" ></script>
+<!-- Flot -->
+<script src="{% static "base/vendors/Flot/jquery.flot.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.pie.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.time.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.stack.js" %}" ></script>
+<script src="{% static "base/vendors/Flot/jquery.flot.resize.js" %}" ></script>
+<!-- Flot plugins -->
+<script src="{% static "base/vendors/flot.orderbars/js/jquery.flot.orderBars.js" %}" ></script>
+<script src="{% static "base/vendors/flot-spline/js/jquery.flot.spline.min.js" %}" ></script>
+<script src="{% static "base/vendors/flot.curvedlines/curvedLines.js" %}" ></script>
+<!-- DateJS -->
+<script src="{% static "base/vendors/DateJS/build/date.js" %}" ></script>
+<!-- JQVMap -->
+<script src="{% static "base/vendors/jqvmap/dist/jquery.vmap.js" %}" ></script>
+<script src="{% static "base/vendors/jqvmap/dist/maps/jquery.vmap.world.js" %}" ></script>
+<script src="{% static "base/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js" %}" ></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{% static "base/vendors/echarts/dist/echarts.js" %}"></script>
+
+<script src="{% static "base/vendors/moment/min/moment.min.js" %}" ></script>
+
+
+<!-- Custom Theme Scripts -->
+<script src="{% static "base/build/js/custom.js"%}" ></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    var fechas=[]
+
+    var canvas_line_01 = new Chart(document.getElementById("canvas_line33"), {
+      type: 'line',
+      data: {
+        labels: [{% if participantes %}{% for inscripciones in participantes  %}"{{inscripciones.day }}",{%endfor%}{% endif %}],
+        datasets: [{
+          label: 
+          "Registros",
+          backgroundColor: "rgba(38, 185, 154, 0.31)",
+          borderColor: "rgba(38, 185, 154, 0.7)",
+          pointBorderColor: "rgba(38, 185, 154, 0.7)",
+          pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointBorderWidth: 1,
+          data: [{% if participantes %}{% for inscripciones in participantes  %}"{{inscripciones.available}}",{%endfor%}{% endif %}]
+        }, 
+
+        ]
+      },
+    });
+  })
+
+
+</script>
+{% endblock content %}
+

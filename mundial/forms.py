@@ -76,3 +76,7 @@ class RegistroParticipantesForm(UserCreationForm):
 		'CargoEmpresa':forms.TextInput(attrs={'class':'form-control'}),
 		'username':forms.TextInput(attrs={'class':'form-control'}),
 		}
+class FiltroForms(forms.Form):
+		criterio=forms.CharField(label='NIT Cliente', widget=forms.TextInput(attrs={'class':'form-control'}),required=True)
+		
+

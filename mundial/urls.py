@@ -12,6 +12,8 @@ urlpatterns = [
 	url(r'^validarCliente/$', ValidarClienteView, name='validarCliente'),
 	url(r'^$', PrincipalView.as_view(), name='Principal'),
 	url(r'^inicio/$', login_required(InicioView), name='index'),
+	url(r'^indexadmin/$', login_required(IndexAdmin), name='indexadmin'),
+	url(r'^filtros/$', login_required(filtros), name='filtros'),
 	url(r'^ranking/$', login_required(RankingView), name='ranking'),
 
 	# registro de resultados por parte de los usuarios participantes

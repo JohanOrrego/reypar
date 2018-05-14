@@ -1,7 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es-co">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -28,10 +27,20 @@
 
   <!-- Custom Theme Style -->
   <link href="{% static "base/build/css/custom.min.css" %}" rel="stylesheet">
-  <div ></div>
+
+<style type="text/css" rel="stylesheet">
+  body { 
+  background: url('/static/images/background1.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
 </head>
 
-<body style="background: url('/static/images/background1.jpg');background-position: none;background-repeat: no-repeat;background-attachment: scroll;background-size: none;">
+<body >
 
  {% if form.non_field_errors %}
  {% for error in form.non_field_errors %}
@@ -44,7 +53,7 @@
 
 <div class="animate form login_form">
   <p style="margin: 4px;color: white" align="right"><a style="color: white;font-size:15px" href="{% url 'terminosCondiciones'%}">TERMINOS Y CONDICIONES</a></p>
-  <section class="login_content" style="padding: 1px 0 0;">
+  <section class="login_content">
     <div class="row">
       <div div class="col-md-12 col-sm-12 col-xs-12" align="center" style="padding-top: 3%">
         <img class="imagenes_header" alt="Escudo concivica" src="{% static "images/logo-reypar.png" %}" height="150">

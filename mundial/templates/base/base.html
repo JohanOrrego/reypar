@@ -102,6 +102,9 @@
            <li><a href="{% url 'PrincipalRegistroResultados' %}"><i class="fa fa-pencil-square-o"></i> Registro <br/> resultados
            </a>
          </li>
+         <li><a href="{% url 'filtros' %}"><i class="fa fa-search"></i> Filtros <br/> Búsqueda
+           </a>
+         </li>
          {% endif %}
        </div>
        <div class="container">
@@ -196,20 +199,20 @@
 <script type="text/javascript">
   screen=$(window).height(); 
   width=$(window).width(); 
-var body = document.body,
-    html = document.documentElement;
+  var body = document.body,
+  html = document.documentElement;
 
-var height = Math.min( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-var height1=body.clientHeight-screen;
+  var height = Math.min( body.scrollHeight, body.offsetHeight, 
+   html.clientHeight, html.scrollHeight, html.offsetHeight );
+  var height1=body.clientHeight-screen;
 
   if (width>1000){
 
-  document.getElementById("cont").style.height = String(height1)+"px";
-}
+    document.getElementById("cont").style.height = String(height1)+"px";
+  }
 
   $( document ).ready(function() {
-  
+
 
     var $sticky = $('.sticky');
     var $stickyrStopper = $('.sticky-stopper');
