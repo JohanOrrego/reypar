@@ -30,6 +30,8 @@ import datetime
 from sweetify.views import SweetifySuccessMixin
 from django.core.mail import EmailMessage
 import datetime
+from itertools import chain
+from operator import attrgetter
 
 
 # Create your views here.
@@ -114,10 +116,15 @@ def filtros(request):
 					return render(request,'filtros.html',{'form':form,'participantes':participantes,'cliente':cliente,'cupos':countCupos,'cuposdisp':cuposdisp})
 				else:
 					sweetify.error(request,'Cliente no encontrado')
+					participantesall=''
+					cliente=''
+
 				
 	else:
+		cliente=ClientesModel.objects.all()
+		participantesall=ParticipantesModel.objects.extra(select={'NIT': 'NITEmpresa'}).values('NIT').annotate(count = Count('NITEmpresa')).order_by('-NITEmpresa')
 		form=FiltroForms()
-	return render(request,'filtros.html',{'form':form})
+	return render(request,'filtros.html',{'form':form,'participantesall':participantesall,'cliente':cliente})
 # pagina de inicio del usuario
 def InicioView(request):
 	countUsuarioFase = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id).count()
