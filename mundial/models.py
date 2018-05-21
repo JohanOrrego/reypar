@@ -35,15 +35,23 @@ class ClientesModel(models.Model):
 
 	@property
 	def json(self):
+		if len(self.NombreComercial)>3:
+			nombreEmpresa=self.NombreComercial
+		else:
+			nombreEmpresa=self.RazonSocial
+
 		return {
                 'NIT' : self.NIT,
-                'NombreComercial' : self.NombreComercial,
+                'NombreComercial' : nombreEmpresa,
                 'RazonSocial' : self.RazonSocial,
                 'Ciudad' : self.Ciudad,
                 'Direccion' : self.Direccion,
                 'Telefono' : self.Telefono,
-                'Clasificacion' : self.Clasificacion,
+                'Clasificacion' : self.Clasificacion.Nombre,
                 'Vendedor' : self.Vendedor,
+                'total': str(self.Clasificacion.Cupo),
+                'cupos':ParticipantesModel.objects.filter(NITEmpresa=self.NIT).count()
+
             }
 
 # modelo para el registro de los participantes en la polla 
@@ -70,11 +78,17 @@ class ParticipantesModel(AbstractUser):
 
 	@property
 	def json(self):
+
+		if len(ClientesModel.objects.filter(NIT=self.NITEmpresa).values('NombreComercial')[0]['NombreComercial'])>3:
+			nombreEmpresa=ClientesModel.objects.filter(NIT=self.NITEmpresa).values('NombreComercial')[0]['NombreComercial']
+		else:
+			nombreEmpresa=ClientesModel.objects.filter(NIT=self.NITEmpresa).values('RazonSocial')[0]['RazonSocial']
 		return {
             'nombre' : str(self.first_name)+str(' ')+ str(self.last_name) ,
             'Identificicacion' : self.Identificicacion,
             'Ciudad' : self.Ciudad,
             'NITEmpresa' : self.NITEmpresa,
+            'NombreEmpresa': nombreEmpresa,
             'CargoEmpresa' : self.CargoEmpresa,
             }
 

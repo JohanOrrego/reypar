@@ -17,6 +17,7 @@ urlpatterns = [
 	url(r'^ranking/$', login_required(RankingView), name='ranking'),
     url(r'^inscritos/$', AlumnosList_view, name='inscritos'),
     url(r'^participantes.data/', views.ListaParticipantes, name='participantes'),
+    url(r'^cupos.data/', views.Cupos, name='cupos'),
 
 	# registro de resultados por parte de los usuarios participantes
 	url(r'^registroFaseGrupos/$', login_required(RegistroFaseGruposView), name='registroFaseGrupos'),

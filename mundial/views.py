@@ -79,7 +79,10 @@ def ListaParticipantes(request):
 	alumno = ParticipantesModel.objects.all()
 	alumnoF = json.dumps([alumnos.json for alumnos in alumno ],cls=DjangoJSONEncoder)
 	return HttpResponse(alumnoF, content_type='application/json')
-
+def Cupos(request):
+	alumno = ClientesModel.objects.all()
+	alumnoF = json.dumps([alumnos.json for alumnos in alumno ],cls=DjangoJSONEncoder)
+	return HttpResponse(alumnoF, content_type='application/json')
 def AlumnosList_view(request):
 	return render(request,'inscritos.html')
 #validar en el formulario si la edad es mayor a 18 años
@@ -125,10 +128,8 @@ def filtros(request):
 					participantesall=''
 					cliente=''				
 	else:
-		cliente=ClientesModel.objects.all()
-		participantesall=ParticipantesModel.objects.extra(select={'NIT': 'NITEmpresa'}).values('NIT').annotate(count = Count('NITEmpresa')).order_by('-NITEmpresa')
 		form=FiltroForms()
-	return render(request,'filtros.html',{'form':form,'participantesall':participantesall,'cliente':cliente})
+	return render(request,'filtros.html',{'form':form})
 # pagina de inicio del usuario
 def InicioView(request):
 	countUsuarioFase = FaseGruposUsuariosModel.objects.filter(Participante= request.user.id).count()

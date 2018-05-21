@@ -109,24 +109,11 @@
             <th>Nombre Comercial</th>
             <th>Ciudad</th>
             <th>Cupos Ocupado</th>
-
             <th>Cupos Totales</th>
           </tr>
         </thead> 
         <tbody>
-         {% for alumno in cliente%}
-         <tr>
-          <td>{{ alumno.NIT }}</td>
-          <td>{%if alumno.NombreComercial|length < 3 %}{{alumno.RazonSocial}}{%else%}{{alumno.NombreComercial}} {%endif%}</td>
-          <td>{{alumno.Ciudad}}</td>
-          
-          <td>{%for participantes in participantesall%}
-            {% if participantes.NIT == alumno.NIT  %}{{participantes.count}}
-            {%endif%}
-          {%endfor%}</td>
-
-          <td>{{alumno.Clasificacion.Cupo}}</td>
-          {%endfor%}
+         
         </tbody>
       </table>
     </div>
@@ -220,6 +207,30 @@
         language:  idioma_espanol,
         stateSave: true,
         responsive: true,
+        paging:false,
+        "processing": false,
+             "ajax": {
+                 "processing": false,
+                 "url": "/cupos.data/",
+                 "dataSrc": ""
+             },
+             "columns": [
+                     { "data": "NIT" },
+                     { "data": "NombreComercial" },
+                     { "data": "Ciudad"  },
+                     { "data": "cupos" },
+                     { "data": "total" },
+                
+             
+                 ],
+            dom: 'Blfrtip',
+            buttons: [
+              {extend:'copy',text:'Copiar'},
+              {extend:'print',text:'Imprimir', messageTop:'listado Deportistas'},
+              {extend:'excel',text:'Excel', messageTop:'listado Deportistas'},
+              {extend:'csv',text:'CSV'},
+              {extend:'pdf',text:'PDF', messageTop:'listado Deportistas'},
+              ],
         dom: 'Blfrtip',
         buttons: [
         {extend:'copy',text:'Copiar'},
