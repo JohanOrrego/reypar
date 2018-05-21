@@ -75,7 +75,6 @@ html { overflow-y: hidden; }
           <input type="password" name="password" class="form-control" placeholder="Contraseña" required="" />
         </div>
 
-
         <button type="submit" class="btn btn-default btn-md submit" style="font-size: 17px">Iniciar Sesión</button>
         <span  class="btn btn-warning btn-md"><a align="center" style="color: white; font-size: 15px;text-shadow: none" href="{% url 'registro' %}">Crear Cuenta</span>
 
@@ -86,27 +85,17 @@ html { overflow-y: hidden; }
           <div class="separator" style="font-style: 20px;padding-bottom: 0px">
             <div>
               <p style="text-shadow:none; color: white">©{% now "Y" %}. Todos Los Derechos Reservados.</p>
-
+            </div>
+             <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
+              <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 100px">
             </div>
           </div>
-
         </form>
       </div>
-      <div div class="col-md-12 col-sm-12 col-xs-12" align="center">
-        <img class="img-responsive"  src="{% static "images/fondo-polla.png" %}" style="max-height: 120px">
-      </div>
     </section>
-
   </div>
-
 </div>
-
-
-
-
 </body>
-
-
 
 <!-- jQuery -->
 <script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}"></script>
