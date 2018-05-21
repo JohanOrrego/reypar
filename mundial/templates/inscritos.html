@@ -1,0 +1,140 @@
+
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Inscritos <small>Listado</small></h3>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Inscritos <small></small></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <table id="datatable-alumnos" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+           
+                <th>Nombre</th>
+                <th>Identificicacion</th>
+                <th>Ciudad</th>
+                <th>NITEmpresa</th>
+                <th>CargoEmpresa</th>
+
+
+
+              </tr>
+            </thead>
+             <tbody>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- jQuery -->
+<script src="{% static "base/vendors/jquery/dist/jquery.min.js" %}" ></script>
+
+<!-- Bootstrap -->
+<script src="{% static "base/vendors/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
+<!-- FastClick -->
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}" ></script>
+
+<script src="{% static "base/vendors/fastclick/lib/fastclick.js" %}"></script>
+    <!-- NProgress -->
+    <script src="{% static "base/vendors/nprogress/nprogress.js" %}"></script>
+    <!-- iCheck -->
+    <script src="{% static "base/vendors/iCheck/icheck.min.js" %}"></script>
+    <!-- Datatables -->
+    <script src="{% static "base/vendors/datatables.net/js/jquery.dataTables.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-responsive/js/dataTables.responsive.min.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js" %}"></script>
+    <script src="{% static "base/vendors/datatables.net-scroller/js/dataTables.scroller.min.js" %}"></script>
+
+
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/dataTables.buttons.min.js" %}"></script>
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/buttons.flash.min.js" %}"></script>
+    <script src="{% static "base/vendors/JSZip-2.5.0/jszip.min.js" %}"></script>
+    <script src="{% static "base/vendors/pdfmake-0.1.32/pdfmake.min.js" %}"></script>
+    <script src="{% static "base/vendors/pdfmake-0.1.32/vfs_fonts.js" %}"></script>
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/buttons.html5.min.js" %}"></script>
+    <script src="{% static "base/vendors/Buttons-1.5.1/js/buttons.print.min.js" %}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static "base/build/js/custom.min.js" %}"></script>
+    <!-- page script -->
+<script>
+  $(function () {
+    var idioma_espanol = {
+    "sProcessing":     '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Cargando...</span> ',
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Buscar: ",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Cargando...</span>',
+    "oPaginate": {
+        "sFirst":    "Primero",
+        "sLast":     "Último",
+        "sNext":     "Siguiente",
+        "sPrevious": "Anterior"
+    },
+    "oAria": {
+        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+    }    
+var table = $('#datatable-alumnos').dataTable( {
+            language:  idioma_espanol,
+            stateSave: true,
+            responsive: true,
+            "processing": false,
+             "ajax": {
+                 "processing": false,
+                 "url": "/participantes.data/",
+                 "dataSrc": ""
+             },
+             "columns": [
+                     { "data": "nombre" },
+                     { "data": "Identificicacion" },
+                     { "data": "Ciudad"  },
+                     { "data": "NITEmpresa" },
+                     { "data": "CargoEmpresa" },
+             
+                 ],
+            dom: 'Blfrtip',
+            buttons: [
+              {extend:'copy',text:'Copiar'},
+              {extend:'print',text:'Imprimir', messageTop:'listado Deportistas'},
+              {extend:'excel',text:'Excel', messageTop:'listado Deportistas'},
+              {extend:'csv',text:'CSV'},
+              {extend:'pdf',text:'PDF', messageTop:'listado Deportistas'},
+              ],
+
+           
+     } );
+
+} );
+</script>
+{% endblock content %}

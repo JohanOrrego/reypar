@@ -68,6 +68,16 @@ class ParticipantesModel(AbstractUser):
 	class Meta:
 		unique_together = (('email'),)
 
+	@property
+	def json(self):
+		return {
+            'nombre' : str(self.first_name)+str(' ')+ str(self.last_name) ,
+            'Identificicacion' : self.Identificicacion,
+            'Ciudad' : self.Ciudad,
+            'NITEmpresa' : self.NITEmpresa,
+            'CargoEmpresa' : self.CargoEmpresa,
+            }
+
 
 # modelo para el registro de los participantes en la polla 
 class RankingModel(models.Model):

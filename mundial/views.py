@@ -75,7 +75,13 @@ class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 
 class TerminosCondicionesView(TemplateView):
 	template_name = 'terminosCondiciones.html'
+def ListaParticipantes(request):
+	alumno = ParticipantesModel.objects.all()
+	alumnoF = json.dumps([alumnos.json for alumnos in alumno ],cls=DjangoJSONEncoder)
+	return HttpResponse(alumnoF, content_type='application/json')
 
+def AlumnosList_view(request):
+	return render(request,'inscritos.html')
 #validar en el formulario si la edad es mayor a 18 años
 def ValidarClienteView(request):
     if request.method == 'POST':
@@ -117,9 +123,7 @@ def filtros(request):
 				else:
 					sweetify.error(request,'Cliente no encontrado')
 					participantesall=''
-					cliente=''
-
-				
+					cliente=''				
 	else:
 		cliente=ClientesModel.objects.all()
 		participantesall=ParticipantesModel.objects.extra(select={'NIT': 'NITEmpresa'}).values('NIT').annotate(count = Count('NITEmpresa')).order_by('-NITEmpresa')
