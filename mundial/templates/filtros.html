@@ -75,16 +75,18 @@
             <th>Identificación</th>
             <th>Nombre</th>
             <th>Ciudad</th>
+            <th>Teléfono</th>
             <th>Empresa</th>
             <th>Cargo</th>
           </tr>
         </thead> 
         <tbody>
-         {% for alumno in participantes%}
+         {% for alumno in participantes %}
          <tr>
           <td>{{ alumno.id }}</td>
           <td>{{alumno.first_name}} {{alumno.last_name}}</td>
           <td>{{alumno.Ciudad}}</td>
+          <td>{{alumno.Telefono}}</td>
           <td>{{cliente.NombreComercial}}</td>
           <td>{{alumno.CargoEmpresa}}</td>
           {%endfor%}
@@ -108,6 +110,8 @@
             <th>NIT</th>
             <th>Nombre Comercial</th>
             <th>Ciudad</th>
+            <th>Direccion</th>
+            <th>Teléfono</th>
             <th>Cupos Ocupado</th>
             <th>Cupos Totales</th>
           </tr>
@@ -218,6 +222,8 @@
                      { "data": "NIT" },
                      { "data": "NombreComercial" },
                      { "data": "Ciudad"  },
+                     { "data": "Direccion"  },
+                     { "data": "Telefono"  },
                      { "data": "cupos" },
                      { "data": "total" },
                 

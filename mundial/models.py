@@ -79,12 +79,14 @@ class ParticipantesModel(AbstractUser):
 	@property
 	def json(self):
 
-		if len(ClientesModel.objects.filter(NIT=self.NITEmpresa).values('NombreComercial')[0]['NombreComercial'])>3:
+		if self.NITEmpresa != '1' and len(ClientesModel.objects.filter(NIT=self.NITEmpresa).values('NombreComercial')[0]['NombreComercial'])>3:
 			nombreEmpresa=ClientesModel.objects.filter(NIT=self.NITEmpresa).values('NombreComercial')[0]['NombreComercial']
-		else:
+		elif self.NITEmpresa != '1':
 			nombreEmpresa=ClientesModel.objects.filter(NIT=self.NITEmpresa).values('RazonSocial')[0]['RazonSocial']
+		else:
+			nombreEmpresa='Administrador'
 		return {
-            'nombre' : str(self.first_name)+str(' ')+ str(self.last_name) ,
+            'nombre' : str(self.first_name)+str(' ')+ str(self.last_name),
             'Identificicacion' : self.Identificicacion,
             'Ciudad' : self.Ciudad,
             'NITEmpresa' : self.NITEmpresa,

@@ -76,7 +76,7 @@ class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 class TerminosCondicionesView(TemplateView):
 	template_name = 'terminosCondiciones.html'
 def ListaParticipantes(request):
-	alumno = ParticipantesModel.objects.all()
+	alumno = ParticipantesModel.objects.exclude(is_superuser=1)
 	alumnoF = json.dumps([alumnos.json for alumnos in alumno ],cls=DjangoJSONEncoder)
 	return HttpResponse(alumnoF, content_type='application/json')
 def Cupos(request):
