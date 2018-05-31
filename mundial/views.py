@@ -107,7 +107,10 @@ def IndexAdmin(request):
 	.annotate(available=Count('date_joined'))
 	date=datetime.datetime.now()
 	mejorNit=ParticipantesModel.objects.values('NITEmpresa').latest('NITEmpresa')['NITEmpresa']
-	cliente=ClientesModel.objects.filter(NIT=mejorNit)[0]
+	if mejorNit == '1':
+		cliente=[]
+	else:
+		cliente=ClientesModel.objects.filter(NIT=mejorNit)[0]
 	return render(request,'indexadmin.html',{'participantes':participantes,'date':date,'cliente':cliente})
 def filtros(request):
 	if request.method=='POST':
