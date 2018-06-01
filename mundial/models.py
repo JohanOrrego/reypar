@@ -86,7 +86,7 @@ class ParticipantesModel(AbstractUser):
 		else:
 			nombreEmpresa='Administrador'
 		return {
-            'nombre' : str(self.first_name)+str(' ')+ str(self.last_name),
+            'nombre' : unicode(self.first_name)+unicode(' ')+ unicode(self.last_name),
             'Identificicacion' : self.Identificicacion,
             'Ciudad' : self.Ciudad,
             'NITEmpresa' : self.NITEmpresa,
