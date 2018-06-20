@@ -1931,8 +1931,8 @@ def RegistarResultadosFaseGruposAdmin(partido):
 #funcion para obtener el puntaje del usuario segun sea el resultado del partido registrado en la fase de grupos por el admin
 def ObtenerPuntajeFaseGruposUsuarios(partido,identificador):
 	ResultadosUsuarios =  FaseGruposUsuariosModel.objects.filter(FechaPartido=partido[0],Grupo=partido[1],Equipo1=partido[2],Equipo2=partido[4])
-	contador = 0
 	for i in ResultadosUsuarios:
+		contador = 0
 		if i.MarcadorEquipo1 == int(partido[3]) and i.MarcadorEquipo2 == int(partido[5]):
 			contador += 3
 		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[3] > partido[5]:
@@ -2274,8 +2274,8 @@ def RegistarResultadosFaseOctavosAdmin(partido):
 #funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de octavos registrado por el admin
 def ObtenerPuntajeFaseOctavosUsuarios(partido,identificador):
 	ResultadosUsuarios =  FaseOctavosUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
-	contador = 0
 	for i in ResultadosUsuarios:
+		contador = 0
 		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
 			contador += 3
 		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
@@ -2490,8 +2490,8 @@ def RegistarResultadosFaseCuartoAdmin(partido):
 #funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de cuartos registrado por el admin
 def ObtenerPuntajeFaseCuartosAdmin(partido,identificador):
 	ResultadosUsuarios =  FaseCuartosUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
-	contador = 0
 	for i in ResultadosUsuarios:
+		contador = 0
 		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
 			contador += 3
 		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
@@ -2625,8 +2625,8 @@ def RegistarResultadosFaseSemifinalesAdmin(partido):
 #funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de semi finales registrado por el admin
 def ObtenerPuntajeFaseSemifinalesAdmin(partido,identificador):
 	ResultadosUsuarios =  FaseSemifinalesUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
-	contador = 0
 	for i in ResultadosUsuarios:
+		contador = 0
 		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
 			contador += 3
 		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
@@ -2766,8 +2766,8 @@ def RegistarResultadosFaseFinalAdmin(partido):
 #funcion para obtener el puntaje del usuario segun sea el resultado del partido de la fase de finales registrado por el admin
 def ObtenerPuntajeFaseFinalAdmin(partido,identificador):
 	ResultadosUsuarios =  FaseFinalUsuariosModel.objects.filter(FechaPartido=partido[0],Equipo1=partido[1],Equipo2=partido[3])
-	contador = 0
 	for i in ResultadosUsuarios:
+		contador = 0
 		if i.MarcadorEquipo1 == int(partido[2]) and i.MarcadorEquipo2 == int(partido[4]):
 			contador += 3
 		if i.MarcadorEquipo1 > i.MarcadorEquipo2 and partido[2] > partido[4]:
