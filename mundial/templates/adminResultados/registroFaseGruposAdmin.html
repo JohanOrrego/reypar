@@ -748,6 +748,27 @@ p{    font-size: 15px;
                   <td>
                     
                     <button type="submit" class="btn btn-primary btn-block" name="btn_2_Groups_E">Registrar resultado</button>
+
+                    {%else%}
+                    {%if GrupoE%}
+                    {%for partido in GrupoE%}
+                        <tr>
+                    <td style="text-shadow:none; color: white">{{partido.FechaPartido}}</td>
+                  
+                  <td style="text-shadow:none; color: white">{{partido.Equipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Rusia">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo1}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="Arabia Saudí">
+                  <td class="col-xs-1" style="text-shadow:none; color: white">{{partido.MarcadorEquipo2}}</td>
+                  <td style="text-shadow:none; color: white">{{partido.Equipo2}}</td>
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="{{user.id}}">
+                  <input type="hidden" id="1_Groups_A" name="1_Groups_A" value="1">
+                  <td>
+    </tr>
+                    {% endfor %}
+                    {%else%}
+                    NO NADA
+                    {% endif %}
                     {% endif %}
                   </td>
 

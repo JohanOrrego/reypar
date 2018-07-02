@@ -38,7 +38,7 @@ from operator import attrgetter
 class RegistroUsuarioView(SweetifySuccessMixin,CreateView):
 	model = ParticipantesModel
 	form_class = RegistroParticipantesForm
-	template_name = 'registroUsuarios.html'
+	#template_name = 'registroUsuarios.html'
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(RegistroUsuarioView,self).get_context_data(*args, **kwargs)
@@ -142,16 +142,16 @@ def InicioView(request):
 	countUsuariofinal = FaseFinalUsuariosModel.objects.filter(Participante= request.user.id).count()
 	if request.user.is_superuser == 1:
 		return HttpResponseRedirect('/indexadmin')
-	if countUsuarioFase == 0:
-		return HttpResponseRedirect('/registroFaseGrupos/')
-	if countUsuarioOctavos == 0:
-		return HttpResponseRedirect('/registroOctavos/')
-	if countUsuarioCuartos == 0:
-		return HttpResponseRedirect('/registroCuartos/')
-	if countUsuarioSemifinales == 0:
-		return HttpResponseRedirect('/registroSemifinales/')
-	if countUsuariofinal == 0:
-		return HttpResponseRedirect('/registroFinales/')
+	#if countUsuarioFase == 0:
+	#	return HttpResponseRedirect('/registroFaseGrupos/')
+	#if countUsuarioOctavos == 0:
+	#	return HttpResponseRedirect('/registroOctavos/')
+	#if countUsuarioCuartos == 0:
+	#	return HttpResponseRedirect('/registroCuartos/')
+	#if countUsuarioSemifinales == 0:
+	#	return HttpResponseRedirect('/registroSemifinales/')
+	#if countUsuariofinal == 0:
+	#	return HttpResponseRedirect('/registroFinales/')
 	else:
 		return HttpResponseRedirect('/verFaseGrupos/')
 
@@ -945,29 +945,29 @@ def RegistarResultadosFaseFinal(ListResultado):
 # vista para cargar el template principal del admin para registro de resultados
 def RegistroResultadosAdminView(request):
 	if FaseGruposAdminModel.objects.filter(Participante = request.user.id).count() == 48:
-		btnRegistroFaseGrupos = True
+		btnRegistroFaseGrupos = 0
 	else:
-		btnRegistroFaseGrupos = False
+		btnRegistroFaseGrupos = 1
 
 	if FaseOctavosAdminModel.objects.filter(Participante = request.user.id).count() == 8:
-		btnRegistroFaseOctavos = True
+		btnRegistroFaseOctavos = 0
 	else:
-		btnRegistroFaseOctavos = False
+		btnRegistroFaseOctavos = 1
 
 	if FaseCuartosAdminModel.objects.filter(Participante = request.user.id).count() == 4:
-		btnRegistroFaseCuartos = True
+		btnRegistroFaseCuartos = 0
 	else:
-		btnRegistroFaseCuartos = False
+		btnRegistroFaseCuartos = 1
 
 	if FaseSemifinalesAdminModel.objects.filter(Participante = request.user.id).count() == 2:
-		btnRegistroFaseSemi = True
+		btnRegistroFaseSemi = 0
 	else:
-		btnRegistroFaseSemi = False
+		btnRegistroFaseSemi = 1
 
 	if FaseFinalAdminModel.objects.filter(Participante = request.user.id).count() == 2:
-		btnRegistroFaseFinal = True
+		btnRegistroFaseFinal = 0
 	else:
-		btnRegistroFaseFinal = False
+		btnRegistroFaseFinal = 1
 
 	return render(request,'adminResultados/principalRegistroResultadosAdmin.html',
 		{ 'btnRegistroFaseGrupos':btnRegistroFaseGrupos, 'btnRegistroFaseOctavos':btnRegistroFaseOctavos,

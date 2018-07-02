@@ -47,11 +47,16 @@
                       <h2></h2>
                     </div>
                   </div>
+                  
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <a class="btn btn-success btn-xs" href="{% url 'registroOctavosAdmin' %}"><i class="fa fa-pencil">
+                      {% if btnRegistroFaseGrupos == 0 %}
+                         <a class="btn btn-success btn-xs" href="{% url 'registroOctavosAdmin' %}"><i class="fa fa-pencil">
+                      {% else %}
+                       <a class="btn btn-success btn-xs" href="{% url 'registroOctavosAdmin' %}" disabled><i class="fa fa-pencil">
+                      {% endif %}
                         </i> Registro Resultados</a>
-                     
+
                     </div>
                   </div>
                 </div>
@@ -67,9 +72,12 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <a class="btn btn-success btn-xs"  href="{% url 'registroCuartosAdmin' %}"><i class="fa fa-pencil">
+                      {% if btnRegistroFaseOctavos == 0 %}
+                         <a class="btn btn-success btn-xs" href="{% url 'registroCuartosAdmin' %}"><i class="fa fa-pencil">
+                      {% else %}
+                       <a class="btn btn-success btn-xs" href="{% url 'registroCuartosAdmin' %}" disabled><i class="fa fa-pencil">
+                      {% endif %}
                         </i> Registro Resultados</a>
-                    
                     </div>
                   </div>
                 </div>
@@ -85,7 +93,11 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <a class="btn btn-success btn-xs" href="{% url 'registroSemifinalesAdmin' %}"><i class="fa fa-pencil">
+                       {% if btnRegistroFaseCuartos == 0 %}
+                         <a class="btn btn-success btn-xs" href="{% url 'registroSemifinalesAdmin' %}"><i class="fa fa-pencil">
+                      {% else %}
+                       <a class="btn btn-success btn-xs" href="{% url 'registroSemifinalesAdmin' %}" disabled><i class="fa fa-pencil">
+                      {% endif %}
                         </i> Registro Resultados</a>
                   
                     </div>
@@ -103,7 +115,12 @@
                   </div>
                   <div class="col-xs-12 col-md-12 bottom text-center">
                     <div class="col-xs-12 col-md-12 col-sm-6 emphasis">
-                      <a class="btn btn-success btn-xs"  href="{% url 'registroFinalesAdmin' %}"><i class="fa fa-pencil">
+
+                       {% if btnRegistroFaseSemi == 0 %}
+                         <a class="btn btn-success btn-xs" href="{% url 'registroFinalesAdmin' %}"><i class="fa fa-pencil">
+                      {% else %}
+                       <a class="btn btn-success btn-xs" href="{% url 'registroFinalesAdmin' %}" disabled><i class="fa fa-pencil">
+                      {% endif %}
                         </i> Registro Resultados</a>
                       
                     </div>
